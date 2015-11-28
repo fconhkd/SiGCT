@@ -9,7 +9,7 @@ namespace SiGCT.Models
     /// <summary>
     /// Identificação geral da fatura em cobrança
     /// </summary>
-    public class Header
+    public class Fatura
     {
         public virtual Int64 Id { get; set; }
 

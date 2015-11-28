@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SiGCT.Models
 {
+    /// <summary>
+    /// Detalhamento de chamadas de VOZ cobradas na fatura
+    /// </summary>
     public class Chamada
     {
         public virtual Int64 Id { get; set; }
@@ -13,7 +16,7 @@ namespace SiGCT.Models
         [Required, MaxLength(12)]
         public virtual Int64 Sequencial { get; set; }
 
-        public virtual Header Header { get; set; }
+        public virtual Fatura Fatura { get; set; }
 
         public virtual Recurso Recurso { get; set; }
 
