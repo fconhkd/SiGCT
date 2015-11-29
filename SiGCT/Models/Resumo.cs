@@ -22,7 +22,7 @@ namespace SiGCT.Models
         //[Required]
         //public virtual DateTime DataEmissao { get; set; }
 
-        public virtual Fatura Header { get; set; }
+        public virtual Conta Header { get; set; }
 
         [Required]
         public virtual Int64 MesReferencia { get; set; }

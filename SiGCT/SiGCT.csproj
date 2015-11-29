@@ -21,6 +21,8 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,11 +48,24 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -63,7 +78,23 @@
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NHibernate.Envers, Version=2.0.0.500, Culture=neutral, PublicKeyToken=e2c5b946037fb7f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.Envers.2.0.0\lib\Net40\NHibernate.Envers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.98.1\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.98.1\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.98.1\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +148,25 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Mapping\Boleto.hbm.xml" />
+    <Content Include="Models\Mapping\Canal.hbm.xml" />
+    <Content Include="Models\Mapping\ChipGSM.hbm.xml" />
+    <Content Include="Models\Mapping\Cliente.hbm.xml" />
+    <Content Include="Models\Mapping\Empresa.hbm.xml" />
+    <Content Include="Models\Mapping\Fabricante.hbm.xml" />
+    <Content Include="Models\Mapping\Filial.hbm.xml" />
+    <Content Include="Models\Mapping\Logs.hbm.xml" />
+    <Content Include="Models\Mapping\Modelo.hbm.xml" />
+    <Content Include="Models\Mapping\Operadora.hbm.xml" />
+    <Content Include="Models\Mapping\Produto.hbm.xml" />
+    <Content Include="Models\Mapping\ProdutoCanal.hbm.xml" />
+    <Content Include="Models\Mapping\Representante.hbm.xml" />
+    <Content Include="Models\Mapping\Rota.hbm.xml" />
+    <Content Include="Models\Mapping\RotaCliente.hbm.xml" />
+    <Content Include="Models\Mapping\Terminal.hbm.xml" />
+    <Content Include="Models\Mapping\Titulo.hbm.xml" />
+    <Content Include="Models\Mapping\Venda.hbm.xml" />
+    <Content Include="Models\Mapping\VendasSGV.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -140,27 +190,34 @@
     </Compile>
     <Compile Include="Models\Ajuste.cs" />
     <Compile Include="Models\Banco.cs" />
-    <Compile Include="Models\CategoriaChamada.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Chamada.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\CNL.cs" />
     <Compile Include="Models\Cobranca.cs" />
     <Compile Include="Models\CSP.cs" />
+    <Compile Include="Models\DAO\Util\GenericDAO.cs" />
+    <Compile Include="Models\DAO\Util\IGenericDAO.cs" />
+    <Compile Include="Models\DAO\Util\NHibernateSessionManager.cs" />
+    <Compile Include="Models\DAO\Util\NHibernateSessionModule.cs" />
     <Compile Include="Models\Desconto.cs" />
     <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Fatura.cs" />
-    <Compile Include="Models\Informativo.cs" />
+    <Compile Include="Models\InformativoGerencial.cs" />
     <Compile Include="Models\NotaFiscal.cs" />
     <Compile Include="Models\Operadora.cs" />
     <Compile Include="Models\Plano.cs" />
     <Compile Include="Models\Recurso.cs" />
     <Compile Include="Models\Resumo.cs" />
     <Compile Include="Models\Servico.cs" />
+    <Compile Include="Models\TipoCategoriaEnum.cs" />
     <Compile Include="Models\TipoChamadaEnum.cs" />
     <Compile Include="Models\TipoCobrancaEnum.cs" />
     <Compile Include="Models\TipoCodigoEnum.cs" />
     <Compile Include="Models\TipoNfEnum.cs" />
-    <Compile Include="Models\TipoPonta.cs" />
+    <Compile Include="Models\TipoAssociadoEnum.cs" />
+    <Compile Include="Models\TipoPontaEnum.cs" />
     <Compile Include="Models\Trailler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +267,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace SiGCT.Models
 {
@@ -16,8 +13,7 @@ namespace SiGCT.Models
         [Required, MaxLength(12)]
         public virtual Int64 Sequencial { get; set; }
 
-        public virtual Fatura Fatura { get; set; }
-
+        public virtual Conta Fatura { get; set; }
         public virtual Recurso Recurso { get; set; }
 
         public virtual CNL CNL { get; set; }
@@ -28,7 +24,7 @@ namespace SiGCT.Models
         public virtual String Complemento { get; set; }
         public virtual String Bairro { get; set; }
 
-        public virtual TipoPonta Ponta { get; set; }
+        public virtual TipoPontaEnum Ponta { get; set; }
 
         [MaxLength(15)]
         public virtual String Filler { get; set; }

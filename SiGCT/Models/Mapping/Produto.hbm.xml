@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Produto">
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+
+    <many-to-one name="Canal" class="Canal" column="IdCanal" />
+    <many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
+
+		<bag name="Vendas" lazy="true" mutable="false" access="" cascade="" >
+			<key column="IdProduto" />
+			<one-to-many class="Venda"  />
+		</bag>
+		
+		<property name="DataAlteracao" />
+		<property name="Ativo" />
+
+	</class>
+</hibernate-mapping>

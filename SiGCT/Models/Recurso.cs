@@ -25,5 +25,8 @@ namespace SiGCT.Models
         public virtual DateTime Datadesativacao { get; set; }
 
         public virtual IList<EnderecosRecurso> Enderecos { get; set; }
+        public virtual IList<Chamada> Chamadas { get; set; }
+
+
     }
 }

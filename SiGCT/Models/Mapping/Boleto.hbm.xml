@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Boleto" table="Boleto">
+		<meta attribute="class-description">
+      Tabela de Boletos
+    </meta>
+
+		<id name="Id" column="Id">
+			<meta attribute="field-description">
+				Identificação unica do Boleto
+			</meta>
+			<generator class="native" />
+		</id>
+
+    <property name="Codigo" />
+    
+    <property name="NossoNumero" />
+    <property name="CodigoBarras" />
+    <property name="LinhaDigitavel" />
+
+    <property name="Valor" />
+    <property name="Pago" />
+
+    <property name="Vencimento" />
+    <property name="Emissao" />
+    <property name="DataPagamento" />
+
+    <property name="Banco" />
+    <property name="Agencia" />
+    <property name="Conta" />
+
+		<many-to-one name="Titulo" class="Titulo" column="IdTitulo" cascade="none" />
+		
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+
+	</class>
+</hibernate-mapping>

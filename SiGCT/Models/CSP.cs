@@ -8,7 +8,7 @@ namespace SiGCT.Models
     /// </summary>
     public class CSP
     {
-        public virtual Int64 Codigo { get; set; }
+        public virtual Int32 Codigo { get; set; }
 
         public virtual String Nome { get; set; }
 

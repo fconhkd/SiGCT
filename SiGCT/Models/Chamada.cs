@@ -16,13 +16,13 @@ namespace SiGCT.Models
         [Required, MaxLength(12)]
         public virtual Int64 Sequencial { get; set; }
 
-        public virtual Fatura Fatura { get; set; }
+        public virtual Conta Fatura { get; set; }
 
         public virtual Recurso Recurso { get; set; }
 
-        public virtual CNL Origem { get; set; }
+        //public virtual String NumeroRecurso { get; set; }
 
-        public virtual String NumeroRecurso { get; set; }
+        public virtual CNL Origem { get; set; }
 
         public virtual DateTime DataLigacao { get; set; }
 
@@ -44,7 +44,7 @@ namespace SiGCT.Models
 
         public virtual Int32 Duracao { get; set; }
 
-        public virtual CategoriaChamada Categoria { get; set; }
+        public virtual Categoria Categoria { get; set; }
 
         public virtual DateTime HorarioLigacao { get; set; }
 

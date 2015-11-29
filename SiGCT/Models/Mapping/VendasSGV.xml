@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="VendasSGV" table="VendasSGV">
+		<meta attribute="class-description">
+			Pedidos de Vendas sistema SGV (tendencia)
+		</meta>
+
+		<id name="Id" column="Id" type="">
+			<meta attribute="field-description">
+				Identificação unica de vendas
+			</meta>
+      <generator class="native" />
+		</id>
+
+		<property name="NumeroSerie" />
+    <property name="ClienteID" />
+		<property name="RegistroVenda" />
+    <property name="Comissao" />
+    <property name="PinNumber" />
+
+    <property name="TipoRegistro" />
+    <property name="TipoRecarga" />
+    <property name="ProdutoID" />
+    <property name="PosSerial" />
+    <property name="Quantidade" />
+    <property name="ValorFace" />
+    <property name="ValorLiquido" />
+    <property name="ConsultorID" />
+    <property name="FornecedorID" />
+    <property name="CodigoOrigem" />
+    <property name="FilialID" />
+    <property name="DataPrevistaPagto" />
+    <property name="CanalVenda" />
+    <property name="ResponsavelVendaID" />
+    <property name="UsuarioVendaID" />
+    
+		<many-to-one name="Empresa" class="Empresa" column="EmpresaID" cascade="none" />
+
+		<property name="DataImportacao" />
+    <property name="FTP" />
+    <property name="DataFTP" />
+		
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Rota">
+		<meta attribute="class-description">Rotas dos representantes</meta>
+
+		<id name="Id">
+			<meta attribute="field-description">Identificação unica da rota</meta>
+			<generator class="native" />
+		</id>
+
+		<property name="Nome" />
+    <property name="Descricao" />
+    <property name="Ativo" />
+
+		<many-to-one name="Representante" class="Representante" column="IdRepresentante" cascade="none" />
+
+    <bag name="RotasCliente" lazy="false" cascade="all">
+      <key column="IdRota" />
+      <one-to-many class="RotaCliente" />
+    </bag>
+
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+    
+	</class>
+</hibernate-mapping>

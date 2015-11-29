@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Venda">
+		<meta attribute="class-description">Pedidos de Vendas</meta>
+
+		<id name="Id" type="Guid">
+			<meta attribute="field-description">Identificação unica de vendas</meta>
+			<generator class="guid" />
+		</id>
+
+		<!-- Quando se aplica -->
+		<property name="NumeroSerie" column="NumeroSerie" />
+		<property name="DataVenda" column="DataVenda" />
+
+		<!-- Quando se aplica  -->
+		<many-to-one name="Empresa" class="Empresa" column="IdEmpresa" cascade="none" />
+		<many-to-one name="Filial" class="Filial" column="IdFilial" cascade="none" />
+		<many-to-one name="Cliente" class="Cliente" column="IdCliente" cascade="none" />
+		<many-to-one name="Produto" class="Produto" column="IdProduto" cascade="none" />
+		<many-to-one name="Canal" class="Canal" column="IdCanal" cascade="none" />
+    
+		<many-to-one name="Terminal" class="Terminal" column="IdTerminal" cascade="none" />
+
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+		
+	</class>
+</hibernate-mapping>

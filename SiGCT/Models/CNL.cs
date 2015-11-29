@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SiGCT.Models
 {
+    /// <summary>
+    /// Codigo nacional de Localidade
+    /// </summary>
     public class CNL
     {
         public virtual Int64 Id { get; set; }

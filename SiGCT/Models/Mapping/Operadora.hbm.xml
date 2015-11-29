@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Operadora">
+		<meta attribute="class-description">Cadastro de Operadora</meta>
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+
+		<property name="Nome" length="100" />
+
+    <bag name="ChipsGSM" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="IdOperadora" />
+      <one-to-many class="ChipGSM" />
+    </bag>
+
+    <bag name="Produtos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="IdOperadora" />
+      <one-to-many class="Produto" />
+    </bag>
+
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+		
+	</class>
+</hibernate-mapping>

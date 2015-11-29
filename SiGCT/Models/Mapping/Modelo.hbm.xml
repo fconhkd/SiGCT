@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Modelo">
+
+		<id name="Id" column="Id" type="">
+			<generator class="native" />
+		</id>
+
+    <property name="Nome" />
+
+    <bag name="Terminais" lazy="true" mutable="false" access="" cascade="all" >
+      <key column="IdModelo" />
+      <one-to-many class="Terminal" />
+    </bag>
+    
+		<!-- Quando se aplica -->
+		<many-to-one name="Fabricante" class="Fabricante" column="IdFabricante" cascade="none" />
+
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+		
+	</class>
+</hibernate-mapping>

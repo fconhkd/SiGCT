@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="ChipGSM" table="ChipGSM">
+		<meta attribute="class-description">Chips GSM utilizados em Terminais POS para a venda eletronica</meta>
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+		
+		<property name="NumeroTelefone" length="15" not-null="false" />
+    <property name="NumeroIccid" length="50" not-null="true" />
+    <property name="DataAlteracao" />
+
+		<many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
+    <many-to-one name="Terminal" class="Terminal" column="IdTerminal" />
+		
+    <property name="Ativo" />
+    
+	</class>
+</hibernate-mapping>

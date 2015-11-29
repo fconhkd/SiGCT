@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Integration.Core"
+                   namespace="Integration.Core.Model" >
+
+	<class name="Representante" table="Representante">
+		<meta attribute="class-description">Representantes de vendas</meta>
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+
+		<property name="Nome" column="Nome" />
+    <property name="Tipo" column="Tipo" />
+    
+    <bag name="Rotas" lazy="true" mutable="false" access="" cascade="" >
+      <key column="IdRepresentante" />
+      <one-to-many class="Rota" />
+    </bag>
+    
+    <many-to-one name="Empresa" class="Empresa" column="IdEmpresa" cascade="none" />
+    <many-to-one name="Filial" class="Filial" column="IdFilial" cascade="none" />
+    <many-to-one name="Superior" class="Representante" column="IdSuperior" cascade="none" />
+
+    <property name="DataAlteracao" />
+    <property name="Ativo" />
+
+  </class>
+</hibernate-mapping>
