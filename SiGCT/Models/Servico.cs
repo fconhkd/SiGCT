@@ -10,24 +10,18 @@ namespace SiGCT.Models
     {
         public virtual Int64 Id { get; set; }
 
-        [Required, MaxLength(12)]
-        public virtual Int64 Sequencial { get; set; }
+        [Required]
+        public virtual Int32 Sequencial { get; set; }
 
-        public virtual Conta Fatura { get; set; }
+        public virtual Conta Conta { get; }
 
-        public virtual Recurso Recurso { get; set; }
+        public virtual Recurso Recurso { get; }
 
         public virtual CNL Origem { get; set; }
-
-        public virtual String NumeroRecurso { get; set; }
 
         public virtual DateTime DataServico { get; set; }
 
         public virtual CNL Destino { get; set; }
-
-        //public virtual String NomeDestino { get; set; }
-
-        //public virtual String UfDestino { get; set; }
 
         public virtual TipoCodigoEnum Codigo { get; set; }
 
@@ -39,11 +33,12 @@ namespace SiGCT.Models
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual Int32 Duracao { get; set; }
-
-        public virtual Categoria Categoria { get; set; }
+        public virtual Int32 QtdeUtilizada { get; set; }
+        public virtual String Unidade { get; set; }
 
         public virtual DateTime HorarioServico { get; set; }
+
+        public virtual Categoria Categoria { get; set; }
 
         //public virtual long AliquotaICMS { get; set; }
 
@@ -54,12 +49,6 @@ namespace SiGCT.Models
         public virtual TipoNfEnum TipoNF { get; set; }
 
         public virtual NotaFiscal NotaFiscal { get; set; }
-
-        //public virtual TipoChamadaEnum TipoChamada { get; set; }
-
-        //public virtual String GrupoTarifario { get; set; }
-
-        //public virtual String DescricaoTarifario { get; set; }
 
         public virtual Int32 Degrau { get; set; }
 

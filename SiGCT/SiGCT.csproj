@@ -148,25 +148,29 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Mapping\Boleto.hbm.xml" />
-    <Content Include="Models\Mapping\Canal.hbm.xml" />
-    <Content Include="Models\Mapping\ChipGSM.hbm.xml" />
-    <Content Include="Models\Mapping\Cliente.hbm.xml" />
-    <Content Include="Models\Mapping\Empresa.hbm.xml" />
-    <Content Include="Models\Mapping\Fabricante.hbm.xml" />
-    <Content Include="Models\Mapping\Filial.hbm.xml" />
-    <Content Include="Models\Mapping\Logs.hbm.xml" />
-    <Content Include="Models\Mapping\Modelo.hbm.xml" />
-    <Content Include="Models\Mapping\Operadora.hbm.xml" />
-    <Content Include="Models\Mapping\Produto.hbm.xml" />
-    <Content Include="Models\Mapping\ProdutoCanal.hbm.xml" />
-    <Content Include="Models\Mapping\Representante.hbm.xml" />
-    <Content Include="Models\Mapping\Rota.hbm.xml" />
-    <Content Include="Models\Mapping\RotaCliente.hbm.xml" />
-    <Content Include="Models\Mapping\Terminal.hbm.xml" />
-    <Content Include="Models\Mapping\Titulo.hbm.xml" />
-    <Content Include="Models\Mapping\Venda.hbm.xml" />
-    <Content Include="Models\Mapping\VendasSGV.xml" />
+    <Content Include="Models\Ajuste.hbm.xml" />
+    <Content Include="Models\Banco.hbm.xml" />
+    <Content Include="Models\Categoria.hbm.xml" />
+    <Content Include="Models\Chamada.hbm.xml" />
+    <Content Include="Models\CentroCusto.hbm.xml" />
+    <Content Include="Models\Cliente.hbm.xml" />
+    <Content Include="Models\Desconto.hbm.xml" />
+    <Content Include="Models\CSP.hbm.xml" />
+    <Content Include="Models\Conta.hbm.xml" />
+    <Content Include="Models\Cobranca.hbm.xml" />
+    <Content Include="Models\CNL.hbm.xml" />
+    <Content Include="Models\EnderecosRecurso.hbm.xml" />
+    <Content Include="Models\Fatura.hbm.xml" />
+    <Content Include="Models\InformativoGerencial.hbm.xml" />
+    <Content Include="Models\NotaFiscal.hbm.xml" />
+    <Content Include="Models\Operadora.hbm.xml" />
+    <Content Include="Models\Produto.hbm.xml" />
+    <Content Include="Models\Pessoa.hbm.xml" />
+    <Content Include="Models\Resumo.hbm.xml" />
+    <Content Include="Models\Recurso.hbm.xml" />
+    <Content Include="Models\Servico.hbm.xml" />
+    <Content Include="Models\TipoCobranca.hbm.xml" />
+    <Content Include="Models\Trailler.hbm.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -191,6 +195,7 @@
     <Compile Include="Models\Ajuste.cs" />
     <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\CentroCusto.cs" />
     <Compile Include="Models\Chamada.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\CNL.cs" />
@@ -201,18 +206,20 @@
     <Compile Include="Models\DAO\Util\NHibernateSessionManager.cs" />
     <Compile Include="Models\DAO\Util\NHibernateSessionModule.cs" />
     <Compile Include="Models\Desconto.cs" />
-    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\EnderecosRecurso.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\Fatura.cs" />
     <Compile Include="Models\InformativoGerencial.cs" />
     <Compile Include="Models\NotaFiscal.cs" />
     <Compile Include="Models\Operadora.cs" />
+    <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Plano.cs" />
     <Compile Include="Models\Recurso.cs" />
     <Compile Include="Models\Resumo.cs" />
     <Compile Include="Models\Servico.cs" />
     <Compile Include="Models\TipoCategoriaEnum.cs" />
     <Compile Include="Models\TipoChamadaEnum.cs" />
+    <Compile Include="Models\TipoCobranca.cs" />
     <Compile Include="Models\TipoCobrancaEnum.cs" />
     <Compile Include="Models\TipoCodigoEnum.cs" />
     <Compile Include="Models\TipoNfEnum.cs" />
@@ -240,6 +247,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Mapping\" />
     <Folder Include="Views\Header\" />
   </ItemGroup>
   <PropertyGroup>

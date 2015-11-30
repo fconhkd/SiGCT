@@ -17,7 +17,7 @@ namespace SiGCT.Models
 
         public virtual Recurso Recurso { get; set; }
 
-        public virtual TipoAssociadoEnum Tipo { get; set; }
+        public virtual Categoria Categoria { get; set; }
 
         public virtual String TextoInformativo { get; set; }
 

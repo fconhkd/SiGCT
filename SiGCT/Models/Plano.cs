@@ -11,8 +11,8 @@ namespace SiGCT.Models
     {
         public virtual Int32 Id { get; set; }
 
-        [Required, MaxLength(12)]
-        public virtual Int64 Sequencial { get; set; }
+        [Required]
+        public virtual Int32 Sequencial { get; set; }
 
         public virtual Conta Fatura { get; set; }
 
@@ -42,7 +42,6 @@ namespace SiGCT.Models
         public virtual String Descricao { get; set; }
 
         public virtual long ValorComImposto { get; set; }
-
         public virtual long ValorSemImposto { get; set; }
 
         public virtual TipoNfEnum TipoNF { get; set; }

@@ -10,10 +10,13 @@ namespace SiGCT.Models
     {
         public virtual Int64 Id { get; set; }
 
-        [Required, MaxLength(12)]
-        public virtual Int64 Sequencial { get; set; }
+        /// <summary>
+        /// Armazena o codigo sequencial no arquivo lido
+        /// </summary>
+        [Required]
+        public virtual Int32 Sequencial { get; set; }
 
-        public virtual Conta Fatura { get; set; }
+        public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }
 
         public virtual CNL CNL { get; set; }

@@ -5,23 +5,30 @@ using System.ComponentModel.DataAnnotations;
 namespace SiGCT.Models
 {
     /// <summary>
-    /// Identificação geral da fatura em cobrança
+    /// Identificação geral da fatura em cobrança, conta telefonica
+    /// Tipo: 00
     /// </summary>
     public class Conta
     {
         public virtual Int64 Id { get; set; }
 
-        [Required, MaxLength(12)]
-        public virtual Int64 Sequencial { get; set; }
+        /// <summary>
+        /// Identificador individual por recurso junto a concessionária
+        /// </summary>
+        [Required, StringLength(25)]
+        public virtual String Identificador { get; set; }
 
-        //[Required, StringLength(25)]
-        //public virtual String IdContaUnica { get; set; }
-
+        /// <summary>
+        /// Data de Emissão da Fatura
+        /// </summary>
         [Required]
         public virtual DateTime DataEmissao { get; set; }
 
+        /// <summary>
+        /// Mês de competencia de cobrança da fatura
+        /// </summary>
         [Required]
-        public virtual Int64 MesReferencia { get; set; }
+        public virtual Int32 MesReferencia { get; set; }
 
         [Required]
         public virtual DateTime DataArquivo { get; set; }
@@ -51,6 +58,8 @@ namespace SiGCT.Models
 
         public virtual IList<Resumo> Resumos { get; set; }
         public virtual IList<EnderecosRecurso> EnderecosRecurso { get; set; }
+        public virtual IList<Resumo> Resumo { get; set; }
+        public virtual IList<NotaFiscal> NotaFiscal { get; set; }
 
     }
 }

@@ -10,7 +10,7 @@ namespace SiGCT.Models
     {
         public virtual Int32 Codigo { get; set; }
 
-        public virtual Conta Fatura { get; set; }
+        public virtual Conta Conta { get; set; }
 
         public virtual DateTime Vencimento { get; set; }
 
@@ -27,5 +27,11 @@ namespace SiGCT.Models
 
         [MaxLength(25)]
         public virtual String Obs { get; set; }
+
+        public virtual IList<Chamada> Chamadas { get; set; }
+        public virtual IList<Servico> Servicos { get; set; }
+        public virtual IList<Desconto> Descontos { get; set; }
+        public virtual IList<Plano> Planos { get; set; }
+
     }
 }

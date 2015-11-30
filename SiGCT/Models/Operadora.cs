@@ -6,7 +6,10 @@ namespace SiGCT.Models
 {
     public class Operadora
     {
-        public virtual Int64 Codigo { get; set; }
+        /// <summary>
+        /// Número EOT junto a ABR Telecom
+        /// </summary>
+        public virtual Int32 Codigo { get; set; }
 
         [Required, MinLength(3), MaxLength(15)]
         public virtual String NomeOperadora { get; set; }

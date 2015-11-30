@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
 {
     public class Banco
     {
-        public virtual Int64 Codigo { get; set; }
+        /// <summary>
+        /// Codigo do banco conforme Banco Central do Brasil
+        /// </summary>
+        public virtual Int32 Codigo { get; set; }
 
-        [Required, MaxLength(4)]
-        public virtual String Agencia { get; set; }
+        /// <summary>
+        /// Nome do banco
+        /// </summary>
+        public virtual String Nome { get; set; }
 
-        [Required, MaxLength(10)]
-        public virtual String ContaCorrente { get; set; }
+        public virtual IList<Cobranca> Cobrancas { get; set; }
     }
 }
