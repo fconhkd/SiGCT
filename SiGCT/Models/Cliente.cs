@@ -8,7 +8,7 @@ namespace SiGCT.Models
         /// <summary>
         /// Código interno na operadora
         /// </summary>
-        public virtual Int64 Codigo { get; set; }
+        public virtual Int64 Id { get; set; }
 
         /// <summary>
         /// Nome definido no contrato

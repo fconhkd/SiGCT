@@ -9,7 +9,7 @@ namespace SiGCT.Models
         /// <summary>
         /// Codigo do banco conforme Banco Central do Brasil
         /// </summary>
-        public virtual Int32 Codigo { get; set; }
+        public virtual Int32 Id { get; set; }
 
         /// <summary>
         /// Nome do banco

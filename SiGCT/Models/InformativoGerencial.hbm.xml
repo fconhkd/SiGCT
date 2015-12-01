@@ -1,20 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Integration.Core"
-                   namespace="Integration.Core.Model" >
+                   assembly="SiGCT"
+                   namespace="SiGCT.Models" >
 
   <class name="Logs">
 
-    <id name="Id" column="Id" type="">
+    <id name="Id">
       <generator class="native" />
     </id>
 
-    <property name="Date" column="Date" />
-    <property name="Thread" column="Thread" length="255" />
-    <property name="Level" column="Level" length="50" />
-    <property name="Logger" column="Logger" length="255"  />
-    <property name="Message" column="Message" length="4000"  />
-    <property name="Exception" column="Exception" length="2000"  />
+    <many-to-one name="Conta" class="Conta" column="ContaId" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
+    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
+
+    <property name="TextoInformativo" />
+    <property name="SinalValor" length="1"/>
+    <property name="Valor" />
+
+    <property name="Filler" length="15" not-null="false" />
+    <property name="Obs" length="50" not-null="false" />
 
   </class>
 </hibernate-mapping>

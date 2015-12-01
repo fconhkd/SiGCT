@@ -1,28 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Integration.Core"
-                   namespace="Integration.Core.Model" >
+                   assembly="SiGCT"
+                   namespace="SiGCT.Models" >
 
-	<class name="Empresa" table="Empresa">
+	<class name="Conta">
 
 		<id name="Id">
 			<generator class="native" />
 		</id>
 
-    <property name="Sigla" length="5" not-null="true" />
-		<property name="Nome" length="150" not-null="true" />
+    <property name="Identificador" not-null="true" />
+    <property name="DataEmissao" type="Date" not-null="true" />
+    <property name="MesReferencia" length="6" not-null="true" />
+    <property name="DataArquivo" type="Date" not-null="true" />
+    <property name="Vencimento" not-null="true" />
 
-		<bag name="Filiais" lazy="true" mutable="false" cascade="all" >
-			<key column="IdEmpresa" />
-			<one-to-many class="Filial" />
-		</bag>
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" cascade="none" />
+    <many-to-one name="Cliente" class="Cliente" column="ClienteId" cascade="none" />
+    
+    <property name="Versao" length="5" not-null="true" />
 
-		<bag name="Vendas" lazy="true" mutable="false" cascade="none" >
-			<key column="IdEmpresa" />
-			<one-to-many class="Venda"  />
-		</bag>
+    <many-to-one name="Fatura" class="Fatura" column="FaturaId" cascade="none" />
+    <many-to-one name="Cobranca" class="Cobranca" column="CobrancaId" cascade="none" />
+    
+		<property name="Fisco" length="35" not-null="false" />
+    <property name="Filler" length="15" not-null="false" />
+    <property name="Obs" length="50" not-null="false" />
 
-    <property name="DataAlteracao" not-null="true" />
-    <property name="Ativo" not-null="true" />
+    <bag name="Resumos" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Resumo" />
+    </bag>
+
+    <bag name="EnderecosRecurso" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="EnderecosRecurso" />
+    </bag>
+
+    <bag name="Resumo" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Resumo" />
+    </bag>
+
+    <bag name="NotaFiscal" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="NotaFiscal" />
+    </bag>
+    
+    <!--<property name="DataAlteracao" not-null="true" />
+    <property name="Ativo" not-null="true" />-->
 	</class>
 </hibernate-mapping>

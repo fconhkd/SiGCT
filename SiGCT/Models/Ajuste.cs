@@ -6,11 +6,14 @@ using System.Web;
 
 namespace SiGCT.Models
 {
+    /// <summary>
+    /// Detalhamento dos ajustes financeiros de movimentos anteriores.
+    /// </summary>
     public class Ajuste
     {
         public virtual String Id { get; set; }
 
-        public virtual Conta Fatura { get; set; }
+        public virtual Conta Conta { get; set; }
 
         public virtual Recurso Recurso { get; set; }
 

@@ -1,28 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Integration.Core"
-                   namespace="Integration.Core.Model" >
+                   assembly="SiGCT"
+                   namespace="SiGCT.Models" >
 
-	<class name="Empresa" table="Empresa">
+	<class name="Desconto">
 
 		<id name="Id">
 			<generator class="native" />
 		</id>
 
-    <property name="Sigla" length="5" not-null="true" />
-		<property name="Nome" length="150" not-null="true" />
+    <property name="Sequencial" length="12" not-null="true" />
 
-		<bag name="Filiais" lazy="true" mutable="false" cascade="all" >
-			<key column="IdEmpresa" />
-			<one-to-many class="Filial" />
-		</bag>
+    <many-to-one name="Conta" class="Conta" column="ContaId" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
 
-		<bag name="Vendas" lazy="true" mutable="false" cascade="none" >
-			<key column="IdEmpresa" />
-			<one-to-many class="Venda"  />
-		</bag>
+    <property name="TipoDesconto" />
 
-    <property name="DataAlteracao" not-null="true" />
-    <property name="Ativo" not-null="true" />
+    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
+
+    <property name="BaseCalculo" />
+    <property name="TipoNF" />
+
+    <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
+
+    <property name="Percentualdesconto" />
+    <property name="SinalDesconto" />
+    <property name="ValorDesconto" />
+    <property name="InicioDesconto" />
+    <property name="FimDesconto" />
+    <property name="Filler" length="15"/>
+    <property name="Obs" length="50" />
+    
+    <!--<property name="DataAlteracao" not-null="true" />
+    <property name="Ativo" not-null="true" />-->
 	</class>
 </hibernate-mapping>

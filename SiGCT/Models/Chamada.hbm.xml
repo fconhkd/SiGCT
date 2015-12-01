@@ -1,23 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Integration.Core"
-                   namespace="Integration.Core.Model" >
+                   assembly="SiGCT"
+                   namespace="SiGCT.Models" >
 
-	<class name="ChipGSM" table="ChipGSM">
-		<meta attribute="class-description">Chips GSM utilizados em Terminais POS para a venda eletronica</meta>
+	<class name="Chamada">
+		<meta attribute="class-description">
+      Detalhamento de chamadas de VOZ cobradas na fatura
+    </meta>
 
 		<id name="Id">
 			<generator class="native" />
 		</id>
 		
-		<property name="NumeroTelefone" length="15" not-null="false" />
-    <property name="NumeroIccid" length="50" not-null="true" />
-    <property name="DataAlteracao" />
-
-		<many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
-    <many-to-one name="Terminal" class="Terminal" column="IdTerminal" />
-		
-    <property name="Ativo" />
+		<property name="Sequencial" length="15" not-null="true" />
+		<many-to-one name="Conta" class="Conta" column="ContaId" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
+    <many-to-one name="Origem" class="CNL" column="OrigemId" />
+    <property name="DataLigacao" />
+    <many-to-one name="Destino" class="CNL" column="DestinoId" />
+    <property name="Codigo" />
+    <many-to-one name="CSP" class="CSP" column="CspId" />
+    <property name="NumeroChamado" />
+    <property name="OperadoraRoaming" />
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
+    <property name="Duracao" />
+    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
+    <property name="HorarioLigacao" />
+    <property name="AliquotaICMS" />
+    <property name="ValorComImposto" />
+    <property name="ValorSemImposto" />
+    <property name="TipoNF" />
+    <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
+    <property name="TipoChamada" />
+    <property name="GrupoTarifario" />
+    <property name="DescricaoTarifario" />
+    <property name="Degrau" />
+    <property name="Filler" />
+    <property name="Obs" />
+    
+    
+    
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
     
 	</class>
 </hibernate-mapping>

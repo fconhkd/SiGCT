@@ -11,13 +11,10 @@ namespace SiGCT.Models
         public virtual Int32 Id { get; set; }
 
         [Required, MaxLength(12)]
-        public virtual Int64 Sequencial { get; set; }
+        public virtual Int32 Sequencial { get; set; }
 
         public virtual Conta Fatura { get; set; }
-
         public virtual Recurso Recurso { get; set; }
-
-        public virtual String NumeroTelefone { get; set; }
 
         public virtual TipoAssociadoEnum TipoDesconto { get; set; }
 

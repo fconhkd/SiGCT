@@ -18,7 +18,6 @@ namespace SiGCT.Models
 
         public virtual Conta Conta { get; }
         public virtual Recurso Recurso { get; }
-
         public virtual CNL Origem { get; set; }
 
         public virtual DateTime DataLigacao { get; set; }

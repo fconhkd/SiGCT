@@ -1,29 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="Integration.Core"
-                   namespace="Integration.Core.Model" >
+                   assembly="SiGCT"
+                   namespace="SiGCT.Models" >
 
-	<class name="Canal">
+  <class name="Categoria">
 
-		<id name="Id">
-			<generator class="assigned" />
-		</id>
+    <id name="Id">
+      <generator class="assigned" />
+    </id>
 
-    <property name="Nome" not-null="true" />
-		<property name="Descricao" not-null="false" />
+    <property name="Sigla" not-null="true" />
+    <property name="Descricao" />
+    <property name="TipoCategoria" />
 
-		<bag name="Clientes" lazy="true" mutable="false" access="" cascade="all" >
-			<key column="IdCanal" />
-			<one-to-many class="Cliente"  />
-		</bag>
+    <bag name="Chamadas" lazy="true"  cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Chamada"  />
+    </bag>
 
-		<bag name="Vendas" lazy="true" mutable="false" access="" cascade="all" >
-			<key column="IdCanal" />
-			<one-to-many class="Venda"  />
-		</bag>
+    <bag name="Planos" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Plano"  />
+    </bag>
 
-    <property name="DataAlteracao" not-null="true" />
-		<property name="Ativo" not-null="true" />
+    <bag name="Servicos" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Servico"  />
+    </bag>
 
-	</class>
+    <!--<property name="DataAlteracao" not-null="true" />-->
+    <!--<property name="Ativo" not-null="true" />-->
+
+  </class>
 </hibernate-mapping>

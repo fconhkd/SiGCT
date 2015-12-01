@@ -18,9 +18,10 @@ namespace SiGCT.Models
 
         public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }
-
         public virtual CNL CNL { get; set; }
+
         public virtual String Nome { get; set; }
+        [MaxLength(2)]
         public virtual String UF { get; set; }
         public virtual String Endereco { get; set; }
         public virtual String Numero { get; set; }
