@@ -3,20 +3,59 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="RotaCliente">
-		<meta attribute="class-description">RotasCliente dos representantes</meta>
+	<class name="Recurso">
+		<meta attribute="class-description"></meta>
 
 		<id name="Id">
-			<meta attribute="field-description">Identificação unica da rotacliente</meta>
+			<meta attribute="field-description"></meta>
 			<generator class="native" />
 		</id>
 
-		<property name="Ordem" />
+		<property name="Numero" />
+    <property name="Modalidade" />
+    <property name="DataAtivacao" />
+    <property name="Datadesativacao" />
 
-		<many-to-one name="Rota" class="Rota" column="IdRota" cascade="none" />
-    <many-to-one name="Cliente" class="Cliente" column="IdCliente" cascade="none" />
+    <bag name="Enderecos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="EnderecosRecurso" />
+    </bag>
 
-    <property name="DataAlteracao" />
+    <bag name="Resumos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Resumo" />
+    </bag>
+
+    <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Chamada" />
+    </bag>
+
+    <bag name="Servicos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Servico" />
+    </bag>
+
+    <bag name="Descontos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Desconto" />
+    </bag>
+
+    <bag name="Planos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Plano" />
+    </bag>
+
+    <bag name="Ajustes" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="Ajuste" />
+    </bag>
+    
+		<many-to-one name="CNL" class="CNL" column="CnlId" cascade="none" />
+    <many-to-one name="CentroCusto" class="CentroCusto" column="CentroCustoId" cascade="none" />
+    <many-to-one name="Utilizador" class="Pessoa" column="PessoaId" cascade="none" />
+
+    <!--<property name="DataAlteracao" />-->
     
 	</class>
 </hibernate-mapping>

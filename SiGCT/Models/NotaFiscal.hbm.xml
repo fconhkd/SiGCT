@@ -3,24 +3,44 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="Modelo">
+	<class name="NotaFiscal">
 
-		<id name="Id" column="Id" type="">
-			<generator class="native" />
+		<id name="Id">
+			<generator class="assigned" />
 		</id>
 
-    <property name="Nome" />
+    <property name="Vencimento" />
+    <property name="ValorTotal" />
+    <property name="Tipo" />
+    <property name="Numero" />
+    <property name="Filler" length="15" />
+    <property name="Obs" length="25" />
 
-    <bag name="Terminais" lazy="true" mutable="false" access="" cascade="all" >
-      <key column="IdModelo" />
-      <one-to-many class="Terminal" />
+    <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="all" >
+      <key column="NotaFiscalId" />
+      <one-to-many class="Chamada" />
+    </bag>
+
+    <bag name="Servicos" lazy="true" mutable="false" access="" cascade="all" >
+      <key column="NotaFiscalId" />
+      <one-to-many class="Servico" />
+    </bag>
+
+    <bag name="Descontos" lazy="true" mutable="false" access="" cascade="all" >
+      <key column="NotaFiscalId" />
+      <one-to-many class="Desconto" />
+    </bag>
+
+    <bag name="Planos" lazy="true" mutable="false" access="" cascade="all" >
+      <key column="NotaFiscalId" />
+      <one-to-many class="Plano" />
     </bag>
     
-		<!-- Quando se aplica -->
-		<many-to-one name="Fabricante" class="Fabricante" column="IdFabricante" cascade="none" />
+		<many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" cascade="none" />
 
-    <property name="DataAlteracao" />
-    <property name="Ativo" />
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
 		
 	</class>
 </hibernate-mapping>

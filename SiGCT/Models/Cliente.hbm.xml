@@ -3,19 +3,17 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="TipoCobranca">
-		<meta attribute="class-description">Tipos de cobrança</meta>
+	<class name="Cliente">
 
 		<id name="Id">
-			<meta attribute="field-description">
-      </meta>
 			<generator class="assigned" />
 		</id>
 
-		<property name="Descricao" length="20" />
-    
-    <!--<property name="DataAlteracao" />
-    <property name="Ativo" />-->
+    <property name="Nome" not-null="true" />
+    <property name="CNPJ" not-null="true" />
+
+    <!--<property name="DataAlteracao" not-null="true" />
+    <property name="Ativo" not-null="true" />-->
 		
 	</class>
 </hibernate-mapping>

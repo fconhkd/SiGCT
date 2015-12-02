@@ -3,27 +3,33 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="Rota">
-		<meta attribute="class-description">Rotas dos representantes</meta>
+	<class name="Resumo">
+		<meta attribute="class-description">Somatorio dos valores de um Recurso</meta>
 
 		<id name="Id">
-			<meta attribute="field-description">Identificação unica da rota</meta>
+			<meta attribute="field-description">Identificação unica do resuno</meta>
 			<generator class="native" />
 		</id>
 
-		<property name="Nome" />
-    <property name="Descricao" />
-    <property name="Ativo" />
+		<property name="Sequencial" />
+    <property name="QuantidaChamadas" />
+    <property name="ValorChamadas" />
+    <property name="QuantidadeServico" />
+    <property name="ValorServicos" />
+    <property name="ValorImpostos" />
+    <property name="ValorTotal" />
+    <property name="Degrau" />
+    <property name="Velocidade" />
+    <property name="UnVelocidade" />
+    <property name="DataVencimento" />
+    <property name="Filler" />
+    <property name="Obs" />
 
-		<many-to-one name="Representante" class="Representante" column="IdRepresentante" cascade="none" />
+		<many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" cascade="none" />
 
-    <bag name="RotasCliente" lazy="false" cascade="all">
-      <key column="IdRota" />
-      <one-to-many class="RotaCliente" />
-    </bag>
-
-    <property name="DataAlteracao" />
-    <property name="Ativo" />
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
     
 	</class>
 </hibernate-mapping>

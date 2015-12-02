@@ -3,24 +3,17 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="ProdutoCanal" table="ProdutoCanal">
+	<class name="Pessoa">
 
-		<id name="Id" column="Id" type="">
+		<id name="Id">
 			<generator class="native" />
 		</id>
 
-		<!--<property name="" column="" />
-		<property name="" column="" /> -->
+		<property name="Nome" column="25" />
 
-		<bag name="Vendas" lazy="true" mutable="false" access="" cascade="" >
-			<key column="ProdutoCanal_ID" />
-			<one-to-many class="Venda"  />
-		</bag>
-
-		<!-- Quando se aplica  -->
-		<many-to-one name="Produto" class="Produto" column="Produto" />
+		<many-to-one name="CentroCusto" class="CentroCusto" column="CentroCustoId" />
 		
-		<property name="Ativo" column="Ativo" />
+		<!--<property name="Ativo" column="Ativo" />-->
 
 	</class>
 </hibernate-mapping>

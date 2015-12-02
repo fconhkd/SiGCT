@@ -6,24 +6,30 @@
 	<class name="Operadora">
 		<meta attribute="class-description">Cadastro de Operadora</meta>
 
-		<id name="Id">
+		<id name="Codigo">
 			<generator class="native" />
 		</id>
 
-		<property name="Nome" length="100" />
+		<property name="Nome" length="15" />
+    <property name="Sigla" length="5" />
+    <property name="CNPJ" length="15" />
+    <property name="UF" length="2" />
+    <property name="RazaoSocial" length="100" />
 
-    <bag name="ChipsGSM" lazy="true" mutable="false" access="" cascade="none" >
-      <key column="IdOperadora" />
-      <one-to-many class="ChipGSM" />
+    <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Chamada" />
     </bag>
 
-    <bag name="Produtos" lazy="true" mutable="false" access="" cascade="none" >
-      <key column="IdOperadora" />
-      <one-to-many class="Produto" />
+    <bag name="Servicos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Servico" />
     </bag>
 
-    <property name="DataAlteracao" />
-    <property name="Ativo" />
+    <many-to-one name="Plano" class="Plano" column="PlanoId" />
+    
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
 		
 	</class>
 </hibernate-mapping>

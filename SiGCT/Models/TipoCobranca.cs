@@ -5,7 +5,10 @@ namespace SiGCT.Models
 {
     public class TipoCobranca
     {
-        public virtual Int32 Codigo { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Int32 Id { get; set; }
 
         [Required, MaxLength(20)]
         public virtual String Descricao { get; set; }

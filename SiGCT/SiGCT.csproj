@@ -164,7 +164,7 @@
     <Content Include="Models\InformativoGerencial.hbm.xml" />
     <Content Include="Models\NotaFiscal.hbm.xml" />
     <Content Include="Models\Operadora.hbm.xml" />
-    <Content Include="Models\Produto.hbm.xml" />
+    <Content Include="Models\Plano.hbm.xml" />
     <Content Include="Models\Pessoa.hbm.xml" />
     <Content Include="Models\Resumo.hbm.xml" />
     <Content Include="Models\Recurso.hbm.xml" />

@@ -8,7 +8,7 @@ namespace SiGCT.Models
 {
     public class NotaFiscal
     {
-        public virtual Int32 Codigo { get; set; }
+        public virtual Int32 Id { get; set; }
 
         public virtual Conta Conta { get; set; }
 

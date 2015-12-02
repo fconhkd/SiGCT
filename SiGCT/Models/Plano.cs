@@ -14,12 +14,9 @@ namespace SiGCT.Models
         [Required]
         public virtual Int32 Sequencial { get; set; }
 
-        public virtual Conta Fatura { get; set; }
-
+        public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }
-
-        //public virtual String NumeroTelefone { get; set; }
-
+        
         public virtual TipoAssociadoEnum TipoPlano { get; set; }
 
         public virtual DateTime InicioCiclo { get; set; }

@@ -3,31 +3,40 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-	<class name="Terminal">
-		<meta attribute="class-description">Terminais de venda on-line, vendas com POS</meta>
+	<class name="Servico">
+		<meta attribute="class-description">Detalhamento dos serviços faturados</meta>
 
 		<id name="Id">
 			<generator class="native" />
 		</id>
 
-		<property name="Codigo" length="100" />
-		<property name="NumeroSerie" length="80" />
+    <property name="Sequencial" not-null="true" />
+    <many-to-one name="Conta" class="Conta" column="ContaId" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
+    <many-to-one name="Origem" class="CNL" column="OrigemId" />
+    <property name="DataServico" />
+    <many-to-one name="Destino" class="CNL" column="DestinoId" />
+    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
 
-    <property name="DataCadastro" type="Date" />
-    <property name="DataNegociacao" />
-    <property name="Credenciamento" />
-    <property name="UltimaTransacao" />
+    <property name="Codigo" />
+    <property name="NumeroChamado" />
+    <property name="OperadoraRoaming" />
+    <property name="QtdeUtilizada" />
+    <property name="Unidade" />
+    <property name="HorarioServico" />
+    <property name="ValorComImposto" />
+    <property name="ValorSemImposto" />
+    <property name="TipoNF" />
 
-    <bag name="Vendas" lazy="true" mutable="false" access="" cascade="none" >
-      <key column="IdTerminal" />
-      <one-to-many class="Venda"  />
-    </bag>
-    
-		<many-to-one name="Cliente" class="Cliente" column="IdCliente" />
-    <many-to-one name="Canal" class="Canal" column="IdCanal" />
+    <property name="Degrau" />
+    <property name="Filler" length="15" />
+    <property name="Obs" length="25" />
 
-    <property name="DataAlteracao" />
-    <property name="Ativo" />
+    <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
+
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
 		
 	</class>
 </hibernate-mapping>
