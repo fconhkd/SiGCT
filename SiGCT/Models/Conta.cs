@@ -56,9 +56,13 @@ namespace SiGCT.Models
         [MaxLength(25)]
         public virtual String Obs { get; set; }
 
-        public virtual IList<Resumo> Resumos { get; set; }
+        public virtual IList<Chamada> Chamadas { get; set; }
+        public virtual IList<Servico> Servicos { get; set; }
+
+        public virtual IList<Desconto> Descontos { get; set; }
+        public virtual IList<Recurso> Recursos { get; set; }
         public virtual IList<EnderecosRecurso> EnderecosRecurso { get; set; }
-        public virtual IList<Resumo> Resumo { get; set; }
+        public virtual IList<Resumo> Resumos { get; set; }
         public virtual IList<NotaFiscal> NotaFiscal { get; set; }
 
     }

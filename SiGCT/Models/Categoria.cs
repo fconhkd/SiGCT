@@ -5,7 +5,7 @@ namespace SiGCT.Models
 {
     public class Categoria
     {
-        public virtual Int32 Codigo { get; set; }
+        public virtual Int32 Id { get; set; }
 
         public virtual String Sigla { get; set; }
 

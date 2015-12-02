@@ -27,9 +27,24 @@
     <property name="Filler" length="15" not-null="false" />
     <property name="Obs" length="50" not-null="false" />
 
-    <bag name="Resumos" lazy="true" cascade="all" >
+    <bag name="Chamadas" lazy="true" cascade="all" >
       <key column="ContaId" />
-      <one-to-many class="Resumo" />
+      <one-to-many class="Chamada" />
+    </bag>
+
+    <bag name="Servicos" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Servico" />
+    </bag>
+
+    <bag name="Descontos" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Desconto" />
+    </bag>
+    
+    <bag name="Recursos" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Recurso" />
     </bag>
 
     <bag name="EnderecosRecurso" lazy="true" cascade="all" >
@@ -37,7 +52,7 @@
       <one-to-many class="EnderecosRecurso" />
     </bag>
 
-    <bag name="Resumo" lazy="true" cascade="all" >
+    <bag name="Resumos" lazy="true" cascade="all" >
       <key column="ContaId" />
       <one-to-many class="Resumo" />
     </bag>

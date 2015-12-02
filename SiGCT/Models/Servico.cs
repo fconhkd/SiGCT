@@ -13,8 +13,8 @@ namespace SiGCT.Models
         [Required]
         public virtual Int32 Sequencial { get; set; }
 
-        public virtual Conta Conta { get; }
-        public virtual Recurso Recurso { get; }
+        public virtual Conta Conta { get; set; }
+        public virtual Recurso Recurso { get; set; }
         public virtual CNL Origem { get; set; }
 
         public virtual DateTime DataServico { get; set; }

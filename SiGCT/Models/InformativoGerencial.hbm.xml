@@ -3,7 +3,7 @@
                    assembly="SiGCT"
                    namespace="SiGCT.Models" >
 
-  <class name="Logs">
+  <class name="InformativoGerencial">
 
     <id name="Id">
       <generator class="native" />

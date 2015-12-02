@@ -14,9 +14,7 @@ namespace SiGCT.Models
         public virtual Int32 Id { get; set; }
 
         public virtual Conta Conta { get; set; }
-
         public virtual Recurso Recurso { get; set; }
-
         public virtual Categoria Categoria { get; set; }
 
         public virtual String TextoInformativo { get; set; }
