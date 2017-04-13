@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+  <class name="Categoria">
+
+    <id name="Id">
+      <generator class="assigned" />
+    </id>
+
+    <property name="Sigla" not-null="true" />
+    <property name="Descricao" not-null="true" />
+    <property name="TipoCategoria" not-null="true" />
+
+    <bag name="Chamadas" lazy="true"  cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Chamada"  />
+    </bag>
+
+    <bag name="Planos" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Plano"  />
+    </bag>
+
+    <bag name="Servicos" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Servico"  />
+    </bag>
+
+    <!--<property name="DataAlteracao" not-null="true" />-->
+    <!--<property name="Ativo" not-null="true" />-->
+
+  </class>
+</hibernate-mapping>

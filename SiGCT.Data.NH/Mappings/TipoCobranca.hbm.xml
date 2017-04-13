@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+	<class name="TipoCobranca">
+		<meta attribute="class-description">Tipos de cobrança</meta>
+
+		<id name="Id">
+			<meta attribute="field-description">
+      </meta>
+			<generator class="assigned" />
+		</id>
+
+		<property name="Descricao" length="20" />
+    
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
+		
+	</class>
+</hibernate-mapping>

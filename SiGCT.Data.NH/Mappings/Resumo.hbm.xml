@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+	<class name="Resumo">
+		<meta attribute="class-description">Somatorio dos valores de um Recurso</meta>
+
+		<id name="Id">
+			<meta attribute="field-description">Identificação unica do resuno</meta>
+			<generator class="native" />
+		</id>
+
+		<property name="Sequencial" />
+    <property name="QuantidaChamadas" />
+    <property name="ValorChamadas" />
+    <property name="QuantidadeServico" />
+    <property name="ValorServicos" />
+    <property name="ValorImpostos" />
+    <property name="ValorTotal" />
+    <property name="Degrau" />
+    <property name="Velocidade" />
+    <property name="UnVelocidade" />
+    <property name="DataVencimento" />
+    <property name="Filler" />
+    <property name="Obs" />
+
+		<many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" cascade="none" />
+
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
+    
+	</class>
+</hibernate-mapping>

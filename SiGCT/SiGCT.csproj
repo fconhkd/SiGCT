@@ -158,29 +158,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <EmbeddedResource Include="Models\Ajuste.hbm.xml" />
-    <EmbeddedResource Include="Models\Banco.hbm.xml" />
-    <EmbeddedResource Include="Models\Categoria.hbm.xml" />
-    <EmbeddedResource Include="Models\Chamada.hbm.xml" />
-    <EmbeddedResource Include="Models\CentroCusto.hbm.xml" />
-    <EmbeddedResource Include="Models\Cliente.hbm.xml" />
-    <EmbeddedResource Include="Models\Desconto.hbm.xml" />
-    <EmbeddedResource Include="Models\CSP.hbm.xml" />
-    <EmbeddedResource Include="Models\Conta.hbm.xml" />
-    <EmbeddedResource Include="Models\Cobranca.hbm.xml" />
-    <EmbeddedResource Include="Models\CNL.hbm.xml" />
-    <EmbeddedResource Include="Models\EnderecosRecurso.hbm.xml" />
-    <EmbeddedResource Include="Models\Fatura.hbm.xml" />
-    <EmbeddedResource Include="Models\InformativoGerencial.hbm.xml" />
-    <EmbeddedResource Include="Models\NotaFiscal.hbm.xml" />
-    <EmbeddedResource Include="Models\Operadora.hbm.xml" />
-    <EmbeddedResource Include="Models\Plano.hbm.xml" />
-    <EmbeddedResource Include="Models\Pessoa.hbm.xml" />
-    <EmbeddedResource Include="Models\Resumo.hbm.xml" />
-    <EmbeddedResource Include="Models\Recurso.hbm.xml" />
-    <EmbeddedResource Include="Models\Servico.hbm.xml" />
-    <EmbeddedResource Include="Models\TipoCobranca.hbm.xml" />
-    <EmbeddedResource Include="Models\Trailler.hbm.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -203,63 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ajuste.cs" />
-    <Compile Include="Models\Banco.cs" />
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\CentroCusto.cs" />
-    <Compile Include="Models\Chamada.cs" />
-    <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\CNL.cs" />
-    <Compile Include="Models\Cobranca.cs" />
-    <Compile Include="Models\CSP.cs" />
-    <Compile Include="Models\DAO\AjusteDAO.cs" />
-    <Compile Include="Models\DAO\BancoDAO.cs" />
-    <Compile Include="Models\DAO\CategoriaDAO.cs" />
-    <Compile Include="Models\DAO\CentroCustoDAO.cs" />
-    <Compile Include="Models\DAO\ChamadaDAO.cs" />
-    <Compile Include="Models\DAO\ClienteDAO.cs" />
-    <Compile Include="Models\DAO\CNLDAO.cs" />
-    <Compile Include="Models\DAO\CobrancaDAO.cs" />
-    <Compile Include="Models\DAO\ContaDAO.cs" />
-    <Compile Include="Models\DAO\CspDAO.cs" />
-    <Compile Include="Models\DAO\DescontoDAO.cs" />
-    <Compile Include="Models\DAO\EnderecosRecursoDAO.cs" />
-    <Compile Include="Models\DAO\FaturaDAO.cs" />
-    <Compile Include="Models\DAO\Helper\GenericDAO.cs" />
-    <Compile Include="Models\DAO\Helper\IGenericDAO.cs" />
-    <Compile Include="Models\DAO\Helper\NHibernateSessionManager.cs" />
-    <Compile Include="Models\DAO\Helper\NHibernateSessionModule.cs" />
-    <Compile Include="Models\DAO\InformativoGerencialDAO.cs" />
-    <Compile Include="Models\DAO\NotaFiscalDAO.cs" />
-    <Compile Include="Models\DAO\OperadoraDAO.cs" />
-    <Compile Include="Models\DAO\PessoaDAO.cs" />
-    <Compile Include="Models\DAO\PlanoDAO.cs" />
-    <Compile Include="Models\DAO\RecursoDAO.cs" />
-    <Compile Include="Models\DAO\ResumoDAO.cs" />
-    <Compile Include="Models\DAO\ServicoDAO.cs" />
-    <Compile Include="Models\DAO\TipoCobrancaDAO.cs" />
-    <Compile Include="Models\DAO\TraillerDAO.cs" />
-    <Compile Include="Models\Desconto.cs" />
-    <Compile Include="Models\EnderecosRecurso.cs" />
-    <Compile Include="Models\Conta.cs" />
-    <Compile Include="Models\Fatura.cs" />
-    <Compile Include="Models\InformativoGerencial.cs" />
-    <Compile Include="Models\NotaFiscal.cs" />
-    <Compile Include="Models\Operadora.cs" />
-    <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Models\Plano.cs" />
-    <Compile Include="Models\Recurso.cs" />
-    <Compile Include="Models\Resumo.cs" />
-    <Compile Include="Models\Servico.cs" />
-    <Compile Include="Models\TipoCategoriaEnum.cs" />
-    <Compile Include="Models\TipoChamadaEnum.cs" />
-    <Compile Include="Models\TipoCobranca.cs" />
-    <Compile Include="Models\TipoCobrancaEnum.cs" />
-    <Compile Include="Models\TipoCodigoEnum.cs" />
-    <Compile Include="Models\TipoNfEnum.cs" />
-    <Compile Include="Models\TipoAssociadoEnum.cs" />
-    <Compile Include="Models\TipoPontaEnum.cs" />
-    <Compile Include="Models\Trailler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -281,7 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Mapping\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\Header\" />
   </ItemGroup>
   <PropertyGroup>

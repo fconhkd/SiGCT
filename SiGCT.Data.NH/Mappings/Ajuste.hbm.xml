@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+	<class name="Ajuste">
+		<meta attribute="class-description">
+      Detalhamento dos ajustes financeiros de movimentos anteriores.
+    </meta>
+
+		<id name="Id">
+			<meta attribute="field-description">
+				Identificação unica do Ajuste
+			</meta>
+			<generator class="native" />
+		</id>
+
+    <many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Recurso" class="Recurso" column="RecursoId" cascade="none" />
+
+    <property name="Tipo" />
+    
+		<many-to-one name="Categoria" class="Categoria" column="CategoriaId" cascade="none" />
+    
+    <property name="BaseCalculo" />
+    <property name="Percentual" />
+    <property name="Sinal" />
+    <property name="Valor" />
+
+    <property name="Inicio" />
+    <property name="Fim" />
+
+    <property name="Filler" />
+    <property name="Obs" />
+    
+		
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
+
+	</class>
+</hibernate-mapping>

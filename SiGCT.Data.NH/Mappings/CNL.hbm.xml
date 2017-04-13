@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+	<class name="CNL">
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+
+		<property name="Nome" length="80" not-null="true" />
+    <property name="UF" length="2" not-null="true" />
+
+    
+		<bag name="Recursos" lazy="true" mutable="false" cascade="all" >
+			<key column="CnlID" />
+			<one-to-many class="Recurso" />
+		</bag>
+
+		<bag name="Enderecos" lazy="true" mutable="false" cascade="all" >
+			<key column="CnlId" />
+			<one-to-many class="EnderecosRecurso"  />
+		</bag>
+
+    <bag name="Chamadas" lazy="true" mutable="false" cascade="all" >
+      <key column="CnlId" />
+      <one-to-many class="Chamada"  />
+    </bag>
+
+    <!--<property name="DataAlteracao" not-null="true" />
+    <property name="Ativo" not-null="true" />-->
+    
+	</class>
+</hibernate-mapping>

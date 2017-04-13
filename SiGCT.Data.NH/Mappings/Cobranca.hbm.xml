@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Data.NH"
+                   namespace="SiGCT.Data.NH.Mappings" >
+
+	<class name="Cobranca">
+
+		<id name="Id">
+			<generator class="native" />
+		</id>
+
+    <many-to-one name="Tipo" class="TipoCobranca" column="TipoId" cascade="none" />
+    <many-to-one name="Banco" class="Banco" column="BancoId" cascade="none" />
+
+    <property name="Agencia" length="5" not-null="true" />
+		<property name="ContaCorrente" length="150" not-null="true" />
+
+    
+    <!--<property name="DataAlteracao" not-null="true" />
+    <property name="Ativo" not-null="true" />-->
+	</class>
+</hibernate-mapping>
