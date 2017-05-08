@@ -11,8 +11,9 @@ namespace SiGCT.Models
     /// </summary>
     public class Ajuste
     {
-        public virtual String Id { get; set; }
-
+        
+        public virtual long Id { get; set; }
+          
         public virtual Conta Conta { get; set; }
 
         public virtual Recurso Recurso { get; set; }

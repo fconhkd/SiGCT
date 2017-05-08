@@ -4,7 +4,7 @@ using NHibernate.Tool.hbm2ddl;
 using System;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
-using NHibernate.Envers.Configuration.Attributes;
+//using NHibernate.Envers.Configuration.Attributes;
 
 namespace SiGCT.Data.NH.Core
 {
@@ -101,7 +101,7 @@ namespace SiGCT.Data.NH.Core
             var cfg = new Configuration();
             cfg.Configure();
 
-                cfg.IntegrateWithEnvers(new AttributeConfiguration());
+                //cfg.IntegrateWithEnvers(new AttributeConfiguration());
 
             //Executando o schema export
             var schemaExport = new SchemaExport(cfg);

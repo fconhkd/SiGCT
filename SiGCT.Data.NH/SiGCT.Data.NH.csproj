@@ -155,6 +155,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiGCT.Models\SiGCT.Models.csproj">
+      <Project>{ED92555C-AF61-4D6D-8D58-95F3F6088B76}</Project>
+      <Name>SiGCT.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

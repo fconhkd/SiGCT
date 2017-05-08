@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="SiGCT.Data.NH"
-                   namespace="SiGCT.Data.NH.Mappings" >
+                   assembly="SiGCT.Models"
+                   namespace="SiGCT.Models" >
 
 	<class name="Trailler">
 		<meta attribute="class-description">
@@ -12,7 +12,7 @@
 			<meta attribute="field-description">
 				Identificação unica do Trailler
 			</meta>
-      <generator class="native" />
+      <generator class="identity" />
 		</id>
 
     <many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />

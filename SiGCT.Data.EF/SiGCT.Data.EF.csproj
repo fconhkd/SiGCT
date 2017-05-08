@@ -49,16 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\SigctDataContext.cs" />
+    <Compile Include="Mappings\ContaMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContaRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataContexts\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiGCT.Domain\SiGCT.Domain.csproj">
+      <Project>{D27A2DFA-DD12-4CB5-9619-EB9B56B6640C}</Project>
+      <Name>SiGCT.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiGCT.Models\SiGCT.Models.csproj">
+      <Project>{ED92555C-AF61-4D6D-8D58-95F3F6088B76}</Project>
+      <Name>SiGCT.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="SiGCT.Data.NH"
-                   namespace="SiGCT.Data.NH.Mappings" >
+                   assembly="SiGCT.Models"
+                   namespace="SiGCT.Models" >
 
 	<class name="Conta">
 
 		<id name="Id">
-			<generator class="native" />
+			<generator class="identity" />
 		</id>
 
     <property name="Identificador" not-null="true" />
@@ -15,13 +15,13 @@
     <property name="DataArquivo" type="Date" not-null="true" />
     <property name="Vencimento" not-null="true" />
 
-    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" cascade="none" />
-    <many-to-one name="Cliente" class="Cliente" column="ClienteId" cascade="none" />
+    <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
+    <many-to-one name="Cliente" column="ClienteId" cascade="none" />
     
     <property name="Versao" length="5" not-null="true" />
 
-    <many-to-one name="Fatura" class="Fatura" column="FaturaId" cascade="none" />
-    <many-to-one name="Cobranca" class="Cobranca" column="CobrancaId" cascade="none" />
+    <many-to-one name="Fatura" column="FaturaId" cascade="none" />
+    <many-to-one name="Cobranca" column="CobrancaId" cascade="none" />
     
 		<property name="Fisco" length="35" not-null="false" />
     <property name="Filler" length="15" not-null="false" />
@@ -60,6 +60,11 @@
     <bag name="NotaFiscal" lazy="true" cascade="all" >
       <key column="ContaId" />
       <one-to-many class="NotaFiscal" />
+    </bag>
+    
+    <bag name="Ajustes" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Ajuste" />
     </bag>
     
     <!--<property name="DataAlteracao" not-null="true" />

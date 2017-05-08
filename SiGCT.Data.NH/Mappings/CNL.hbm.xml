@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="SiGCT.Data.NH"
-                   namespace="SiGCT.Data.NH.Mappings" >
+                   assembly="SiGCT.Models"
+                   namespace="SiGCT.Models" >
 
 	<class name="CNL">
 
 		<id name="Id">
-			<generator class="native" />
+			<generator class="identity" />
 		</id>
 
 		<property name="Nome" length="80" not-null="true" />
