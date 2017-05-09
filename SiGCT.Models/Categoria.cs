@@ -16,5 +16,6 @@ namespace SiGCT.Models
         public virtual IList<Chamada> Chamadas { get; set; }
         public virtual IList<Plano> Planos { get; set; }
         public virtual IList<Servico> Servicos { get; set; }
+        public virtual IList<Ajuste> Ajustes { get; set; }
     }
 }

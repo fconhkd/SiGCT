@@ -28,6 +28,11 @@
       <one-to-many class="Servico"  />
     </bag>
 
+    <bag name="Ajustes" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Ajuste"  />
+    </bag>
+
     <!--<property name="DataAlteracao" not-null="true" />-->
     <!--<property name="Ativo" not-null="true" />-->
 

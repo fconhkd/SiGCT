@@ -207,10 +207,6 @@
     <Folder Include="Views\Header\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SiGCT.Data.EF\SiGCT.Data.EF.csproj">
-      <Project>{dc426dd9-9efc-40f1-b365-c9de2e2e5704}</Project>
-      <Name>SiGCT.Data.EF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SiGCT.Data.NH\SiGCT.Data.NH.csproj">
       <Project>{de3e0f8b-a547-4136-b22b-82d1b1326593}</Project>
       <Name>SiGCT.Data.NH</Name>
