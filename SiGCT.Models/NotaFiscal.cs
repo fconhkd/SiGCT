@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using NHibernate.Helper.Generics;
 
 namespace SiGCT.Models
 {
-    public class NotaFiscal
+    public class NotaFiscal : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         public virtual Conta Conta { get; set; }
 

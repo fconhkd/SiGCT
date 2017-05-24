@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
@@ -6,9 +7,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Detalhamento dos descontos concedidos
     /// </summary>
-    public class Desconto
+    public class Desconto : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         [Required, MaxLength(12)]
         public virtual Int32 Sequencial { get; set; }

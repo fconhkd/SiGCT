@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Detalhamento de chamadas de VOZ cobradas na fatura
     /// </summary>
-    public class Chamada
+    public class Chamada : GenericEntity<long>
     {
-        public virtual Int64 Id { get; set; }
 
         [Required]
         public virtual Int32 Sequencial { get; set; }

@@ -1,15 +1,24 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
 {
-    public class CentroCusto
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CentroCusto : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
-
+        
+        /// <summary>
+        /// Sigla do centro de cruso
+        /// </summary>
         [Required, MaxLength(3)]
         public virtual String Sigla { get; set; }
 
+        /// <summary>
+        /// Descrição do centro de custo
+        /// </summary>
         [MaxLength(100)]
         public virtual String Descricao { get; set; }
     }

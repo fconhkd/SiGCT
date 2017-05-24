@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
@@ -6,9 +7,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Identificação dos endereços dos recursos cobrados na fatura
     /// </summary>
-    public class EnderecosRecurso
+    public class EnderecosRecurso : GenericEntity<long>
     {
-        public virtual Int64 Id { get; set; }
 
         /// <summary>
         /// Armazena o codigo sequencial no arquivo lido

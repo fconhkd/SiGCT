@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
 {
-    public class Operadora
+    public class Operadora : GenericEntity<long>
     {
         /// <summary>
         /// Número EOT junto a ABR Telecom

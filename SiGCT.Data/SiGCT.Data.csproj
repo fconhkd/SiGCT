@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE3E0F8B-A547-4136-B22B-82D1B1326593}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiGCT.Data</RootNamespace>
+    <AssemblyName>SiGCT.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\AjusteBusiness.cs" />
+    <Compile Include="Business\BancoBusiness.cs" />
+    <Compile Include="Business\CategoriaBusiness.cs" />
+    <Compile Include="Business\CentroCustoBusiness.cs" />
+    <Compile Include="Business\ChamadaBusiness.cs" />
+    <Compile Include="Business\ClienteBusiness.cs" />
+    <Compile Include="Business\CnlBusiness.cs" />
+    <Compile Include="Business\CobrancaBusiness.cs" />
+    <Compile Include="Business\ContaBusiness.cs" />
+    <Compile Include="Business\CspBusiness.cs" />
+    <Compile Include="Business\DescontoBusiness.cs" />
+    <Compile Include="Business\EnderecosRecursoBusiness.cs" />
+    <Compile Include="Business\FaturaBusiness.cs" />
+    <Compile Include="Business\InformativoGerencialBusiness.cs" />
+    <Compile Include="Business\NotaFiscalBusiness.cs" />
+    <Compile Include="Business\OperadoraBusiness.cs" />
+    <Compile Include="Business\PessoaBusiness.cs" />
+    <Compile Include="Business\PlanoBusiness.cs" />
+    <Compile Include="Business\ProtocoloBusiness.cs" />
+    <Compile Include="Business\RecursoBusiness.cs" />
+    <Compile Include="Business\ResumoBusiness.cs" />
+    <Compile Include="Business\ServicoBusiness.cs" />
+    <Compile Include="Business\TipoCobrancaBusiness.cs" />
+    <Compile Include="Business\TraillerBusiness.cs" />
+    <Compile Include="DAO\AjusteDAO.cs" />
+    <Compile Include="DAO\BancoDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\CentroCustoDAO.cs" />
+    <Compile Include="DAO\ChamadaDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\CnlDAO.cs" />
+    <Compile Include="DAO\CobrancaDAO.cs" />
+    <Compile Include="DAO\ContaDAO.cs" />
+    <Compile Include="DAO\CspDAO.cs" />
+    <Compile Include="DAO\DescontoDAO.cs" />
+    <Compile Include="DAO\EnderecosRecursoDAO.cs" />
+    <Compile Include="DAO\FaturaDAO.cs" />
+    <Compile Include="DAO\InformativoGerencialDAO.cs" />
+    <Compile Include="DAO\NotaFiscalDAO.cs" />
+    <Compile Include="DAO\OperadoraDAO.cs" />
+    <Compile Include="DAO\PessoaDAO.cs" />
+    <Compile Include="DAO\PlanoDAO.cs" />
+    <Compile Include="DAO\ProtocoloDAO.cs" />
+    <Compile Include="DAO\RecursoDAO.cs" />
+    <Compile Include="DAO\ResumoDAO.cs" />
+    <Compile Include="DAO\ServicoDAO.cs" />
+    <Compile Include="DAO\TipoCobrancaDAO.cs" />
+    <Compile Include="DAO\TraillerDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Ajuste.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Banco.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Categoria.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CentroCusto.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Chamada.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Cliente.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CNL.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Cobranca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Conta.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CSP.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Desconto.hbm.xml" />
+    <EmbeddedResource Include="Mappings\EnderecosRecurso.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Fatura.hbm.xml" />
+    <EmbeddedResource Include="Mappings\InformativoGerencial.hbm.xml" />
+    <EmbeddedResource Include="Mappings\NotaFiscal.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Operadora.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Pessoa.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Plano.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Recurso.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Resumo.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Servico.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TipoCobranca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Trailler.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NHibernate.Helper\NHibernate.Helper\NHibernate.Helper.csproj">
+      <Project>{a1ba87f1-43b2-4d40-a8e7-0e42d9114745}</Project>
+      <Name>NHibernate.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiGCT.Models\SiGCT.Models.csproj">
+      <Project>{ED92555C-AF61-4D6D-8D58-95F3F6088B76}</Project>
+      <Name>SiGCT.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiGCT.Utils\SiGCT.Utils.csproj">
+      <Project>{b9303b60-0484-4c1c-b78a-ef21d9da9384}</Project>
+      <Name>SiGCT.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

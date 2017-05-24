@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,9 +11,8 @@ namespace SiGCT.Models
     /// Somatório dos valores por recurso
     /// Tipo 10
     /// </summary>
-    public class Resumo
+    public class Resumo : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         /// <summary>
         /// Armazena o codigo sequencial no arquivo lido
@@ -38,7 +38,7 @@ namespace SiGCT.Models
         /// <summary>
         /// Somatório dos valores dos registros tipo "30" para o recurso. Valor sempre positivo.
         /// </summary>
-        public virtual long ValorChamadas { get; set; }
+        public virtual decimal ValorChamadas { get; set; }
 
         /// <summary>
         /// Total de registros tipo "40" para o recurso
@@ -48,18 +48,18 @@ namespace SiGCT.Models
         /// <summary>
         /// Somatório dos valores dos registros tipo "40" para o recurso. Valor sempre positivo.
         /// </summary>
-        public virtual long ValorServicos { get; set; }
+        public virtual decimal ValorServicos { get; set; }
 
         /// <summary>
         /// Somatório dos valores de todos os impostos incidentes, inclusive impostos federais.
         /// Valor sempre positivo.
         /// </summary>
-        public virtual long ValorImpostos { get; set; }
+        public virtual decimal ValorImpostos { get; set; }
 
         /// <summary>
         /// Valor sempre positivo
         /// </summary>
-        public virtual long ValorTotal { get; set; }
+        public virtual decimal ValorTotal { get; set; }
 
         /// <summary>
         /// Identifica o degrau tarifário conforme classificação da ANATEL

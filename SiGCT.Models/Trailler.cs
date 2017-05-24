@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Consolidação de valores da conta faturada
     /// </summary>
-    public class Trailler
+    public class Trailler : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         public virtual Conta Conta { get; set; }
 

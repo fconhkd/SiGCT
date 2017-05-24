@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Models"
+                   namespace="SiGCT.Models" >
+
+	<class name="Banco">
+		<meta attribute="class-description">
+      Cadastro de Banco
+    </meta>
+
+		<id name="Id" column="Id">
+			<generator class="identity" />
+		</id>
+
+    <property name ="Codigo" />
+    <property name="Nome" />
+
+    <bag name="Cobrancas" lazy="true" cascade="all" >
+      <key column="BancoId" />
+      <one-to-many class="Cobranca" />
+    </bag>
+
+	</class>
+</hibernate-mapping>

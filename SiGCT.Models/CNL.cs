@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,9 +8,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Codigo nacional de Localidade
     /// </summary>
-    public class CNL
+    public class CNL : GenericEntity<long>
     {
-        public virtual Int64 Id { get; set; }
 
         [MaxLength(80)]
         public virtual String Nome { get; set; }

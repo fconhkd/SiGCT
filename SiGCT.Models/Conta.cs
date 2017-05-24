@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,11 +7,10 @@ namespace SiGCT.Models
 {
     /// <summary>
     /// Identificação geral da fatura em cobrança, conta telefonica
-    /// Tipo: 00
+    /// Tipo: 00 header
     /// </summary>
-    public class Conta
+    public class Conta : GenericEntity<long>
     {
-        public virtual Int64 Id { get; set; }
 
         /// <summary>
         /// Identificador individual por recurso junto a concessionária

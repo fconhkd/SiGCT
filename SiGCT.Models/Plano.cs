@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
@@ -7,9 +8,8 @@ namespace SiGCT.Models
     /// Detalhamento dos planos faturados
     /// Tipo de registro: 60
     /// </summary>
-    public class Plano
+    public class Plano : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         [Required]
         public virtual Int32 Sequencial { get; set; }

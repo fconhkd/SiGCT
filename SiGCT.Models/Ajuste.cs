@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace SiGCT.Models
 {
     /// <summary>
     /// Detalhamento dos ajustes financeiros de movimentos anteriores.
     /// </summary>
-    public class Ajuste
+    public class Ajuste : GenericEntity<long>
     {
-        
-        public virtual long Id { get; set; }
           
         public virtual Conta Conta { get; set; }
 
@@ -22,13 +18,13 @@ namespace SiGCT.Models
 
         public virtual Categoria Categoria { get; set; }
 
-        public virtual long BaseCalculo { get; set; }
+        public virtual decimal BaseCalculo { get; set; }
 
-        public virtual long Percentual { get; set; }
+        public virtual decimal Percentual { get; set; }
 
-        public virtual long Sinal { get; set; }
+        public virtual decimal Sinal { get; set; }
 
-        public virtual long Valor { get; set; }
+        public virtual decimal Valor { get; set; }
 
         public virtual DateTime Inicio { get; set; }
 

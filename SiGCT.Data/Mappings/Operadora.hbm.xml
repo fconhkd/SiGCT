@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SiGCT.Models"
+                   namespace="SiGCT.Models" >
+
+	<class name="Operadora">
+		<meta attribute="class-description">Cadastro de Operadora</meta>
+
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+    <property name="Codigo" />
+		<property name="Nome" length="15" />
+    <property name="Sigla" length="5" />
+    <property name="CNPJ" length="15" />
+    <property name="UF" length="2" />
+    <property name="RazaoSocial" length="100" />
+
+    <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Chamada" />
+    </bag>
+
+    <bag name="Servicos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Servico" />
+    </bag>
+
+    <many-to-one name="Plano" class="Plano" column="PlanoId" />
+    
+    <!--<property name="DataAlteracao" />
+    <property name="Ativo" />-->
+		
+	</class>
+</hibernate-mapping>

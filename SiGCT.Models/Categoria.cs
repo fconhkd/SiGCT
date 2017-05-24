@@ -1,17 +1,29 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 
 namespace SiGCT.Models
 {
-    public class Categoria
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Categoria : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
-
+        /// <summary>
+        /// Sigla da categoria
+        /// </summary>
         public virtual String Sigla { get; set; }
 
+        /// <summary>
+        /// Descricao da categoria
+        /// </summary>
         public virtual String Descricao { get; set; }
 
+        /// <summary>
+        /// Tipo a qual a categoria pertence
+        /// </summary>
         public virtual TipoCategoriaEnum TipoCategoria { get; set; }
+
 
         public virtual IList<Chamada> Chamadas { get; set; }
         public virtual IList<Plano> Planos { get; set; }

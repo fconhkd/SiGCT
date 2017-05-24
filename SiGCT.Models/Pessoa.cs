@@ -1,11 +1,11 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
 {
-    public class Pessoa
+    public class Pessoa : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         [Required, MaxLength(25)]
         public virtual String Nome { get; set; }

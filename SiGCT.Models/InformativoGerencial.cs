@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Informativo Gerencial, valores não contemplados na Fatura 
     /// </summary>
-    public class InformativoGerencial
+    public class InformativoGerencial : GenericEntity<long>
     {
-        public virtual Int32 Id { get; set; }
 
         public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }

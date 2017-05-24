@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,12 +8,12 @@ namespace SiGCT.Models
     /// <summary>
     /// 
     /// </summary>
-    public class Recurso
+    public class Recurso : GenericEntity<long>
     {
         /// <summary>
         /// Identificador individual por recurso junto a concessionária
         /// </summary>
-        public virtual String Id { get; set; }
+        public virtual String Codigo { get; set; }
 
         /// <summary>
         /// Código Nacional de Localidade

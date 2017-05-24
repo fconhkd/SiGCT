@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Helper.Generics;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
@@ -6,9 +7,8 @@ namespace SiGCT.Models
     /// <summary>
     /// Detalhamento dos serviços faturados
     /// </summary>
-    public class Servico
+    public class Servico : GenericEntity<long>
     {
-        public virtual Int64 Id { get; set; }
 
         [Required]
         public virtual Int32 Sequencial { get; set; }

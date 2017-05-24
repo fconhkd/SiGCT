@@ -60,6 +60,7 @@
     <Compile Include="Pessoa.cs" />
     <Compile Include="Plano.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocolo.cs" />
     <Compile Include="Recurso.cs" />
     <Compile Include="Resumo.cs" />
     <Compile Include="Servico.cs" />
@@ -72,6 +73,12 @@
     <Compile Include="TipoNfEnum.cs" />
     <Compile Include="TipoPontaEnum.cs" />
     <Compile Include="Trailler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NHibernate.Helper\NHibernate.Helper\NHibernate.Helper.csproj">
+      <Project>{a1ba87f1-43b2-4d40-a8e7-0e42d9114745}</Project>
+      <Name>NHibernate.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
