@@ -13,6 +13,11 @@
 
     <property name="Descricao" length="100" />
 
+    <bag name="Pessoas" lazy="true" cascade="all" >
+      <key column="CentroCustoId" />
+      <one-to-many class="Pessoa" />
+    </bag>
+
 		
 	</class>
 </hibernate-mapping>

@@ -13,6 +13,11 @@
     <property name="Nome" length="30" not-null="true" />
     <property name="CNPJ" length="15" not-null="true" />
 
+    <bag name="Contas" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="ClienteId" />
+      <one-to-many class="Conta" />
+    </bag>
+
     <!--<property name="DataAlteracao" not-null="true" />
     <property name="Ativo" not-null="true" />-->
 		

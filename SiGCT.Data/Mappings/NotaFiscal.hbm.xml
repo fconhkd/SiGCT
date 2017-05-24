@@ -36,8 +36,8 @@
       <one-to-many class="Plano" />
     </bag>
     
-		<many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
-    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" cascade="none" />
+		<many-to-one name="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
 
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->

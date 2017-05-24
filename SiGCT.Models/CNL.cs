@@ -22,5 +22,8 @@ namespace SiGCT.Models
         public virtual IList<EnderecosRecurso> Enderecos { get; set; }
 
         public virtual IList<Chamada> Chamadas { get; set; }
+
+        public virtual IList<CNL> Origens { get; set; }
+        public virtual IList<CNL> Destinos { get; set; }
     }
 }

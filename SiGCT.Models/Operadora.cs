@@ -29,6 +29,8 @@ namespace SiGCT.Models
 
         public virtual IList<Chamada> Chamadas { get; set; }
         public virtual IList<Servico> Servicos { get; set; }
+        public virtual IList<Conta> Contas { get; set; }
+        public virtual IList<NotaFiscal> NotasFiscal { get; set; }
 
         public virtual Plano Plano { get; set; }
     }

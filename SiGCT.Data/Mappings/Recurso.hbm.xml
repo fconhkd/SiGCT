@@ -26,29 +26,34 @@
       <one-to-many class="Resumo" />
     </bag>
 
-    <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="none" >
+    <bag name="Chamadas" lazy="true" mutable="false" cascade="none" >
       <key column="RecursoId" />
       <one-to-many class="Chamada" />
     </bag>
 
-    <bag name="Servicos" lazy="true" mutable="false" access="" cascade="none" >
+    <bag name="Servicos" lazy="true" mutable="false" cascade="none" >
       <key column="RecursoId" />
       <one-to-many class="Servico" />
     </bag>
 
-    <bag name="Descontos" lazy="true" mutable="false" access="" cascade="none" >
+    <bag name="Descontos" lazy="true" mutable="false" cascade="none" >
       <key column="RecursoId" />
       <one-to-many class="Desconto" />
     </bag>
 
-    <bag name="Planos" lazy="true" mutable="false" access="" cascade="none" >
+    <bag name="Planos" lazy="true" mutable="false" cascade="none" >
       <key column="RecursoId" />
       <one-to-many class="Plano" />
     </bag>
 
-    <bag name="Ajustes" lazy="true" mutable="false" access="" cascade="none" >
+    <bag name="Ajustes" lazy="true" mutable="false" cascade="none" >
       <key column="RecursoId" />
       <one-to-many class="Ajuste" />
+    </bag>
+
+    <bag name="InformativosGerencial" lazy="true" mutable="false" cascade="none" >
+      <key column="RecursoId" />
+      <one-to-many class="InformativoGerencial" />
     </bag>
     
 		<many-to-one name="CNL" class="CNL" column="CnlId" cascade="none" />

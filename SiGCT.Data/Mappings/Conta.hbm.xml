@@ -37,14 +37,14 @@
       <one-to-many class="Servico" />
     </bag>
 
+    <bag name="Planos" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Plano" />
+    </bag>
+
     <bag name="Descontos" lazy="true" cascade="all" >
       <key column="ContaId" />
       <one-to-many class="Desconto" />
-    </bag>
-    
-    <bag name="Recursos" lazy="true" cascade="all" >
-      <key column="ContaId" />
-      <one-to-many class="Recurso" />
     </bag>
 
     <bag name="EnderecosRecurso" lazy="true" cascade="all" >
@@ -62,11 +62,21 @@
       <one-to-many class="NotaFiscal" />
     </bag>
     
+    <bag name="InformativosGerencial" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="InformativoGerencial" />
+    </bag>
+
     <bag name="Ajustes" lazy="true" cascade="all" >
       <key column="ContaId" />
       <one-to-many class="Ajuste" />
     </bag>
     
+    <bag name="Traillers" lazy="true" cascade="all" >
+      <key column="ContaId" />
+      <one-to-many class="Trailler" />
+    </bag>
+        
     <!--<property name="DataAlteracao" not-null="true" />
     <property name="Ativo" not-null="true" />-->
 	</class>

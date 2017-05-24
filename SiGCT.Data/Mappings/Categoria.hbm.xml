@@ -33,6 +33,16 @@
       <one-to-many class="Ajuste"  />
     </bag>
 
+    <bag name="Descontos" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="Desconto"  />
+    </bag>
+
+    <bag name="InformativosGerencial" lazy="true" cascade="all" >
+      <key column="CategoriaId" />
+      <one-to-many class="InformativoGerencial"  />
+    </bag>
+
     <!--<property name="DataAlteracao" not-null="true" />-->
     <!--<property name="Ativo" not-null="true" />-->
 

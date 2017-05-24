@@ -1,6 +1,7 @@
 ﻿using NHibernate.Helper.Generics;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace SiGCT.Models
 {
@@ -30,5 +31,7 @@ namespace SiGCT.Models
         /// </summary>
         [Required, MaxLength(10)]
         public virtual String ContaCorrente { get; set; }
+
+        public virtual IList<Conta> Contas { get; set; }
     }
 }

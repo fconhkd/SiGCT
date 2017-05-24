@@ -43,6 +43,7 @@ namespace SiGCT.Models
         public virtual IList<Desconto> Descontos { get; set; }
         public virtual IList<Plano> Planos { get; set; }
         public virtual IList<Ajuste> Ajustes { get; set; }
+        public virtual IList<InformativoGerencial> InformativosGerencial { get; set; }
 
         public virtual CentroCusto CentroCusto { get; set; }
         public virtual Pessoa Utilizador { get; set; }

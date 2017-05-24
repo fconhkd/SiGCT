@@ -27,6 +27,16 @@
       <one-to-many class="Servico" />
     </bag>
 
+    <bag name="Contas" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Conta" />
+    </bag>
+
+    <bag name="NotasFiscal" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="NotaFiscal" />
+    </bag>
+
     <many-to-one name="Plano" class="Plano" column="PlanoId" />
     
     <!--<property name="DataAlteracao" />

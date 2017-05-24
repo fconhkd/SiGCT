@@ -9,13 +9,17 @@
 			<generator class="identity" />
 		</id>
 
-    <many-to-one name="Tipo" class="TipoCobranca" column="TipoId" cascade="none" />
+    <many-to-one name="Tipo" class="TipoCobranca" column="TipoCobrancaId" cascade="none" />
     <many-to-one name="Banco" class="Banco" column="BancoId" cascade="none" />
 
     <property name="Agencia" length="5" not-null="true" />
 		<property name="ContaCorrente" length="150" not-null="true" />
 
-    
+    <bag name="Contas" lazy="true" cascade="all" >
+      <key column="CobrancaId" />
+      <one-to-many class="Conta" />
+    </bag>
+
     <!--<property name="DataAlteracao" not-null="true" />
     <property name="Ativo" not-null="true" />-->
 	</class>

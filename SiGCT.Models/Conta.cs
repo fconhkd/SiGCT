@@ -58,13 +58,16 @@ namespace SiGCT.Models
 
         public virtual IList<Chamada> Chamadas { get; set; }
         public virtual IList<Servico> Servicos { get; set; }
+        public virtual IList<Plano> Planos { get; set; }
 
         public virtual IList<Desconto> Descontos { get; set; }
-        public virtual IList<Recurso> Recursos { get; set; }
         public virtual IList<EnderecosRecurso> EnderecosRecurso { get; set; }
         public virtual IList<Resumo> Resumos { get; set; }
         public virtual IList<NotaFiscal> NotaFiscal { get; set; }
-
+        public virtual IList<InformativoGerencial> InformativosGerencial { get; set; }
+        
         public virtual IList<Ajuste> Ajustes { get; set; }
+        public virtual IList<Trailler> Traillers { get; set; }
+
     }
 }

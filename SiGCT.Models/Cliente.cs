@@ -1,6 +1,7 @@
 ﻿using NHibernate.Helper.Generics;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace SiGCT.Models
 {
@@ -20,9 +21,9 @@ namespace SiGCT.Models
         /// <summary>
         /// CNPJ definido no contrato
         /// </summary>
-        [Required,StringLength(15)]
+        [Required, StringLength(15)]
         public virtual String CNPJ { get; set; }
 
-
+        public virtual IList<Conta> Contas { get; set; }
     }
 }

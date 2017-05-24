@@ -28,6 +28,16 @@
       <one-to-many class="Chamada"  />
     </bag>
 
+    <bag name="Origens" lazy="true" mutable="false" cascade="all" >
+      <key column="CnlId" />
+      <one-to-many class="CNL"  />
+    </bag>
+
+    <bag name="Destinos" lazy="true" mutable="false" cascade="all" >
+      <key column="CnlId" />
+      <one-to-many class="CNL"  />
+    </bag>
+
     <!--<property name="DataAlteracao" not-null="true" />
     <property name="Ativo" not-null="true" />-->
     

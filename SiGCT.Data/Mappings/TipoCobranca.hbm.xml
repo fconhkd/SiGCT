@@ -11,7 +11,12 @@
 		</id>
 
 		<property name="Descricao" length="20" />
-    
+
+    <bag name="Cobrancas" lazy="true" cascade="all" >
+      <key column="TipoCobrancaId" />
+      <one-to-many class="Cobranca" />
+    </bag>
+
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->
 		

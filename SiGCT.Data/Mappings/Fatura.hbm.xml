@@ -13,6 +13,11 @@
     <property name="Numero" />
 		<property name="CodigoBarras" />
 
+    <bag name="Contas" lazy="true" cascade="all" >
+      <key column="FaturaId" />
+      <one-to-many class="Conta" />
+    </bag>
+
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->
 		
