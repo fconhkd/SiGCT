@@ -1,6 +1,7 @@
 ﻿using NHibernate.Helper.Generics;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace SiGCT.Models
 {
@@ -11,5 +12,7 @@ namespace SiGCT.Models
         public virtual String Nome { get; set; }
 
         public virtual CentroCusto CentroCusto { get; set; }
+
+        public virtual IList<Recurso> Recursos { get; set; }
     }
 }

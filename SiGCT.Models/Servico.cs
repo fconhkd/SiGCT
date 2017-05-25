@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace SiGCT.Models
 {
     /// <summary>
-    /// Detalhamento dos serviços faturados
+    /// Detalhamento dos serviços faturados - tipo 40
     /// </summary>
     public class Servico : GenericEntity<long>
     {

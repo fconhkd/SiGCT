@@ -27,15 +27,15 @@
       <key column="CnlId" />
       <one-to-many class="Chamada"  />
     </bag>
-
+    
     <bag name="Origens" lazy="true" mutable="false" cascade="all" >
-      <key column="CnlId" />
-      <one-to-many class="CNL"  />
+      <key column="OrigemId" />
+      <one-to-many class="Servico"  />
     </bag>
-
+    
     <bag name="Destinos" lazy="true" mutable="false" cascade="all" >
-      <key column="CnlId" />
-      <one-to-many class="CNL"  />
+      <key column="DestinoId" />
+      <one-to-many class="Servico"  />
     </bag>
 
     <!--<property name="DataAlteracao" not-null="true" />

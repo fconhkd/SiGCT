@@ -18,6 +18,11 @@
       <one-to-many class="Pessoa" />
     </bag>
 
-		
-	</class>
+    <bag name="Recursos" lazy="true" cascade="all" >
+      <key column="CentroCustoId" />
+      <one-to-many class="Recurso" />
+    </bag>
+
+
+  </class>
 </hibernate-mapping>

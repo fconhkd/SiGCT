@@ -23,7 +23,7 @@ namespace SiGCT.Models
 
         public virtual IList<Chamada> Chamadas { get; set; }
 
-        public virtual IList<CNL> Origens { get; set; }
-        public virtual IList<CNL> Destinos { get; set; }
+        public virtual IList<Servico> Origens { get; set; }
+        public virtual IList<Servico> Destinos { get; set; }
     }
 }

@@ -12,8 +12,13 @@
 		<property name="Nome" column="25" />
 
 		<many-to-one name="CentroCusto" class="CentroCusto" column="CentroCustoId" />
-		
-		<!--<property name="Ativo" column="Ativo" />-->
+
+    <bag name="Recursos" lazy="true" cascade="all" >
+      <key column="PessoaId" />
+      <one-to-many class="Recurso" />
+    </bag>
+
+    <!--<property name="Ativo" column="Ativo" />-->
 
 	</class>
 </hibernate-mapping>

@@ -24,5 +24,7 @@ namespace SiGCT.Models
         public virtual String Descricao { get; set; }
 
         public virtual IList<Pessoa> Pessoas { get; set; }
+
+        public virtual IList<Recurso> Recursos { get; set; }
     }
 }
