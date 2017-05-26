@@ -10,9 +10,12 @@
 			<generator class="identity" />
 		</id>
 
+		<many-to-one name="CNL" column="CnlId" cascade="none" />
     <property name="Codigo" />
-		<property name="Numero" />
+		
+    <property name="Numero" />
     <property name="Modalidade" />
+    
     <property name="DataAtivacao" />
     <property name="DataDesativacao" />
 
@@ -56,9 +59,8 @@
       <one-to-many class="InformativoGerencial" />
     </bag>
     
-		<many-to-one name="CNL" class="CNL" column="CnlId" cascade="none" />
-    <many-to-one name="CentroCusto" class="CentroCusto" column="CentroCustoId" cascade="none" />
-    <many-to-one name="Utilizador" class="Pessoa" column="PessoaId" cascade="none" />
+    <many-to-one name="CentroCusto" column="CentroCustoId" cascade="none" />
+    <many-to-one name="Utilizador" column="PessoaId" cascade="none" />
 
     <!--<property name="DataAlteracao" />-->
     

@@ -9,27 +9,29 @@
 			<generator class="identity" />
 		</id>
 
-    <property name="Codigo" />
-    <property name="Descricao" />
     <property name="Sequencial" />
+    <many-to-one name="Conta" column="ContaId" cascade="none" />
+    <many-to-one name="Recurso" column="RecursoId" cascade="none" />
     <property name="TipoPlano" />
     <property name="InicioCiclo" />
     <property name="FimCiclo" />
+
+    <many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
     <property name="ConsumoMedido" />
     <property name="ConsumoFranqueado" />
     <property name="UnidMedida" />
+    <many-to-one name="Categoria" column="CategoriaId" cascade="none" />
+    <property name="Codigo" />
+    <property name="Descricao" />
+    
     <property name="ValorComImposto" />
     <property name="ValorSemImposto" />
     <property name="TipoNF" />
+    <many-to-one name="NotaFiscal" column="NotaFiscalId" />
+
     <property name="Filler" length="15" />
     <property name="Obs" length="25" />
-
-    <many-to-one name="Conta" class="Conta" column="ContaId" cascade="none" />
-    <many-to-one name="Recurso" class="Recurso" column="RecursoId" cascade="none" />
-    <many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
-    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" cascade="none" />
-    <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
-		
+    		
 		<!--<property name="DataAlteracao" />
 		<property name="Ativo" />-->
 

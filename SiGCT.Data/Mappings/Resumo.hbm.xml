@@ -12,22 +12,27 @@
 
     
 		<property name="Sequencial" />
-    <property name="QuantidaChamadas" />
-    <property name="ValorChamadas" />
-    <property name="QuantidadeServico" />
-    <property name="ValorServicos" />
-    <property name="ValorImpostos" />
-    <property name="ValorTotal" />
-    <property name="Degrau" />
-    <property name="Velocidade" />
-    <property name="UnVelocidade" />
-    <property name="DataVencimento" />
-    <property name="Filler" />
-    <property name="Obs" />
-
 		<many-to-one name="Conta" column="ContaId" cascade="none" />
     <many-to-one name="Recurso" column="RecursoId" cascade="none" />
 
+    <property name="QuantidaChamadas" />
+    <property name="ValorChamadas" />
+
+    <property name="QuantidadeServico" />
+    <property name="ValorServicos" />
+    
+    <property name="ValorImpostos" />
+    <property name="ValorTotal" />
+    
+    <property name="Degrau" />
+    <property name="Velocidade" />
+
+    <property name="UnVelocidade" />
+    <property name="DataVencimento" />
+    
+    <property name="Filler" length="15" />
+    <property name="Obs" length="25" />
+    
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->
     

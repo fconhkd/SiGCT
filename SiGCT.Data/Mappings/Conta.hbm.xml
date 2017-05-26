@@ -56,7 +56,7 @@
       <key column="ContaId" />
       <one-to-many class="Resumo" />
     </bag>
-
+    
     <bag name="NotaFiscal" lazy="true" cascade="all" >
       <key column="ContaId" />
       <one-to-many class="NotaFiscal" />

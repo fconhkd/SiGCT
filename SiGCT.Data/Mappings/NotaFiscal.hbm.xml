@@ -9,7 +9,9 @@
 			<generator class="assigned" />
 		</id>
 
+		<many-to-one name="Conta" column="ContaId" cascade="none" />
     <property name="Vencimento" />
+    <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
     <property name="ValorTotal" />
     <property name="Tipo" />
     <property name="Numero" />
@@ -36,9 +38,6 @@
       <one-to-many class="Plano" />
     </bag>
     
-		<many-to-one name="Conta" column="ContaId" cascade="none" />
-    <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
-
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->
 		

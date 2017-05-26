@@ -11,30 +11,32 @@
 		</id>
 
     <property name="Sequencial" not-null="true" />
-    <many-to-one name="Conta" class="Conta" column="ContaId" />
-    <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
-    <many-to-one name="Origem" class="CNL" column="OrigemId" />
+    <many-to-one name="Conta" column="ContaId" />
+    <many-to-one name="Recurso" column="RecursoId" />
+    <many-to-one name="Origem" column="OrigemId" />
     <property name="DataServico" />
-    <many-to-one name="Destino" class="CNL" column="DestinoId" />
-    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
-    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
 
+    <many-to-one name="Destino" column="DestinoId" />
     <property name="Codigo" />
+
     <property name="NumeroChamado" />
     <property name="OperadoraRoaming" />
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
+
     <property name="QtdeUtilizada" />
     <property name="Unidade" />
     <property name="HorarioServico" />
+    <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
+
     <property name="ValorComImposto" />
     <property name="ValorSemImposto" />
     <property name="TipoNF" />
+    <many-to-one name="NotaFiscal" column="NotaFiscalId" />
 
     <property name="Degrau" />
     <property name="Filler" length="15" />
     <property name="Obs" length="25" />
-
-    <many-to-one name="NotaFiscal" column="NotaFiscalId" />
-
+    
     <!--<property name="DataAlteracao" />
     <property name="Ativo" />-->
 		

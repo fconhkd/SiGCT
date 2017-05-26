@@ -26,8 +26,10 @@
     <property name="Percentualdesconto" />
     <property name="SinalDesconto" />
     <property name="ValorDesconto" />
+
     <property name="InicioDesconto" />
     <property name="FimDesconto" />
+    
     <property name="Filler" length="15"/>
     <property name="Obs" length="50" />
     
