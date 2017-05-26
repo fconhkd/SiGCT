@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 using Microsoft.VisualBasic.FileIO;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
@@ -15,7 +16,7 @@ namespace SiGCT.Data.Business
     {
         #region Fields
         /// <summary>
-        /// Helper para criar logs, para detalhes veja <see cref="log4net"/>
+        /// Framework para log <seealso cref="log4net"/>
         /// </summary>
         private static log4net.ILog logger = LogManager.GetLogger(System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
         #endregion
