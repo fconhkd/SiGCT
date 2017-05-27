@@ -16,11 +16,12 @@ namespace SiGCT
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
+            //Esta linha eh responsavel por ativar o log4net
+            log4net.Config.XmlConfigurator.Configure();
+
             //Ao inicializar a aplicação inicia o NHibernateSessionFactory da Aplicação
             NHibernate.Helper.Management.SessionManager.Instance.InitializeSessionFactory();
 
-            //Esta linha eh responsavel por ativar o log4net
-            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace SiGCT.Data.Business
                             logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}' ", file.LineNumber, path), ex);
                         }
                     }
-                    return _listaBaixa;
+                    //return _listaBaixa;
                 }
             }
             return false;

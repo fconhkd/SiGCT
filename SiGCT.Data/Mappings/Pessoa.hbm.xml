@@ -9,7 +9,7 @@
 			<generator class="identity" />
 		</id>
 
-		<property name="Nome" column="25" />
+		<property name="Nome" length="25" />
 
 		<many-to-one name="CentroCusto" class="CentroCusto" column="CentroCustoId" />
 
