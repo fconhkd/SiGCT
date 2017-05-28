@@ -48,7 +48,7 @@ namespace SiGCT.Data.Business
                             var rowType = file.PeekChars(2);
                             switch (rowType)
                             {
-                                case "00": break;
+                                case "00": lerHeader(file); break;
                                 case "10": break;
                                 case "20": break;
                                 case "30": break;
@@ -76,6 +76,24 @@ namespace SiGCT.Data.Business
                 }
             }
             return false;
+        }
+
+        private void lerHeader(TextFieldParser file)
+        {
+            var headerParam = new int[] { 2,12,25,8,6,8,8,3,15,15,2,15,30,15,4,16,50,2,20,4,4,10,35,15,25,1};
+            file.SetFieldWidths(headerParam);
+            var header = file.ReadFields();
+
+            Convert(header);
+        }
+
+        private Conta Convert(string[] array)
+        {
+            var conta = new Conta() {
+
+            };
+
+            return conta;
         }
         #endregion
 
