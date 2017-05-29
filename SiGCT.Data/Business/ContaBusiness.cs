@@ -34,8 +34,9 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="path">nome do arquivo</param>
         /// <returns></returns>
-        public bool LerArquivoV3R0(string path)
+        public bool LerArquivoV3R0()
         {
+            var path = @"C:\Users\fabiano.conrado\Desktop\Contas\Claro\2017\2017\05\612341225_140553264_53_05_2017_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))

@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using SiGCT.Data.Business;
 
 namespace SiGCT
 {
@@ -21,6 +22,8 @@ namespace SiGCT
 
             //Ao inicializar a aplicação inicia o NHibernateSessionFactory da Aplicação
             NHibernate.Helper.Management.SessionManager.Instance.InitializeSessionFactory();
+
+            //new ContaBusiness().LerArquivoV3R0();
 
         }
     }
