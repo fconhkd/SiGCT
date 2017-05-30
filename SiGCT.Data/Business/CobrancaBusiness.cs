@@ -11,6 +11,6 @@ namespace SiGCT.Data.Business
 {
     public class CobrancaBusiness : GenericBusiness<long, Cobranca, CobrancaDAO>
     {
-
+        
     }
 }

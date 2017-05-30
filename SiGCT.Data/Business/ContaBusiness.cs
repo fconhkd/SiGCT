@@ -36,7 +36,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Desktop\Contas\Claro\2017\2017\05\612341225_140553264_53_05_2017_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Desktop\Contas\Claro\2017\2017\04\612341225_140553264_53_04_2017_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -81,7 +81,7 @@ namespace SiGCT.Data.Business
 
         private void lerHeader(TextFieldParser file)
         {
-            var headerParam = new int[] { 2,12,25,8,6,8,8,3,15,15,2,15,30,15,4,16,50,2,20,4,4,10,35,15,25,1};
+            var headerParam = new int[] { 2, 12, 25, 8, 6, 8, 8, 3, 15, 15, 2, 15, 30, 15, 4, 16, 50, 2, 20, 4, 4, 10, 35, 15, 25, 1 };
             file.SetFieldWidths(headerParam);
             var header = file.ReadFields();
 
@@ -93,6 +93,23 @@ namespace SiGCT.Data.Business
             var conta = new Conta() {
 
             };
+
+            conta.Identificador = array[2];
+            conta.DataEmissao = DateTime.ParseExact(array[3], "yyyyMMdd", null);
+            conta.DataArquivo = DateTime.ParseExact(array[5], "yyyyMMdd", null);
+            conta.Vencimento = DateTime.ParseExact(array[6], "yyyyMMdd", null);
+            conta.Operadora = new OperadoraBusiness().SaveAndReturn(array[7], array[8], array[9], array[10]);
+            conta.Cliente = new ClienteBusiness().SaveAndReturn(array[11], array[12], array[13]);
+            conta.Fatura = new FaturaBusiness().SaveAndReturn(array[15], array[16]);
+            conta.Cobranca = new Cobranca() {
+                //Tipo = new TipoCobrancaBusiness().SaveAndReturn(array[17], array[18]),
+                //Banco = array[19],
+                Agencia =  array[20],
+                ContaCorrente = array[21]
+            };
+            conta.Fisco = array[22];
+            conta.Filler = array[23];
+            conta.Obs = array[24];
 
             return conta;
         }

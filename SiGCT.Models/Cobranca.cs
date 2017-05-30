@@ -34,4 +34,5 @@ namespace SiGCT.Models
 
         public virtual IList<Conta> Contas { get; set; }
     }
+
 }
