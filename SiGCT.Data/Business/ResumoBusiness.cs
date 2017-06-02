@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class ResumoBusiness : GenericBusiness<long, Resumo, ResumoDAO>
     {
-
+        internal Resumo Parse(string[] header)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

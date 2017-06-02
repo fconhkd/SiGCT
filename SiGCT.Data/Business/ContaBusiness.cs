@@ -19,6 +19,8 @@ namespace SiGCT.Data.Business
         /// Framework para log <seealso cref="log4net"/>
         /// </summary>
         private static log4net.ILog logger = LogManager.GetLogger(System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
+
+        private static Conta _conta;
         #endregion
 
         #region Constructor
@@ -50,7 +52,7 @@ namespace SiGCT.Data.Business
                             switch (rowType)
                             {
                                 case "00": lerHeader(file); break;
-                                case "10": break;
+                                case "10": lerResumo(file); break;
                                 case "20": break;
                                 case "30": break;
                                 case "40": break;
@@ -79,21 +81,27 @@ namespace SiGCT.Data.Business
             return false;
         }
 
-        private void lerHeader(TextFieldParser file)
+        private void lerResumo(TextFieldParser file)
         {
-            var headerParam = new int[] { 2, 12, 25, 8, 6, 8, 8, 3, 15, 15, 2, 15, 30, 15, 4, 16, 50, 2, 20, 4, 4, 10, 35, 15, 25, 1 };
-            file.SetFieldWidths(headerParam);
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 4, 8, 8, 9, 13, 9, 15, 13, 13, 2, 5, 4, 8, 114, 25, 1 };
+            file.SetFieldWidths(param);
             var header = file.ReadFields();
 
-            Convert(header);
+            _conta.Resumos.Add(new ResumoBusiness().Parse(header));
         }
 
-        private Conta Convert(string[] array)
+        private void lerHeader(TextFieldParser file)
         {
-            var conta = new Conta() {
+            var param = new int[] { 2, 12, 25, 8, 6, 8, 8, 3, 15, 15, 2, 15, 30, 15, 4, 16, 50, 2, 20, 4, 4, 10, 35, 15, 25, 1 };
+            file.SetFieldWidths(param);
+            var header = file.ReadFields();
 
-            };
+            var _conta = Parse(header);
+        }
 
+        public Conta Parse(string[] array)
+        {
+            var conta = new Conta();
             conta.Identificador = array[2];
             conta.DataEmissao = DateTime.ParseExact(array[3], "yyyyMMdd", null);
             conta.DataArquivo = DateTime.ParseExact(array[5], "yyyyMMdd", null);
