@@ -58,7 +58,7 @@ namespace SiGCT.Data.Business
                                 case "40": break;
                                 case "50": break;
                                 case "60": break;
-                                case "70": break;
+                                case "70": lerAjuste(file); break;
                                 case "80": break;
                                 case "90": break;
                                 case "99": break;
@@ -81,6 +81,23 @@ namespace SiGCT.Data.Business
             return false;
         }
 
+        /// <summary>
+        /// Detalhamento financeiros de movimentos anteriores - tipo 70
+        /// </summary>
+        /// <param name="file"></param>
+        private void lerAjuste(TextFieldParser file)
+        {
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 40, 13, 5, 1, 13, 8, 6, 8, 6, 123, 25, 1 };
+            file.SetFieldWidths(param);
+            var ajuste = file.ReadFields();
+
+            _conta.Ajustes.Add(new AjusteBusiness().Parse(ajuste));
+        }
+
+        /// <summary>
+        /// Somatório dos valores por recurso - tipo 10
+        /// </summary>
+        /// <param name="file"></param>
         private void lerResumo(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 4, 8, 8, 9, 13, 9, 15, 13, 13, 2, 5, 4, 8, 114, 25, 1 };
@@ -90,6 +107,13 @@ namespace SiGCT.Data.Business
             _conta.Resumos.Add(new ResumoBusiness().Parse(header));
         }
 
+        /// <summary>
+        /// Identificação geral da fatura de cobrança - tipo 00
+        /// </summary>
+        /// <param name="file"></param>
+        /// <remarks>
+        /// Apenas um por conta
+        /// </remarks>
         private void lerHeader(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 8, 8, 3, 15, 15, 2, 15, 30, 15, 4, 16, 50, 2, 20, 4, 4, 10, 35, 15, 25, 1 };

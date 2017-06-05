@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class AjusteBusiness : GenericBusiness<long, Ajuste, AjusteDAO>
     {
-
+        internal Ajuste Parse(string[] ajuste)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
