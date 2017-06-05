@@ -65,7 +65,7 @@ namespace SiGCT.Models
         public virtual IList<Resumo> Resumos { get; set; }
         public virtual IList<NotaFiscal> NotaFiscal { get; set; }
         public virtual IList<InformativoGerencial> InformativosGerencial { get; set; }
-        
+
         public virtual IList<Ajuste> Ajustes { get; set; }
         public virtual IList<Trailler> Traillers { get; set; }
 
