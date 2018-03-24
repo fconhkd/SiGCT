@@ -29,6 +29,7 @@ namespace SiGCT.Data.Business
                     Numero = int.Parse(v1),
                     CodigoBarras = v2,
                 };
+                Save(fat);
             }
             return fat;
         }

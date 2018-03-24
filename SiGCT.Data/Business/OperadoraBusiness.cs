@@ -31,6 +31,7 @@ namespace SiGCT.Data.Business
                     CNPJ = v3,
                     UF = v4
                 };
+                Save(op);
             }
             return op;
         }

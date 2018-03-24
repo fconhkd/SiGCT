@@ -9,11 +9,24 @@ using SiGCT.Models;
 
 namespace SiGCT.Data.Business
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AjusteBusiness : GenericBusiness<long, Ajuste, AjusteDAO>
     {
-        internal Ajuste Parse(string[] ajuste)
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ajuste"></param>
+        /// <returns></returns>
+        internal Ajuste Parse(string[] array)
         {
-            throw new NotImplementedException();
+            var ajuste = new Ajuste();
+            ajuste.
+
+            return ajuste;
         }
     }
 }

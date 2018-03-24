@@ -31,6 +31,7 @@ namespace SiGCT.Data.Business
                     Nome = v2,
                     CNPJ = v3,
                 };
+                Save(cli);
             }
             return cli;
         }

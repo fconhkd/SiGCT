@@ -38,7 +38,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Desktop\Contas\Claro\2017\2017\04\612341225_140553264_53_04_2017_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Desktop\CLARO\2017\04\612341225_140553264_53_04_2017_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -75,7 +75,7 @@ namespace SiGCT.Data.Business
                             logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}' ", file.LineNumber, path), ex);
                         }
                     }
-                    //return _listaBaixa;
+                    SaveOrUpdate(_conta);
                 }
             }
             return false;
@@ -123,6 +123,7 @@ namespace SiGCT.Data.Business
             var _conta = Parse(header);
         }
 
+
         public Conta Parse(string[] array)
         {
             var conta = new Conta();
@@ -134,7 +135,7 @@ namespace SiGCT.Data.Business
             conta.Cliente = new ClienteBusiness().SaveAndReturn(array[11], array[12], array[13]);
             conta.Fatura = new FaturaBusiness().SaveAndReturn(array[15], array[16]);
             conta.Cobranca = new Cobranca() {
-                //Tipo = new TipoCobrancaBusiness().SaveAndReturn(array[17], array[18]),
+                Tipo = new TipoCobrancaBusiness().SaveAndReturn(array[17], array[18]),
                 //Banco = array[19],
                 Agencia =  array[20],
                 ContaCorrente = array[21]
