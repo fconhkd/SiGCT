@@ -34,7 +34,7 @@ namespace SiGCT.Models
         public virtual Int32 Modalidade { get; set; }
 
         public virtual DateTime DataAtivacao { get; set; }
-        public virtual DateTime DataDesativacao { get; set; }
+        public virtual DateTime? DataDesativacao { get; set; }
 
         public virtual IList<EnderecosRecurso> Enderecos { get; set; }
         public virtual IList<Resumo> Resumos { get; set; }

@@ -12,8 +12,8 @@
     <many-to-one name="Tipo" class="TipoCobranca" column="TipoCobrancaId" cascade="none" />
     <many-to-one name="Banco" class="Banco" column="BancoId" cascade="none" />
 
-    <property name="Agencia" length="5" not-null="true" />
-		<property name="ContaCorrente" length="150" not-null="true" />
+    <property name="Agencia" length="5" />
+		<property name="ContaCorrente" length="150" />
 
     <bag name="Contas" lazy="true" cascade="all" >
       <key column="CobrancaId" />

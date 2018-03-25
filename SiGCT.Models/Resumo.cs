@@ -33,39 +33,39 @@ namespace SiGCT.Models
         /// <summary>
         /// Total de registros tipo "30" para o recurso
         /// </summary>
-        public virtual Int32 QuantidaChamadas { get; set; }
+        public virtual Int32? QuantidaChamadas { get; set; }
 
         /// <summary>
         /// Somatório dos valores dos registros tipo "30" para o recurso. Valor sempre positivo.
         /// </summary>
-        public virtual decimal ValorChamadas { get; set; }
+        public virtual decimal? ValorChamadas { get; set; }
 
         /// <summary>
         /// Total de registros tipo "40" para o recurso
         /// </summary>
-        public virtual Int32 QuantidadeServico { get; set; }
+        public virtual Int32? QuantidadeServico { get; set; }
 
         /// <summary>
         /// Somatório dos valores dos registros tipo "40" para o recurso. Valor sempre positivo.
         /// </summary>
-        public virtual decimal ValorServicos { get; set; }
+        public virtual decimal? ValorServicos { get; set; }
 
         /// <summary>
         /// Somatório dos valores de todos os impostos incidentes, inclusive impostos federais.
         /// Valor sempre positivo.
         /// </summary>
-        public virtual decimal ValorImpostos { get; set; }
+        public virtual decimal? ValorImpostos { get; set; }
 
         /// <summary>
         /// Valor sempre positivo
         /// </summary>
-        public virtual decimal ValorTotal { get; set; }
+        public virtual decimal? ValorTotal { get; set; }
 
         /// <summary>
         /// Identifica o degrau tarifário conforme classificação da ANATEL
         /// Obrigatório para recursos do tipo LPCD
         /// </summary>
-        public virtual Int32 Degrau { get; set; }
+        public virtual Int32? Degrau { get; set; }
 
         /// <summary>
         /// Obrigatório para recursos do tipo LPCD

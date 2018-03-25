@@ -26,6 +26,7 @@ namespace SiGCT.Data.Business
             if (fat == null)
             {
                 fat = new Fatura() {
+                    Id = long.Parse(v1),
                     Numero = int.Parse(v1),
                     CodigoBarras = v2,
                 };

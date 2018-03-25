@@ -12,5 +12,19 @@ namespace SiGCT.Data.Business
     public class CnlBusiness : GenericBusiness<long, CNL, CnlDAO>
     {
 
+
+        internal CNL SaveAndReturn(long id)
+        {
+            var obj = GetById(id);
+            if (obj == null)
+            {
+                obj = new CNL()
+                {
+                    Id = id,
+                };
+                Save(obj);
+            }
+            return obj;
+        }
     }
 }

@@ -6,11 +6,11 @@
 	<class name="CNL">
 
 		<id name="Id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 
-		<property name="Nome" length="80" not-null="true" />
-    <property name="UF" length="2" not-null="true" />
+		<property name="Nome" length="80" />
+    <property name="UF" length="2" />
 
     
 		<bag name="Recursos" lazy="true" mutable="false" cascade="all" >

@@ -9,6 +9,7 @@ using Microsoft.VisualBasic.FileIO;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -20,7 +21,7 @@ namespace SiGCT.Data.Business
         /// </summary>
         private static log4net.ILog logger = LogManager.GetLogger(System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
 
-        private static Conta _conta;
+        private Conta _conta;
         #endregion
 
         #region Constructor
@@ -38,7 +39,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Desktop\CLARO\2017\04\612341225_140553264_53_04_2017_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_146385013_53_03_2015_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -53,16 +54,16 @@ namespace SiGCT.Data.Business
                             {
                                 case "00": lerHeader(file); break;
                                 case "10": lerResumo(file); break;
-                                case "20": break;
-                                case "30": break;
-                                case "40": break;
-                                case "50": break;
-                                case "60": break;
+                                case "20": lerEndereco(file); break;
+                                case "30": lerChamada(file); break;
+                                case "40": lerServicoMedido(file); break;
+                                case "50": lerDesconto(file); break;
+                                case "60": lerPlano(file); break;
                                 case "70": lerAjuste(file); break;
-                                case "80": break;
-                                case "90": break;
-                                case "99": break;
-                                default: //TODO : Verifica o que fazer aqui
+                                case "80": lerNotaFiscal(file); break;
+                                case "90": lerInformativo(file); break;
+                                case "99": lerTrailler(file); break;
+                                default: 
                                     break;
                             }
                         }
@@ -75,10 +76,49 @@ namespace SiGCT.Data.Business
                             logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}' ", file.LineNumber, path), ex);
                         }
                     }
-                    SaveOrUpdate(_conta);
                 }
             }
             return false;
+        }
+
+        private void lerTrailler(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerInformativo(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerNotaFiscal(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerPlano(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerDesconto(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerServicoMedido(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerChamada(TextFieldParser file)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lerEndereco(TextFieldParser file)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -91,6 +131,7 @@ namespace SiGCT.Data.Business
             file.SetFieldWidths(param);
             var ajuste = file.ReadFields();
 
+            if (_conta.Ajustes == null) _conta.Ajustes = new List<Ajuste>();
             _conta.Ajustes.Add(new AjusteBusiness().Parse(ajuste));
         }
 
@@ -104,7 +145,17 @@ namespace SiGCT.Data.Business
             file.SetFieldWidths(param);
             var header = file.ReadFields();
 
-            _conta.Resumos.Add(new ResumoBusiness().Parse(header));
+            if (_conta.Resumos == null) _conta.Resumos = new List<Resumo>();
+
+            using (var bres = new ResumoBusiness())
+            {
+                var result = bres.Parse(header);
+                result.Conta = _conta;
+                var resumo = bres.SaveAndReturn(result);
+                _conta.Resumos.Add(resumo);
+            }
+
+            SaveOrUpdate(_conta);
         }
 
         /// <summary>
@@ -120,7 +171,9 @@ namespace SiGCT.Data.Business
             file.SetFieldWidths(param);
             var header = file.ReadFields();
 
-            var _conta = Parse(header);
+            _conta = Parse(header);
+
+            SaveOrUpdate(_conta);
         }
 
 
@@ -133,13 +186,19 @@ namespace SiGCT.Data.Business
             conta.Vencimento = DateTime.ParseExact(array[6], "yyyyMMdd", null);
             conta.Operadora = new OperadoraBusiness().SaveAndReturn(array[7], array[8], array[9], array[10]);
             conta.Cliente = new ClienteBusiness().SaveAndReturn(array[11], array[12], array[13]);
+            conta.Versao = array[14];
             conta.Fatura = new FaturaBusiness().SaveAndReturn(array[15], array[16]);
-            conta.Cobranca = new Cobranca() {
-                Tipo = new TipoCobrancaBusiness().SaveAndReturn(array[17], array[18]),
-                //Banco = array[19],
-                Agencia =  array[20],
-                ContaCorrente = array[21]
-            };
+
+            var cobranca = new Cobranca();
+            cobranca.Tipo = new TipoCobrancaBusiness().SaveAndReturn(array[17], array[18]);
+            if (cobranca.Tipo.Id == 2)
+            {
+                cobranca.Banco = Tools.IsNullOrEmpty(array[19]) ? null : new BancoBusiness().SaveAndReturn(array[19]);
+                cobranca.Agencia = array[20];
+                cobranca.ContaCorrente = array[21];
+            }
+            conta.Cobranca = new CobrancaBusiness().SaveAndReturn(cobranca);
+
             conta.Fisco = array[22];
             conta.Filler = array[23];
             conta.Obs = array[24];

@@ -24,7 +24,7 @@ namespace SiGCT.Data.Business
         internal Ajuste Parse(string[] array)
         {
             var ajuste = new Ajuste();
-            ajuste.
+            //ajuste.
 
             return ajuste;
         }
