@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class PlanoBusiness : GenericBusiness<long, Plano, PlanoDAO>
     {
-
+        internal Plano Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

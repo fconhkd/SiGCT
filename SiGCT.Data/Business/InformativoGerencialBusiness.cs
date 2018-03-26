@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class InformativoGerencialBusiness : GenericBusiness<long, InformativoGerencial, InformativoGerencialDAO>
     {
-
+        internal InformativoGerencial Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -15,7 +15,7 @@
 		<many-to-one name="Conta" column="ContaId" cascade="none" />
     <many-to-one name="Recurso" column="RecursoId" cascade="none" />
 
-    <property name="QuantidaChamadas" />
+    <property name="QuantidadeChamadas" />
     <property name="ValorChamadas" />
 
     <property name="QuantidadeServico" />

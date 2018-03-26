@@ -83,42 +83,75 @@ namespace SiGCT.Data.Business
 
         private void lerTrailler(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 8, 15, 13, 12, 13, 9, 9, 13, 9, 13, 9, 1, 13, 9, 13, 9, 1, 13, 9, 13, 9, 58, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Traillers.Add(new TraillerBusiness().Parse(array));
         }
 
         private void lerInformativo(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 3, 200, 1, 13, 8, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.InformativosGerencial.Add(new InformativoGerencialBusiness().Parse(array));
         }
 
         private void lerNotaFiscal(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 8, 3, 15, 15, 13, 1, 12, 204, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.NotaFiscal.Add(new NotaFiscalBusiness().Parse(array));
         }
 
         private void lerPlano(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 8, 8, 3, 15, 12, 12, 2, 3, 3, 25, 5, 25, 13, 15, 1, 12, 67, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Planos.Add(new PlanoBusiness().Parse(array));
         }
 
         private void lerDesconto(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 25, 13, 1, 12, 5, 1, 13, 8, 6, 8, 6, 125, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Descontos.Add(new DescontoBusiness().Parse(array));
         }
 
         private void lerServicoMedido(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 2, 17, 5, 3, 6, 2, 6, 3, 3, 25, 13, 15, 1, 12, 104, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Servicos.Add(new ServicoBusiness().Parse(array));
         }
 
         private void lerChamada(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 5, 25, 2, 2, 2, 20, 17, 5, 3, 7, 3, 3, 25, 6, 5, 13, 15, 1, 12, 1, 1, 15, 2, 27, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Chamadas.Add(new ChamadaBusiness().Parse(array));
         }
 
         private void lerEndereco(TextFieldParser file)
         {
-            throw new NotImplementedException();
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            var enderecos = new EnderecosRecursoBusiness().Parse(array);
+            _conta.EnderecosRecurso.Add();
         }
 
         /// <summary>
@@ -129,10 +162,10 @@ namespace SiGCT.Data.Business
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 40, 13, 5, 1, 13, 8, 6, 8, 6, 123, 25, 1 };
             file.SetFieldWidths(param);
-            var ajuste = file.ReadFields();
+            var array = file.ReadFields();
 
             if (_conta.Ajustes == null) _conta.Ajustes = new List<Ajuste>();
-            _conta.Ajustes.Add(new AjusteBusiness().Parse(ajuste));
+            _conta.Ajustes.Add(new AjusteBusiness().Parse(array));
         }
 
         /// <summary>
@@ -143,13 +176,13 @@ namespace SiGCT.Data.Business
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 4, 8, 8, 9, 13, 9, 15, 13, 13, 2, 5, 4, 8, 114, 25, 1 };
             file.SetFieldWidths(param);
-            var header = file.ReadFields();
+            var array = file.ReadFields();
 
             if (_conta.Resumos == null) _conta.Resumos = new List<Resumo>();
 
             using (var bres = new ResumoBusiness())
             {
-                var result = bres.Parse(header);
+                var result = bres.Parse(array);
                 result.Conta = _conta;
                 var resumo = bres.SaveAndReturn(result);
                 _conta.Resumos.Add(resumo);
@@ -169,14 +202,18 @@ namespace SiGCT.Data.Business
         {
             var param = new int[] { 2, 12, 25, 8, 6, 8, 8, 3, 15, 15, 2, 15, 30, 15, 4, 16, 50, 2, 20, 4, 4, 10, 35, 15, 25, 1 };
             file.SetFieldWidths(param);
-            var header = file.ReadFields();
+            var array = file.ReadFields();
 
-            _conta = Parse(header);
+            _conta = Parse(array);
 
             SaveOrUpdate(_conta);
         }
 
-
+        /// <summary>
+        /// Converter um array em uma <see cref="Conta"/>
+        /// </summary>
+        /// <param name="array">linha do arquivo do Tipo 00</param>
+        /// <returns>Uma conta com os dados</returns>
         public Conta Parse(string[] array)
         {
             var conta = new Conta();

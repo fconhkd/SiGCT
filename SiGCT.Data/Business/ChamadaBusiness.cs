@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class ChamadaBusiness : GenericBusiness<long, Chamada, ChamadaDAO>
     {
-
+        internal Chamada Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class ServicoBusiness : GenericBusiness<long, Servico, ServicoDAO>
     {
-
+        internal Servico Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

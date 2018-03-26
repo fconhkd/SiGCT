@@ -33,7 +33,7 @@ namespace SiGCT.Models
         /// <summary>
         /// Total de registros tipo "30" para o recurso
         /// </summary>
-        public virtual Int32? QuantidaChamadas { get; set; }
+        public virtual Int32? QuantidadeChamadas { get; set; }
 
         /// <summary>
         /// Somatório dos valores dos registros tipo "30" para o recurso. Valor sempre positivo.

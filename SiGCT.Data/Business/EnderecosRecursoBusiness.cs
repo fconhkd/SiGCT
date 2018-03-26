@@ -12,5 +12,19 @@ namespace SiGCT.Data.Business
     public class EnderecosRecursoBusiness : GenericBusiness<long, EnderecosRecurso, EnderecosRecursoDAO>
     {
 
+        internal IList<EnderecosRecurso> Parse(string[] array)
+        {
+            var lista = new List<EnderecosRecurso>();
+
+            var endereco = new EnderecosRecurso();
+
+
+
+            
+
+
+
+            return lista;
+        }
     }
 }

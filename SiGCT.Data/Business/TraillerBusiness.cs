@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class TraillerBusiness : GenericBusiness<long, Trailler, TraillerDAO>
     {
-
+        internal Trailler Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

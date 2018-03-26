@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class NotaFiscalBusiness : GenericBusiness<long, NotaFiscal, NotaFiscalDAO>
     {
-
+        internal NotaFiscal Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

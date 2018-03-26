@@ -11,6 +11,9 @@ namespace SiGCT.Data.Business
 {
     public class DescontoBusiness : GenericBusiness<long, Desconto, DescontoDAO>
     {
-
+        internal Desconto Parse(string[] array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

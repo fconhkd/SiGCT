@@ -35,7 +35,7 @@ namespace SiGCT.Data.Business
                                         null //DateTime.ParseExact(array[10], "yyyyMMdd", null)
                                         );
             int qtdeChamadas;
-            resumo.QuantidaChamadas = int.TryParse(array[11], out qtdeChamadas) ? qtdeChamadas : (int?)null;
+            resumo.QuantidadeChamadas = int.TryParse(array[11], out qtdeChamadas) ? qtdeChamadas : (int?)null;
 
             decimal valorChamadas;
             resumo.ValorChamadas = decimal.TryParse(array[12], out valorChamadas) ? valorChamadas : (decimal?)null;
