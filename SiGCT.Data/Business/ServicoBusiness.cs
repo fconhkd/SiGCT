@@ -13,7 +13,12 @@ namespace SiGCT.Data.Business
     {
         internal Servico Parse(string[] array)
         {
-            throw new NotImplementedException();
+            var servico = new Servico();
+            servico.Sequencial = int.Parse(array[1]);
+            servico.Recurso = new RecursoBusiness().GetByNumero(array[5]);
+
+
+            return servico;
         }
     }
 }

@@ -56,18 +56,18 @@ namespace SiGCT.Models
         [MaxLength(25)]
         public virtual String Obs { get; set; }
 
-        public virtual IList<Chamada> Chamadas { get; set; }
-        public virtual IList<Servico> Servicos { get; set; }
-        public virtual IList<Plano> Planos { get; set; }
+        public virtual IList<Chamada> Chamadas { get; set; } = new List<Chamada>();
+        public virtual IList<Servico> Servicos { get; set; } = new List<Servico>();
+        public virtual IList<Plano> Planos { get; set; } = new List<Plano>();
 
-        public virtual IList<Desconto> Descontos { get; set; }
-        public virtual IList<EnderecosRecurso> EnderecosRecurso { get; set; }
-        public virtual IList<Resumo> Resumos { get; set; }
-        public virtual IList<NotaFiscal> NotaFiscal { get; set; }
-        public virtual IList<InformativoGerencial> InformativosGerencial { get; set; }
+        public virtual IList<Desconto> Descontos { get; set; } = new List<Desconto>();
+        public virtual IList<EnderecosRecurso> EnderecosRecurso { get; set; } = new List<EnderecosRecurso>();
+        public virtual IList<Resumo> Resumos { get; set; } = new List<Resumo>();
+        public virtual IList<NotaFiscal> NotaFiscal { get; set; } = new List<NotaFiscal>();
+        public virtual IList<InformativoGerencial> InformativosGerencial { get; set; } = new List<InformativoGerencial>();
 
-        public virtual IList<Ajuste> Ajustes { get; set; }
-        public virtual IList<Trailler> Traillers { get; set; }
+        public virtual IList<Ajuste> Ajustes { get; set; } = new List<Ajuste>();
+        public virtual IList<Trailler> Traillers { get; set; } = new List<Trailler>();
 
     }
 }

@@ -12,15 +12,24 @@ namespace SiGCT.Data.Business
     public class RecursoBusiness : GenericBusiness<long, Recurso, RecursoDAO>
     {
 
-
-        internal Recurso SaveAndReturn(long id, string cnl, string numero, int modalidade, DateTime dataAtivacao, DateTime? dataDesativacao)
+        /// <summary>
+        /// Pesquisa um recurso pelo numero, se não existir cadastra o mesmo e retorna
+        /// </summary>
+        /// <param name="cnl">CNL vinculado ao recurso</param>
+        /// <param name="numero">numero do recurso</param>
+        /// <param name="modalidade">modalidade do recurso</param>
+        /// <param name="dataAtivacao">data de ativação do recurso</param>
+        /// <param name="dataDesativacao">data da desativação</param>
+        /// <returns></returns>
+        internal Recurso SaveAndReturn(string cnl, string numero, int modalidade = 0, DateTime? dataAtivacao = null, DateTime? dataDesativacao = null)
         {
-            var recurso = GetById(id);
+            var recurso = GetByNumero(numero);
+
             if (recurso == null)
             {
                 recurso = new Recurso()
                 {
-                    Id = id,
+                    //Id = id,
                     CNL = new CnlBusiness().SaveAndReturn(long.Parse(cnl)),
                     Numero = numero,
                     Modalidade = modalidade,
@@ -32,5 +41,16 @@ namespace SiGCT.Data.Business
             return recurso;
         }
 
+        /// <summary>
+        /// Procurar um recurso pelo seu numero
+        /// </summary>
+        /// <param name="numero">numero a ser pesquisado</param>
+        /// <returns>objeto tipo <see cref="Recurso"/></returns>
+        public Recurso GetByNumero(string numero)
+        {
+            //consulta realizada utilizando Linq
+            return Get().Where(x => x.Numero == numero)
+                        .FirstOrDefault();
+        }
     }
 }

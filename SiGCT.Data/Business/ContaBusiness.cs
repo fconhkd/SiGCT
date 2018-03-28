@@ -63,7 +63,7 @@ namespace SiGCT.Data.Business
                                 case "80": lerNotaFiscal(file); break;
                                 case "90": lerInformativo(file); break;
                                 case "99": lerTrailler(file); break;
-                                default: 
+                                default:
                                     break;
                             }
                         }
@@ -108,6 +108,19 @@ namespace SiGCT.Data.Business
             _conta.NotaFiscal.Add(new NotaFiscalBusiness().Parse(array));
         }
 
+        /// <summary>
+        /// Detalhamento financeiros de movimentos anteriores - tipo 70
+        /// </summary>
+        /// <param name="file"></param>
+        private void lerAjuste(TextFieldParser file)
+        {
+            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 40, 13, 5, 1, 13, 8, 6, 8, 6, 123, 25, 1 };
+            file.SetFieldWidths(param);
+            var array = file.ReadFields();
+
+            _conta.Ajustes.Add(new AjusteBusiness().Parse(array));
+        }
+
         private void lerPlano(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 8, 8, 3, 15, 12, 12, 2, 3, 3, 25, 5, 25, 13, 15, 1, 12, 67, 25, 1 };
@@ -132,7 +145,14 @@ namespace SiGCT.Data.Business
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Servicos.Add(new ServicoBusiness().Parse(array));
+            using (var bser = new ServicoBusiness())
+            {
+                var servico = bser.Parse(array);
+                _conta.Servicos.Add(servico);
+                servico.Conta = _conta;
+                bser.SaveOrUpdate(servico);
+            }
+            SaveOrUpdate(_conta);
         }
 
         private void lerChamada(TextFieldParser file)
@@ -144,32 +164,31 @@ namespace SiGCT.Data.Business
             _conta.Chamadas.Add(new ChamadaBusiness().Parse(array));
         }
 
+        /// <summary>
+        /// Identificação dos endereços dos recursos cobrados na fatura - Tipo 20
+        /// </summary>
+        /// <param name="file"></param>
         private void lerEndereco(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            var enderecos = new EnderecosRecursoBusiness().Parse(array);
-            _conta.EnderecosRecurso.Add();
+            using (var bend = new EnderecosRecursoBusiness())
+            {
+                var enderecos = new EnderecosRecursoBusiness().Parse(array);
+                foreach (var i in enderecos)
+                {
+                    _conta.EnderecosRecurso.Add(i);
+                    i.Conta = _conta;
+                    bend.SaveOrUpdate(i);
+                }
+            }
+            SaveOrUpdate(_conta);
         }
-
+        
         /// <summary>
-        /// Detalhamento financeiros de movimentos anteriores - tipo 70
-        /// </summary>
-        /// <param name="file"></param>
-        private void lerAjuste(TextFieldParser file)
-        {
-            var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 40, 13, 5, 1, 13, 8, 6, 8, 6, 123, 25, 1 };
-            file.SetFieldWidths(param);
-            var array = file.ReadFields();
-
-            if (_conta.Ajustes == null) _conta.Ajustes = new List<Ajuste>();
-            _conta.Ajustes.Add(new AjusteBusiness().Parse(array));
-        }
-
-        /// <summary>
-        /// Somatório dos valores por recurso - tipo 10
+        /// Somatório dos valores por recurso - Tipo 10
         /// </summary>
         /// <param name="file"></param>
         private void lerResumo(TextFieldParser file)
@@ -177,8 +196,6 @@ namespace SiGCT.Data.Business
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 4, 8, 8, 9, 13, 9, 15, 13, 13, 2, 5, 4, 8, 114, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
-
-            if (_conta.Resumos == null) _conta.Resumos = new List<Resumo>();
 
             using (var bres = new ResumoBusiness())
             {
@@ -192,7 +209,7 @@ namespace SiGCT.Data.Business
         }
 
         /// <summary>
-        /// Identificação geral da fatura de cobrança - tipo 00
+        /// Identificação geral da fatura de cobrança - Tipo 00
         /// </summary>
         /// <param name="file"></param>
         /// <remarks>

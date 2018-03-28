@@ -25,14 +25,15 @@ namespace SiGCT.Data.Business
         internal Resumo Parse(string[] array)
         {
             var resumo = new Resumo();
+            resumo.Sequencial = int.Parse(array[1]);
             resumo.Recurso = new RecursoBusiness()
                                     .SaveAndReturn(
-                                        long.Parse(array[5]), // id do recurso
-                                        array[6], // codigo cnl
-                                        array[7], // numero do recurso
-                                        int.Parse(array[8]), // id modalidade
-                                        DateTime.ParseExact(array[9], "yyyyMMdd", null),
-                                        null //DateTime.ParseExact(array[10], "yyyyMMdd", null)
+                                        //long.Parse(array[5]), // id do recurso
+                                        cnl: array[6], // codigo cnl
+                                        numero: array[7], // numero do recurso
+                                        modalidade: int.Parse(array[8]), // id modalidade
+                                        dataAtivacao:  DateTime.ParseExact(array[9], "yyyyMMdd", null)
+                                        //null //DateTime.ParseExact(array[10], "yyyyMMdd", null)
                                         );
             int qtdeChamadas;
             resumo.QuantidadeChamadas = int.TryParse(array[11], out qtdeChamadas) ? qtdeChamadas : (int?)null;
