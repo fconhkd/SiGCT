@@ -30,7 +30,7 @@
 
     <property name="ValorComImposto" />
     <property name="ValorSemImposto" />
-    <property name="TipoNF" />
+    
     <many-to-one name="NotaFiscal" column="NotaFiscalId" />
 
     <property name="Degrau" />

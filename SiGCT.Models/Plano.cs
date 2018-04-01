@@ -17,7 +17,7 @@ namespace SiGCT.Models
         public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }
         
-        public virtual TipoAssociadoEnum TipoPlano { get; set; }
+        public virtual string TipoPlano { get; set; }
 
         public virtual DateTime InicioCiclo { get; set; }
 
@@ -25,9 +25,9 @@ namespace SiGCT.Models
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual String ConsumoMedido { get; set; }
+        public virtual int ConsumoMedido { get; set; }
 
-        public virtual String ConsumoFranqueado { get; set; }
+        public virtual int ConsumoFranqueado { get; set; }
 
         [MaxLength(2)]
         public virtual String UnidMedida { get; set; }
@@ -38,10 +38,8 @@ namespace SiGCT.Models
 
         public virtual String Descricao { get; set; }
 
-        public virtual long ValorComImposto { get; set; }
-        public virtual long ValorSemImposto { get; set; }
-
-        public virtual TipoNfEnum TipoNF { get; set; }
+        public virtual decimal ValorComImposto { get; set; }
+        public virtual decimal ValorSemImposto { get; set; }
 
         public virtual NotaFiscal NotaFiscal { get; set; }
 

@@ -20,11 +20,11 @@ namespace SiGCT.Models
         public virtual Recurso Recurso { get; set; }
         public virtual CNL Origem { get; set; }
 
-        public virtual DateTime DataLigacao { get; set; }
+        public virtual DateTime DataHoraLigacao { get; set; }
 
         public virtual CNL Destino { get; set; }
 
-        public virtual TipoCodigoEnum Codigo { get; set; }
+        public virtual bool Internacional { get; set; }
 
         public virtual CSP CSP { get; set; }
 
@@ -35,23 +35,21 @@ namespace SiGCT.Models
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual long Duracao { get; set; }
+        public virtual TimeSpan Duracao { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 
-        public virtual DateTime HorarioLigacao { get; set; }
 
-        public virtual long AliquotaICMS { get; set; }
+        public virtual decimal AliquotaICMS { get; set; }
 
-        public virtual long ValorComImposto { get; set; }
+        public virtual decimal ValorComImposto { get; set; }
 
-        public virtual long ValorSemImposto { get; set; }
+        public virtual decimal ValorSemImposto { get; set; }
 
-        public virtual TipoNfEnum TipoNF { get; set; }
 
         public virtual NotaFiscal NotaFiscal { get; set; }
 
-        public virtual TipoChamadaEnum TipoChamada { get; set; }
+        public virtual bool Acobrar { get; set; }
 
         public virtual String GrupoTarifario { get; set; }
 

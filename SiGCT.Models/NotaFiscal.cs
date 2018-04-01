@@ -7,16 +7,22 @@ using NHibernate.Helper.Generics;
 
 namespace SiGCT.Models
 {
+    /// <summary>
+    /// Nota-fiscal
+    /// </summary>
     public class NotaFiscal : GenericEntity<long>
     {
+        public virtual int Sequencial { get; set; }
 
         public virtual Conta Conta { get; set; }
+
+        public virtual DateTime Emissao { get; set; }
 
         public virtual DateTime Vencimento { get; set; }
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual long ValorTotal { get; set; }
+        public virtual Decimal ValorTotal { get; set; }
 
         public virtual TipoNfEnum Tipo { get; set; }
 

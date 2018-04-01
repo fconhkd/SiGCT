@@ -11,7 +11,7 @@
 		</id>
 
 		<many-to-one name="CNL" column="CnlId" cascade="none" lazy="false" />
-    <property name="Codigo" />
+    <!--<property name="Codigo" />-->
 		
     <property name="Numero" />
     <property name="Modalidade" />

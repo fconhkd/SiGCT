@@ -17,19 +17,20 @@ namespace SiGCT.Data.Business
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
+        /// <param name="codigo"></param>
+        /// <param name="nome"></param>
         /// <returns></returns>
-        internal Operadora SaveAndReturn(string v1, string v2, string v3, string v4)
+        internal Operadora SaveAndReturn(string codigo, string nome = null, string cnpj = null, string uf = null)
         {
-            var op = GetByCodigo(v1);
+            var op = GetByCodigo(codigo);
             if (op == null)
             {
-                op = new Operadora() {
-                    Codigo = Convert.ToInt32(v1),
-                    Nome = v2,
-                    CNPJ = v3,
-                    UF = v4
+                op = new Operadora()
+                {
+                    Codigo = Convert.ToInt32(codigo),
+                    Nome = nome,
+                    CNPJ = cnpj,
+                    UF = uf
                 };
                 Save(op);
             }
@@ -41,7 +42,7 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="v1"></param>
         /// <returns></returns>
-        private Operadora GetByCodigo(string v1)
+        public Operadora GetByCodigo(string v1)
         {
             return Dao.GetByCodigo(v1);
         }

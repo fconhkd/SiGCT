@@ -12,6 +12,7 @@
       <generator class="identity" />
 		</id>
 
+    <property name="Sequencial" not-null="true" />
     <many-to-one name="Conta" column="ContaId" cascade="none" />
     <many-to-one name="Cliente" column="ClienteId" cascade="none" />
     
@@ -29,14 +30,14 @@
     <property name="ValorTotalRegistro40" />
     <property name="QtdeRegistros40" />
 
-    <property name="SinalTotalRegistro50" />
+    <property name="SinalTotalRegistro50" length="1" />
     <property name="ValorTotalRegistro50" />
     <property name="QtdeRegistros50" />
 
     <property name="ValorTotalRegistro60" />
     <property name="QtdeRegistros60" />
 
-    <property name="SinalTotalRegistro70" />
+    <property name="SinalTotalRegistro70" length="1" />
     <property name="ValorTotalRegistro70" />
     <property name="QtdeRegistros70" />
 

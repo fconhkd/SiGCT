@@ -15,10 +15,12 @@
 			<generator class="identity" />
 		</id>
 
+    <property name="Sequencial" />
+    
     <many-to-one name="Conta" column="ContaId" cascade="none" />
     <many-to-one name="Recurso" column="RecursoId" cascade="none" />
 
-    <property name="Tipo" />
+    <property name="Tipo" length="1" />
     
 		<many-to-one name="Categoria" column="CategoriaId" cascade="none" />
     

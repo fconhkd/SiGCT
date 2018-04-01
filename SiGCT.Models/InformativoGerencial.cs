@@ -12,6 +12,8 @@ namespace SiGCT.Models
     /// </summary>
     public class InformativoGerencial : GenericEntity<long>
     {
+        [Required]
+        public virtual Int32 Sequencial { get; set; }
 
         public virtual Conta Conta { get; set; }
         public virtual Recurso Recurso { get; set; }

@@ -9,11 +9,19 @@ using SiGCT.Models;
 
 namespace SiGCT.Data.Business
 {
+    /// <summary>
+    /// Centralizar as regras de negocio de <see cref="CNL"/>
+    /// </summary>
     public class CnlBusiness : GenericBusiness<long, CNL, CnlDAO>
     {
 
 
-        internal CNL SaveAndReturn(long id)
+        /// <summary>
+        /// Verifica se o ID existe, caso não cria o mesmo e retorna
+        /// </summary>
+        /// <param name="id">id a ser consultado</param>
+        /// <returns>retorna um objeto CNL</returns>
+        internal CNL SaveAndReturn(long id, string nome = null)
         {
             var obj = GetById(id);
             if (obj == null)
@@ -21,6 +29,7 @@ namespace SiGCT.Data.Business
                 obj = new CNL()
                 {
                     Id = id,
+                    Nome = nome,
                 };
                 Save(obj);
             }

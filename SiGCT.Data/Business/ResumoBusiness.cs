@@ -22,10 +22,12 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        internal Resumo Parse(string[] array)
+        internal Resumo Parse(string[] array, Conta conta)
         {
             var resumo = new Resumo();
             resumo.Sequencial = int.Parse(array[1]);
+            resumo.Conta = conta;
+
             resumo.Recurso = new RecursoBusiness()
                                     .SaveAndReturn(
                                         //long.Parse(array[5]), // id do recurso
@@ -42,7 +44,7 @@ namespace SiGCT.Data.Business
             resumo.ValorChamadas = decimal.TryParse(array[12], out valorChamadas) ? valorChamadas : (decimal?)null;
 
             int qtdeServico;
-            resumo.QuantidadeServico = int.TryParse(array[13], out qtdeServico) ? qtdeServico : (int?)null; ;
+            resumo.QuantidadeServico = int.TryParse(array[13], out qtdeServico) ? qtdeServico : (int?)null;
 
             decimal valorServicos;
             resumo.ValorServicos = decimal.TryParse(array[14], out valorServicos) ? valorServicos : (decimal?)null;

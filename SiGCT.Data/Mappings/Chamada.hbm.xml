@@ -16,22 +16,22 @@
 		<many-to-one name="Conta" class="Conta" column="ContaId" />
     <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
     <many-to-one name="Origem" class="CNL" column="OrigemId" />
-    <property name="DataLigacao" />
+    <property name="DataHoraLigacao" />
     <many-to-one name="Destino" class="CNL" column="DestinoId" />
-    <property name="Codigo" />
+    <property name="Internacional" />
     <many-to-one name="CSP" class="CSP" column="CspId" />
     <property name="NumeroChamado" />
     <property name="OperadoraRoaming" />
     <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
     <property name="Duracao" />
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
-    <property name="HorarioLigacao" />
+
     <property name="AliquotaICMS" />
     <property name="ValorComImposto" />
     <property name="ValorSemImposto" />
-    <property name="TipoNF" />
+    
     <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
-    <property name="TipoChamada" />
+    <property name="Acobrar" />
     <property name="GrupoTarifario" />
     <property name="DescricaoTarifario" />
     <property name="Degrau" />

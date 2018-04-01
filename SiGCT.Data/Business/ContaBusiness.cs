@@ -39,7 +39,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_146385013_53_03_2015_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140559000_53_03_2015_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -81,15 +81,27 @@ namespace SiGCT.Data.Business
             return false;
         }
 
+        /// <summary>
+        /// Converter uma linha tipo 99 em um <see cref="Trailler"/>
+        /// </summary>
+        /// <param name="file">linha do tipo 99</param>
         private void lerTrailler(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 8, 15, 13, 12, 13, 9, 9, 13, 9, 13, 9, 1, 13, 9, 13, 9, 1, 13, 9, 13, 9, 58, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Traillers.Add(new TraillerBusiness().Parse(array));
+            using (var trBus = new TraillerBusiness())
+            {
+                var trailler = trBus.Parse(array, _conta);
+                trBus.Save(trailler);
+            }
         }
 
+        /// <summary>
+        /// Converter uma linha tipo 90 em um <see cref="InformativoGerencial"/>
+        /// </summary>
+        /// <param name="file">linha do tipo 90</param>
         private void lerInformativo(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 3, 200, 1, 13, 8, 25, 1 };
@@ -99,36 +111,57 @@ namespace SiGCT.Data.Business
             _conta.InformativosGerencial.Add(new InformativoGerencialBusiness().Parse(array));
         }
 
+        /// <summary>
+        /// Converter uma linha do tipo 80 ema <see cref="NotaFiscal"/>
+        /// </summary>
+        /// <param name="file">linha do arquivo a ser convertida</param>
         private void lerNotaFiscal(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 8, 3, 15, 15, 13, 1, 12, 204, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.NotaFiscal.Add(new NotaFiscalBusiness().Parse(array));
+            using (var nfBus = new NotaFiscalBusiness())
+            {
+                var nf = nfBus.Parse(array, _conta);
+                nfBus.SaveOrUpdate(nf);
+            }
         }
 
         /// <summary>
-        /// Detalhamento financeiros de movimentos anteriores - tipo 70
+        /// Converter um registro tipo 70 em um <see cref="Ajuste"/>
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">linha a ser convertida</param>
         private void lerAjuste(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 40, 13, 5, 1, 13, 8, 6, 8, 6, 123, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Ajustes.Add(new AjusteBusiness().Parse(array));
+            using (var ajuBus = new AjusteBusiness())
+            {
+                var ajuste = ajuBus.Parse(array, _conta);
+                ajuBus.Save(ajuste);
+            }
         }
 
+        /// <summary>
+        /// Converter um registro tipo 60 em um <see cref="Plano"/>
+        /// </summary>
+        /// <param name="file">linha a ser convertida</param>
         private void lerPlano(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 8, 8, 3, 15, 12, 12, 2, 3, 3, 25, 5, 25, 13, 15, 1, 12, 67, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Planos.Add(new PlanoBusiness().Parse(array));
+            using (var plaBus = new PlanoBusiness())
+            {
+                var plano = plaBus.Parse(array, _conta);
+                plaBus.Save(plano);
+            }
         }
+
 
         private void lerDesconto(TextFieldParser file)
         {
@@ -139,6 +172,10 @@ namespace SiGCT.Data.Business
             _conta.Descontos.Add(new DescontoBusiness().Parse(array));
         }
 
+        /// <summary>
+        /// Converter uma linha em um <see cref="Servico"/> (tipo 40)
+        /// </summary>
+        /// <param name="file">linha do tipo 40</param>
         private void lerServicoMedido(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 2, 17, 5, 3, 6, 2, 6, 3, 3, 25, 13, 15, 1, 12, 104, 25, 1 };
@@ -147,27 +184,32 @@ namespace SiGCT.Data.Business
 
             using (var bser = new ServicoBusiness())
             {
-                var servico = bser.Parse(array);
-                _conta.Servicos.Add(servico);
-                servico.Conta = _conta;
+                var servico = bser.Parse(array, _conta);
                 bser.SaveOrUpdate(servico);
             }
-            SaveOrUpdate(_conta);
         }
 
+        /// <summary>
+        /// Converter uma linha do tipo 30 em uma <see cref="Chamada"/>
+        /// </summary>
+        /// <param name="file">linha a ser convertida</param>
         private void lerChamada(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 5, 25, 2, 2, 2, 20, 17, 5, 3, 7, 3, 3, 25, 6, 5, 13, 15, 1, 12, 1, 1, 15, 2, 27, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Chamadas.Add(new ChamadaBusiness().Parse(array));
+            using (var chaBus = new ChamadaBusiness())
+            {
+                var chamada = chaBus.Parse(array, _conta);
+                chaBus.Save(chamada);
+            }
         }
 
         /// <summary>
-        /// Identificação dos endereços dos recursos cobrados na fatura - Tipo 20
+        /// Converter um registro do tipo 20 em um <see cref="EnderecosRecurso"/>
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">linha a ser convertida</param>
         private void lerEndereco(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 15, 2, 30, 5, 8, 10, 5, 25, 1 };
@@ -184,13 +226,12 @@ namespace SiGCT.Data.Business
                     bend.SaveOrUpdate(i);
                 }
             }
-            SaveOrUpdate(_conta);
         }
-        
+
         /// <summary>
-        /// Somatório dos valores por recurso - Tipo 10
+        /// Converter um registro do tipo 10 em um <see cref="Resumo"/>
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">linha do arquivo a ser convertida</param>
         private void lerResumo(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 4, 8, 8, 9, 13, 9, 15, 13, 13, 2, 5, 4, 8, 114, 25, 1 };
@@ -199,19 +240,15 @@ namespace SiGCT.Data.Business
 
             using (var bres = new ResumoBusiness())
             {
-                var result = bres.Parse(array);
-                result.Conta = _conta;
-                var resumo = bres.SaveAndReturn(result);
-                _conta.Resumos.Add(resumo);
+                var result = bres.Parse(array, _conta);
+                bres.SaveAndReturn(result);
             }
-
-            SaveOrUpdate(_conta);
         }
 
         /// <summary>
-        /// Identificação geral da fatura de cobrança - Tipo 00
+        /// Converte uma linha do tipo 00 em um <see cref="Conta"/>
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">linha do arquivo a ser convertida</param>
         /// <remarks>
         /// Apenas um por conta
         /// </remarks>
@@ -222,8 +259,7 @@ namespace SiGCT.Data.Business
             var array = file.ReadFields();
 
             _conta = Parse(array);
-
-            SaveOrUpdate(_conta);
+            Save(_conta);
         }
 
         /// <summary>
@@ -236,6 +272,7 @@ namespace SiGCT.Data.Business
             var conta = new Conta();
             conta.Identificador = array[2];
             conta.DataEmissao = DateTime.ParseExact(array[3], "yyyyMMdd", null);
+            conta.MesReferencia = DateTime.ParseExact(array[4], "yyyyMM", null);
             conta.DataArquivo = DateTime.ParseExact(array[5], "yyyyMMdd", null);
             conta.Vencimento = DateTime.ParseExact(array[6], "yyyyMMdd", null);
             conta.Operadora = new OperadoraBusiness().SaveAndReturn(array[7], array[8], array[9], array[10]);

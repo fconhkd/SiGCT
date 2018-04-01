@@ -9,8 +9,10 @@
 			<generator class="assigned" />
 		</id>
 
+    <property name="Sequencial" not-null="true" />
 		<many-to-one name="Conta" column="ContaId" cascade="none" />
-    <property name="Vencimento" />
+    <property name="Emissao" type="Date" />
+    <property name="Vencimento" type="Date" />
     <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
     <property name="ValorTotal" />
     <property name="Tipo" />

@@ -31,20 +31,18 @@ namespace SiGCT.Models
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual Int32 QtdeUtilizada { get; set; }
+        public virtual string QtdeUtilizada { get; set; }
         public virtual String Unidade { get; set; }
 
-        public virtual DateTime HorarioServico { get; set; }
+        public virtual TimeSpan HorarioServico { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 
         //public virtual long AliquotaICMS { get; set; }
 
-        public virtual long ValorComImposto { get; set; }
+        public virtual decimal ValorComImposto { get; set; }
 
-        public virtual long ValorSemImposto { get; set; }
-
-        public virtual TipoNfEnum TipoNF { get; set; }
+        public virtual decimal ValorSemImposto { get; set; }
 
         public virtual NotaFiscal NotaFiscal { get; set; }
 

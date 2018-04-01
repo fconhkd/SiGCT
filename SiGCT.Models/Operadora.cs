@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SiGCT.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Operadora : GenericEntity<long>
     {
         /// <summary>

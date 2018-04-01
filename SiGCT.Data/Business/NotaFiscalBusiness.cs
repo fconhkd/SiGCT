@@ -9,11 +9,53 @@ using SiGCT.Models;
 
 namespace SiGCT.Data.Business
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class NotaFiscalBusiness : GenericBusiness<long, NotaFiscal, NotaFiscalDAO>
     {
-        internal NotaFiscal Parse(string[] array)
+
+        public NotaFiscal SaveAndReturn(string numero, TipoNfEnum tipo)
         {
-            throw new NotImplementedException();
+            var nf = GetById(long.Parse(numero));
+            if (nf == null)
+            {
+                nf = new NotaFiscal()
+                {
+                    Id = long.Parse(numero),
+                    Numero = numero,
+                    Tipo = tipo,
+                };
+                Save(nf);
+            }
+            return nf;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        internal NotaFiscal Parse(string[] array, Conta conta)
+        {
+            var nf = GetById(long.Parse(array[11]));
+
+            nf.Sequencial = int.Parse(array[1]);
+            nf.Conta = conta;
+
+            nf.Emissao = DateTime.ParseExact(array[3], "yyyyMMdd", null);
+            nf.Vencimento = DateTime.ParseExact(array[5], "yyyyMMdd", null);
+
+            nf.Operadora = new OperadoraBusiness().SaveAndReturn(array[6], array[7], array[8]);
+
+            nf.ValorTotal = decimal.Parse(array[9]) / 100;
+            nf.Tipo = (TipoNfEnum)int.Parse(array[10]);
+            nf.Numero = array[11];
+
+            nf.Filler = array[12];
+            nf.Obs = array[13];
+
+            return nf;
         }
     }
 }

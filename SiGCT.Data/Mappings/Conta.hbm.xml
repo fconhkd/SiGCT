@@ -11,11 +11,11 @@
 
     <property name="Identificador" not-null="true" />
     <property name="DataEmissao" type="Date" not-null="true" />
-    <property name="MesReferencia" length="6" not-null="true" />
+    <property name="MesReferencia" type="Date" not-null="true" />
     <property name="DataArquivo" type="Date" not-null="true" />
     <property name="Vencimento" type="Date" not-null="true" />
 
-    <many-to-one name="Operadora" column="OperadoraId" cascade="none" />
+    <many-to-one name="Operadora" column="OperadoraId" cascade="none" lazy="false" />
     <many-to-one name="Cliente" column="ClienteId" cascade="none" />
     
     <property name="Versao" length="5" not-null="true" />

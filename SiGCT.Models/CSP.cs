@@ -10,11 +10,6 @@ namespace SiGCT.Models
     public class CSP : GenericEntity<long>
     {
         /// <summary>
-        /// Codigo de seleção
-        /// </summary>
-        public virtual Int32 Codigo { get; set; }
-
-        /// <summary>
         /// Nome utilizado para identificação
         /// </summary>
         public virtual String Nome { get; set; }

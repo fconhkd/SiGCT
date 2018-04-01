@@ -8,6 +8,6 @@ namespace SiGCT.Models
         Nacional = 0,
 
         [Description("Ligação Internacional")]
-        Internacional = 00
+        Internacional = 1
     }
 }

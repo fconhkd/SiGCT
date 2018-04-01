@@ -9,12 +9,14 @@ namespace SiGCT.Models
     /// </summary>
     public class Ajuste : GenericEntity<long>
     {
-          
+        [Required]
+        public virtual Int32 Sequencial { get; set; }
+
         public virtual Conta Conta { get; set; }
 
         public virtual Recurso Recurso { get; set; }
 
-        public virtual TipoAssociadoEnum Tipo { get; set; }
+        public virtual String Tipo { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 
@@ -22,7 +24,7 @@ namespace SiGCT.Models
 
         public virtual decimal Percentual { get; set; }
 
-        public virtual decimal Sinal { get; set; }
+        public virtual string Sinal { get; set; }
 
         public virtual decimal Valor { get; set; }
 

@@ -28,7 +28,7 @@ namespace SiGCT.Models
         /// Mês de competencia de cobrança da fatura
         /// </summary>
         [Required, MaxLength(6)]
-        public virtual Int32 MesReferencia { get; set; }
+        public virtual DateTime MesReferencia { get; set; }
 
         [Required]
         public virtual DateTime DataArquivo { get; set; }
