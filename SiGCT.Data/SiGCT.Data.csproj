@@ -72,6 +72,7 @@
     <Compile Include="Business\ClienteBusiness.cs" />
     <Compile Include="Business\CnlBusiness.cs" />
     <Compile Include="Business\CobrancaBusiness.cs" />
+    <Compile Include="Business\ConfigBusiness.cs" />
     <Compile Include="Business\ContaBusiness.cs" />
     <Compile Include="Business\CspBusiness.cs" />
     <Compile Include="Business\DescontoBusiness.cs" />
