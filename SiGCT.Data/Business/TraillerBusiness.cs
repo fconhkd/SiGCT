@@ -17,7 +17,6 @@ namespace SiGCT.Data.Business
 
         internal Trailler Parse(string[] array, Conta conta)
         {
-
             var trailler = new Trailler();
             trailler.Sequencial = int.Parse(array[1]);
             trailler.Conta = conta;
@@ -42,7 +41,7 @@ namespace SiGCT.Data.Business
 
             decimal valor50 = 0;
             trailler.SinalTotalRegistro50 = array[16];
-            trailler.ValorTotalRegistro50 = decimal.TryParse(array[17], out valor50) ? valor50 / 100 * -1 : 0;
+            trailler.ValorTotalRegistro50 = decimal.TryParse(string.Concat(array[16],array[17]), out valor50) ? valor50 / 100 : 0;
             trailler.QtdeRegistros50 = int.Parse(array[18]);
 
             decimal valor60 = 0;
@@ -51,7 +50,7 @@ namespace SiGCT.Data.Business
 
             decimal valor70 = 0;
             trailler.SinalTotalRegistro70 = array[21];
-            trailler.ValorTotalRegistro70 = decimal.TryParse(array[22], out valor70) ? valor70 : 0;
+            trailler.ValorTotalRegistro70 = decimal.TryParse(string.Concat(array[21],array[22]), out valor70) ? valor70 : 0;
             trailler.QtdeRegistros70 = int.Parse(array[23]);
 
             decimal valor80 = 0;

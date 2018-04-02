@@ -39,7 +39,11 @@ namespace SiGCT.Data.Business
         internal NotaFiscal Parse(string[] array, Conta conta)
         {
             var nf = GetById(long.Parse(array[11]));
-
+            if (nf == null)
+            {
+                nf = new NotaFiscal();
+                nf.Id = long.Parse(array[11]);
+            }
             nf.Sequencial = int.Parse(array[1]);
             nf.Conta = conta;
 

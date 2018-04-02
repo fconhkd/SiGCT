@@ -27,7 +27,7 @@ namespace SiGCT.Models
 
         public virtual String NumeroChamado { get; set; }
 
-        public virtual String OperadoraRoaming { get; set; }
+        public virtual int? OperadoraRoaming { get; set; }
 
         public virtual Operadora Operadora { get; set; }
 

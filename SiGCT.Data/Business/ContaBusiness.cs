@@ -39,7 +39,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140559000_53_03_2015_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Desktop\CLARO\2015\03_março\612341225_140559000_53_03_2015_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -198,11 +198,6 @@ namespace SiGCT.Data.Business
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 5, 25, 2, 2, 2, 20, 17, 5, 3, 7, 3, 3, 25, 6, 5, 13, 15, 1, 12, 1, 1, 15, 2, 27, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
-
-            if (file.LineNumber == 87)
-            {
-                ;
-            }
 
             using (var chaBus = new ChamadaBusiness())
             {

@@ -34,26 +34,26 @@ namespace SiGCT.Data.Business
                                         cnl: array[6], // codigo cnl
                                         numero: array[7], // numero do recurso
                                         modalidade: int.Parse(array[8]), // id modalidade
-                                        dataAtivacao:  DateTime.ParseExact(array[9], "yyyyMMdd", null)
+                                        dataAtivacao: DateTime.ParseExact(array[9], "yyyyMMdd", null)
                                         //null //DateTime.ParseExact(array[10], "yyyyMMdd", null)
                                         );
             int qtdeChamadas;
             resumo.QuantidadeChamadas = int.TryParse(array[11], out qtdeChamadas) ? qtdeChamadas : (int?)null;
 
             decimal valorChamadas;
-            resumo.ValorChamadas = decimal.TryParse(array[12], out valorChamadas) ? valorChamadas : (decimal?)null;
+            resumo.ValorChamadas = decimal.TryParse(array[12], out valorChamadas) ? valorChamadas / 100 : (decimal?)null;
 
             int qtdeServico;
             resumo.QuantidadeServico = int.TryParse(array[13], out qtdeServico) ? qtdeServico : (int?)null;
 
             decimal valorServicos;
-            resumo.ValorServicos = decimal.TryParse(array[14], out valorServicos) ? valorServicos : (decimal?)null;
+            resumo.ValorServicos = decimal.TryParse(array[14], out valorServicos) ? valorServicos / 100 : (decimal?)null;
 
             decimal valorImpostos;
-            resumo.ValorImpostos = decimal.TryParse(array[15], out valorImpostos) ? valorImpostos : (decimal?)null;
+            resumo.ValorImpostos = decimal.TryParse(array[15], out valorImpostos) ? valorImpostos / 100 : (decimal?)null;
 
             decimal valorTotal;
-            resumo.ValorTotal = decimal.TryParse(array[16], out valorTotal) ? valorTotal : (decimal?)null;
+            resumo.ValorTotal = decimal.TryParse(array[16], out valorTotal) ? valorTotal / 100 : (decimal?)null;
 
             resumo.Degrau = Tools.IsNullOrEmpty(array[17]) ? null : (int?)int.Parse(array[17]);
             resumo.Velocidade = Tools.IsNullOrEmpty(array[18]) ? null : array[18];

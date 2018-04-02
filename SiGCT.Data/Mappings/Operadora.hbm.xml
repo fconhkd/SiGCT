@@ -10,7 +10,7 @@
 			<generator class="identity" />
 		</id>
 
-    <property name="Codigo" />
+    <property name="Codigo" length="5" />
 		<property name="Nome" length="15" />
     <property name="Sigla" length="5" />
     <property name="CNPJ" length="15" />

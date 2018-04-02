@@ -13,7 +13,7 @@ namespace SiGCT.Models
         /// <summary>
         /// Número EOT junto a ABR Telecom
         /// </summary>
-        public virtual Int32 Codigo { get; set; }
+        public virtual string Codigo { get; set; }
 
         [Required, MinLength(3), MaxLength(15)]
         public virtual String Nome { get; set; }

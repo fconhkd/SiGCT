@@ -31,7 +31,7 @@ namespace SiGCT.Models
         public virtual String NumeroChamado { get; set; }
 
         //TODO Verificar se é possivel armazenar em operadora
-        public virtual String OperadoraRoaming { get; set; } 
+        public virtual int? OperadoraRoaming { get; set; } 
 
         public virtual Operadora Operadora { get; set; }
 
