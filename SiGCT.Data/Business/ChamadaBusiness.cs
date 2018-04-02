@@ -33,7 +33,7 @@ namespace SiGCT.Data.Business
 
             chamada.Recurso = new RecursoBusiness().SaveAndReturn(array[5].Substring(0, 2), array[7]);
             chamada.Origem = new CnlBusiness().SaveAndReturn(int.Parse(array[6]));
-            chamada.DataHoraLigacao = DateTime.ParseExact(string.Concat(array[8], array[22]), "yyyyMMddhhmmss", null);
+            chamada.DataHoraLigacao = DateTime.ParseExact(string.Concat(array[8], array[22]), "yyyyMMddHHmmss", null);
 
             chamada.Destino = new CnlBusiness().SaveAndReturn(int.Parse(array[9]), array[10]);
             chamada.Internacional = array[12].Contains("00") ? true : false;
@@ -46,14 +46,14 @@ namespace SiGCT.Data.Business
             chamada.OperadoraRoaming = array[16];
             chamada.Operadora = new OperadoraBusiness().SaveAndReturn(array[17]);
 
-            chamada.Duracao = TimeSpan.ParseExact(array[18], "hhmmss", CultureInfo.InvariantCulture);
+            chamada.Duracao = TimeSpan.FromSeconds(int.Parse(array[18]));
             chamada.Categoria = new CategoriaBusiness().SaveAndReturn(array[19], array[20], array[21]);
 
-            chamada.AliquotaICMS = decimal.Parse(array[23]);
-            chamada.ValorComImposto = decimal.Parse(array[24]);
-            chamada.ValorSemImposto = decimal.Parse(array[25]);
+            chamada.AliquotaICMS = decimal.Parse(array[23]) / 100;
+            chamada.ValorComImposto = decimal.Parse(array[24]) / 100;
+            chamada.ValorSemImposto = decimal.Parse(array[25]) / 100;
 
-            chamada.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[26], (TipoNfEnum)int.Parse(array[27]));
+            chamada.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[27], (TipoNfEnum)int.Parse(array[26]));
             chamada.Acobrar = array[28].Contains("2") ? true : false;
 
             chamada.GrupoTarifario = array[29];

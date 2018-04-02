@@ -69,11 +69,11 @@ namespace SiGCT.Data.Business
                         }
                         catch (MalformedLineException ex)
                         {
-                            logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}', a linha não está em formato valido", file.LineNumber, path), ex);
+                            logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}', a linha não está em formato valido", file.LineNumber-1, path), ex);
                         }
                         catch (Exception ex)
                         {
-                            logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}' ", file.LineNumber, path), ex);
+                            logger.Error(String.Format("Erro na linha '{0}' no arquivo '{1}' ", file.LineNumber-1, path), ex);
                         }
                     }
                 }
@@ -198,6 +198,11 @@ namespace SiGCT.Data.Business
             var param = new int[] { 2, 12, 25, 8, 6, 25, 5, 16, 8, 5, 25, 2, 2, 2, 20, 17, 5, 3, 7, 3, 3, 25, 6, 5, 13, 15, 1, 12, 1, 1, 15, 2, 27, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
+
+            if (file.LineNumber == 87)
+            {
+                ;
+            }
 
             using (var chaBus = new ChamadaBusiness())
             {
