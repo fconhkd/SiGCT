@@ -39,8 +39,8 @@ namespace SiGCT.Data.Business
             servico.Unidade = array[14];
             servico.HorarioServico = TimeSpan.ParseExact(array[15], "hhmmss", CultureInfo.InvariantCulture);
             servico.Categoria = new CategoriaBusiness().SaveAndReturn(array[16], array[17], array[18]);
-            servico.ValorComImposto = decimal.Parse(array[19]);
-            servico.ValorSemImposto = decimal.Parse(array[20]); ;
+            servico.ValorComImposto = decimal.Parse(array[19]) / 100;
+            servico.ValorSemImposto = decimal.Parse(array[20]) / 100;
             servico.NotaFiscal = Tools.IsNullOrEmpty(array[22]) ? null : new NotaFiscalBusiness().SaveAndReturn(numero: array[22], tipo: (TipoNfEnum)int.Parse(array[21]));
             servico.Filler = array[23];
             servico.Obs = array[24];
