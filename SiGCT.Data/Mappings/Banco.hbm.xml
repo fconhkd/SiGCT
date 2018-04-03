@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Banco">
+	<class name="Banco" schema="SiGCT">
 		<meta attribute="class-description">
       Cadastro de Banco
     </meta>

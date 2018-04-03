@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="CSP">
+	<class name="CSP" schema="SiGCT">
 
 		<id name="Id">
 			<generator class="assigned" />

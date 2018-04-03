@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Servico">
+	<class name="Servico" schema="SiGCT">
 		<meta attribute="class-description">Detalhamento dos serviços faturados</meta>
 
 		<id name="Id">

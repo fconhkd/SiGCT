@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Trailler">
+	<class name="Trailler" schema="SiGCT">
 		<meta attribute="class-description">
       Consolidação de valores da conta faturada
     </meta>

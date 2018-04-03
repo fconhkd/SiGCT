@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Cliente">
+	<class name="Cliente" schema="SiGCT">
 
 		<id name="Id">
 			<generator class="identity" />

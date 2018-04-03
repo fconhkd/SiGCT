@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Ajuste">
+	<class name="Ajuste" schema="SiGCT">
 		<meta attribute="class-description">
       Detalhamento dos ajustes financeiros de movimentos anteriores.
     </meta>
