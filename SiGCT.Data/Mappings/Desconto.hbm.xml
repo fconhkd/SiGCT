@@ -14,17 +14,15 @@
     <many-to-one name="Conta" class="Conta" column="ContaId" />
     <many-to-one name="Recurso" class="Recurso" column="RecursoId" />
 
-    <property name="TipoDesconto" />
+    <property name="TipoDesconto" length="1" />
 
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
 
     <property name="BaseCalculo" />
-    <property name="TipoNF" />
 
     <many-to-one name="NotaFiscal" class="NotaFiscal" column="NotaFiscalId" />
 
     <property name="Percentualdesconto" />
-    <property name="SinalDesconto" />
     <property name="ValorDesconto" />
 
     <property name="InicioDesconto" />
