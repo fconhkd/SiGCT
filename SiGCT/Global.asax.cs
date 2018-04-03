@@ -26,6 +26,8 @@ namespace SiGCT
             //Ao inicializar a aplicação inicia o NHibernateSessionFactory da Aplicação
             NHibernate.Helper.Management.SessionManager.Instance.InitializeSessionFactory();
 
+            new ConfigBusiness().Seed();
+
             new ContaBusiness().LerArquivoV3R0();
         }
     }

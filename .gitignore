@@ -212,3 +212,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 /SiGCT/App_Data/db_SiGCT.db
 /SiGCT/App_Data/SiGCT.db
+*.db-journal

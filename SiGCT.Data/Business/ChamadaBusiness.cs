@@ -44,14 +44,14 @@ namespace SiGCT.Data.Business
             chamada.NumeroChamado = array[15];
 
             chamada.OperadoraRoaming = int.Parse(array[16]) > 0 ? int.Parse(array[16]) : (int?)null; ;
-            chamada.Operadora = Tools.IsNullOrEmpty(array[17]) ? null : new OperadoraBusiness().SaveAndReturn(array[17]);
+            chamada.Operadora = int.Parse(array[17]) == 0 ? null : new OperadoraBusiness().SaveAndReturn(array[17]);
 
             chamada.Duracao = TimeSpan.FromSeconds(int.Parse(array[18]));
             chamada.Categoria = new CategoriaBusiness().SaveAndReturn(array[19], array[20], array[21]);
 
             chamada.AliquotaICMS = decimal.Parse(array[23]) / 100;
             chamada.ValorComImposto = decimal.Parse(array[24]) / 100;
-            chamada.ValorSemImposto = decimal.Parse(array[25]) / 100;
+            chamada.ValorSemImposto = decimal.Parse(array[25]) / 10000;
 
             chamada.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[27], (TipoNfEnum)int.Parse(array[26]));
             chamada.Acobrar = array[28].Contains("2") ? true : false;

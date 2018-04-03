@@ -39,7 +39,7 @@ namespace SiGCT.Data.Business
         /// <returns></returns>
         public bool LerArquivoV3R0()
         {
-            var path = @"C:\Users\fabiano.conrado\Desktop\CLARO\2018\03\612341225_140553264_53_03_2018_FebrabanV3.txt";
+            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140553264_53_03_2018_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
