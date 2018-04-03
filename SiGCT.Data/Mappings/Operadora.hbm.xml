@@ -10,12 +10,12 @@
 			<generator class="assigned" />
 		</id>
 
-    <property name="Nome" length="500" />
-    <property name="RazaoSocial" length="500" />
+    <property name="Nome" length="51" />
+    <property name="RazaoSocial" length="80" />
     
-    <property name="Tiposervico" length="400" />
-    <property name="CNPJ" length="519" />
-    <property name="UF" length="200" />
+    <property name="Tiposervico" length="5" />
+    <property name="CNPJ" length="100" />
+    <property name="UF" length="2" />
     
     <property name="RN1" length="5" />
     <property name="SPID" length="4" />
