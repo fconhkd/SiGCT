@@ -13,7 +13,7 @@
     <property name="Nome" length="51" />
     <property name="RazaoSocial" length="80" />
     
-    <property name="Tiposervico" length="5" />
+    <property name="Tiposervico" length="4" />
     <property name="CNPJ" length="100" />
     <property name="UF" length="2" />
     

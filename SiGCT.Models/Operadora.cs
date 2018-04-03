@@ -16,7 +16,7 @@ namespace SiGCT.Models
         [MaxLength(80)]
         public virtual String RazaoSocial { get; set; }
 
-        [MaxLength(5)]
+        [MaxLength(4)]
         public virtual string Tiposervico { get; set; }
 
         [Required, MinLength(14), MaxLength(100)]
