@@ -35,7 +35,6 @@ namespace SiGCT.Models
         public virtual IList<Servico> Servicos { get; set; }
         public virtual IList<Conta> Contas { get; set; }
         public virtual IList<NotaFiscal> NotasFiscal { get; set; }
-
-        public virtual Plano Plano { get; set; }
+        public virtual IList<Plano> Planos { get; set; }
     }
 }

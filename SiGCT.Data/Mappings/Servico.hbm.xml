@@ -14,7 +14,7 @@
     <many-to-one name="Conta" column="ContaId" />
     <many-to-one name="Recurso" column="RecursoId" />
     <many-to-one name="Origem" column="OrigemId" />
-    <property name="DataServico" />
+    <property name="DataHoraServico" />
 
     <many-to-one name="Destino" column="DestinoId" />
     <property name="Codigo" />
@@ -25,7 +25,7 @@
 
     <property name="QtdeUtilizada" />
     <property name="Unidade" />
-    <property name="HorarioServico" />
+
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
 
     <property name="ValorComImposto" />

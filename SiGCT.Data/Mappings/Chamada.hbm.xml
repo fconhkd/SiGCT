@@ -23,7 +23,7 @@
     <property name="NumeroChamado" />
     <property name="OperadoraRoaming" />
     <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
-    <property name="Duracao" />
+    <property name="Duracao" type="TimeSpan" />
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
 
     <property name="AliquotaICMS" />

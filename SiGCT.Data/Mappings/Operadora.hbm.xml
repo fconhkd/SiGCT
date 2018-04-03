@@ -42,10 +42,10 @@
       <one-to-many class="NotaFiscal" />
     </bag>
 
-    <many-to-one name="Plano" class="Plano" column="PlanoId" />
-    
-    <!--<property name="DataAlteracao" />
-    <property name="Ativo" />-->
-		
-	</class>
+    <bag name="Planos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Plano" />
+    </bag>
+
+  </class>
 </hibernate-mapping>

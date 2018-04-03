@@ -26,7 +26,6 @@
     
     <property name="BaseCalculo" />
     <property name="Percentual" />
-    <property name="Sinal" />
     <property name="Valor" />
 
     <property name="Inicio" />

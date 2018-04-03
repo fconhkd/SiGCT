@@ -21,8 +21,6 @@ namespace SiGCT.Models
 
         public virtual String TextoInformativo { get; set; }
 
-        [MaxLength(1)]
-        public virtual Char SinalValor { get; set; }
 
         public virtual long Valor { get; set; }
 
