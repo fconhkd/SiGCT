@@ -32,7 +32,7 @@ namespace SiGCT.Data.Business
             desconto.BaseCalculo = decimal.Parse(array[11]);
             desconto.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[13], (TipoNfEnum)int.Parse(array[12]));
             desconto.Percentualdesconto = array[14];
-            desconto.ValorDesconto = decimal.Parse(string.Concat(array[15],array[16]));
+            desconto.ValorDesconto = decimal.Parse(string.Concat(array[15], array[16])) / 100;
             desconto.InicioDesconto = DateTime.ParseExact(string.Concat(array[17], array[18]), "yyyyMMddhhmmss", null);
             desconto.FimDesconto = DateTime.ParseExact(string.Concat(array[19], array[20]), "yyyyMMddhhmmss", null);
             desconto.Filler = array[21];
