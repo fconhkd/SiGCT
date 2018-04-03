@@ -6,16 +6,21 @@
 	<class name="Operadora">
 		<meta attribute="class-description">Cadastro de Operadora</meta>
 
-		<id name="Id">
-			<generator class="identity" />
+		<id name="Id" length="3">
+			<generator class="assigned" />
 		</id>
 
-    <property name="Codigo" length="5" />
-		<property name="Nome" length="15" />
-    <property name="Sigla" length="5" />
-    <property name="CNPJ" length="15" />
+    <property name="Nome" length="50" />
+    <property name="RazaoSocial" length="200" />
+    
+    <property name="Tiposervico" length="4" />
+    <property name="CNPJ" length="19" />
     <property name="UF" length="2" />
-    <property name="RazaoSocial" length="100" />
+    
+    <property name="RN1" length="5" />
+    <property name="SPID" length="4" />
+    
+    
 
     <bag name="Chamadas" lazy="true" mutable="false" access="" cascade="none" >
       <key column="OperadoraId" />

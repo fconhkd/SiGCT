@@ -8,27 +8,28 @@ namespace SiGCT.Models
     /// <summary>
     /// 
     /// </summary>
-    public class Operadora : GenericEntity<long>
+    public class Operadora : GenericEntity<string>
     {
-        /// <summary>
-        /// Número EOT junto a ABR Telecom
-        /// </summary>
-        public virtual string Codigo { get; set; }
-
-        [Required, MinLength(3), MaxLength(15)]
+        [Required, MinLength(3), MaxLength(50)]
         public virtual String Nome { get; set; }
 
-        [MaxLength(5)]
-        public virtual String Sigla { get; set; }
+        [MaxLength(200)]
+        public virtual String RazaoSocial { get; set; }
 
-        [Required, MinLength(14) ,MaxLength(15)]
+        [MaxLength(4)]
+        public virtual string Tiposervico { get; set; }
+
+        [Required, MinLength(14), MaxLength(19)]
         public virtual String CNPJ { get; set; }
 
         [Required, StringLength(2)]
         public virtual String UF { get; set; }
 
-        [MaxLength(100)]
-        public virtual String RazaoSocial { get; set; }
+        [MaxLength(5)]
+        public virtual String RN1 { get; set; }
+
+        [MaxLength(4)]
+        public virtual string SPID { get; set; }
 
         public virtual IList<Chamada> Chamadas { get; set; }
         public virtual IList<Servico> Servicos { get; set; }

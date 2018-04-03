@@ -44,7 +44,7 @@ namespace SiGCT.Data.Business
             chamada.NumeroChamado = array[15];
 
             chamada.OperadoraRoaming = int.Parse(array[16]) > 0 ? int.Parse(array[16]) : (int?)null; ;
-            chamada.Operadora = int.Parse(array[17]) == 0 ? null : new OperadoraBusiness().SaveAndReturn(array[17]);
+            chamada.Operadora = array[17].Equals("0") ? null : new OperadoraBusiness().SaveAndReturn(array[17]);
 
             chamada.Duracao = TimeSpan.FromSeconds(int.Parse(array[18]));
             chamada.Categoria = new CategoriaBusiness().SaveAndReturn(array[19], array[20], array[21]);
