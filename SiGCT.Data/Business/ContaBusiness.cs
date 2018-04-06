@@ -37,9 +37,9 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="path">nome do arquivo</param>
         /// <returns></returns>
-        public bool LerArquivoV3R0()
+        public bool LerArquivoV3R0(string path)
         {
-            var path = @"H:\TI\Notas Fiscais e Faturas\CLARO\2018\03\612341225_140559000_53_03_2018_FebrabanV3.txt";
+            //var path = @"H:\TI\Notas Fiscais e Faturas\CLARO\2018\03\612341225_140559000_53_03_2018_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -109,7 +109,11 @@ namespace SiGCT.Data.Business
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.InformativosGerencial.Add(new InformativoGerencialBusiness().Parse(array));
+            using (var infoBus = new InformativoGerencialBusiness())
+            {
+                var info = infoBus.Parse(array, _conta);
+                infoBus.Save(info);
+            }
         }
 
         /// <summary>

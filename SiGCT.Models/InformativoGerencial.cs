@@ -22,7 +22,7 @@ namespace SiGCT.Models
         public virtual String TextoInformativo { get; set; }
 
 
-        public virtual long Valor { get; set; }
+        public virtual decimal Valor { get; set; }
 
         [MaxLength(15)]
         public virtual String Filler { get; set; }

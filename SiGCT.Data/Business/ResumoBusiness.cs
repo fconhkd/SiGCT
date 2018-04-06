@@ -29,14 +29,14 @@ namespace SiGCT.Data.Business
             resumo.Conta = conta;
 
             resumo.Recurso = new RecursoBusiness()
-                                    .SaveAndReturn(
-                                        //long.Parse(array[5]), // id do recurso
-                                        cnl: array[6], // codigo cnl
-                                        numero: array[7], // numero do recurso
-                                        modalidade: int.Parse(array[8]), // id modalidade
-                                        dataAtivacao: DateTime.ParseExact(array[9], "yyyyMMdd", null)
-                                        //null //DateTime.ParseExact(array[10], "yyyyMMdd", null)
-                                        );
+                                .SaveAndReturn(
+                                    //long.Parse(array[5]), // id do recurso
+                                    cnl: array[6], // codigo cnl
+                                    numero: array[7], // numero do recurso
+                                    modalidade: int.Parse(array[8]), // id modalidade
+                                    dataAtivacao: DateTime.ParseExact(array[9], "yyyyMMdd", null),
+                                    dataDesativacao: Tools.IsNullOrEmpty(array[10])? (DateTime?)null: DateTime.ParseExact(array[10], "yyyyMMdd", null)
+                                    );
             int qtdeChamadas;
             resumo.QuantidadeChamadas = int.TryParse(array[11], out qtdeChamadas) ? qtdeChamadas : (int?)null;
 

@@ -23,7 +23,7 @@ namespace SiGCT.Data.Business
         /// <param name="sigla"></param>
         /// <param name="descricao"></param>
         /// <returns></returns>
-        internal Categoria SaveAndReturn(string codigo, string sigla, string descricao)
+        internal Categoria SaveAndReturn(string codigo, string sigla = null, string descricao = null)
         {
             var categoria = GetById(long.Parse(codigo));
             if (categoria == null)

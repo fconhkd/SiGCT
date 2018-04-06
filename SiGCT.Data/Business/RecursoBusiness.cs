@@ -36,9 +36,21 @@ namespace SiGCT.Data.Business
                     DataAtivacao = dataAtivacao,
                     DataDesativacao = dataDesativacao,
                 };
-                Save(recurso);
             }
-            return recurso;
+            else if (modalidade > 0 && recurso.Modalidade == 0)
+            {
+                recurso.Modalidade = modalidade;
+            }
+            else if (dataAtivacao != null && recurso.DataAtivacao == null)
+            {
+                recurso.DataAtivacao = dataAtivacao;
+            }
+            else if (dataDesativacao != null)
+            {
+                recurso.DataDesativacao = dataDesativacao;
+            }
+
+            return SaveAndReturn(recurso);
         }
 
         /// <summary>
