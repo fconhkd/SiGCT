@@ -35,7 +35,7 @@ namespace SiGCT.Data.Business
             servico.NumeroChamado = array[10];
             servico.OperadoraRoaming = int.Parse(array[11]) > 0 ? int.Parse(array[11]) : (int?)null;
             servico.Operadora = Tools.IsNullOrEmpty(array[12]) ? null : new OperadoraBusiness().SaveAndReturn(array[12]);
-            servico.QtdeUtilizada = array[13].TrimStart('0');
+            servico.QtdeUtilizada = Tools.IsNullOrEmpty(array[13]) ? (int?)null : int.Parse(array[13]);
             servico.Unidade = array[14];
             servico.HorarioServico = TimeSpan.ParseExact(array[15], "hhmmss", CultureInfo.InvariantCulture);
             servico.Categoria = new CategoriaBusiness().SaveAndReturn(array[16], array[17], array[18]);

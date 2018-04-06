@@ -28,7 +28,7 @@ namespace SiGCT
 
             new ConfigBusiness().Seed();
 
-            new ContaBusiness().LerArquivoV3R0();
+            new ContaBusiness().LerArquivoV3R0(null);
         }
     }
 }

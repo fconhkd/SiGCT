@@ -37,9 +37,9 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="path">nome do arquivo</param>
         /// <returns></returns>
-        public bool LerArquivoV3R0()
+        public void LerArquivoV3R0(String path)
         {
-            var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140553264_53_03_2018_FebrabanV3.txt";
+            //var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140553264_53_03_2018_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -78,7 +78,10 @@ namespace SiGCT.Data.Business
                     }
                 }
             }
-            return false;
+            else
+            {
+                throw new FileNotFoundException("o caminho não existe");
+            }
         }
 
         /// <summary>

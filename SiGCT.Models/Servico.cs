@@ -31,7 +31,7 @@ namespace SiGCT.Models
 
         public virtual Operadora Operadora { get; set; }
 
-        public virtual string QtdeUtilizada { get; set; }
+        public virtual int? QtdeUtilizada { get; set; }
         public virtual String Unidade { get; set; }
 
         public virtual TimeSpan HorarioServico { get; set; }
