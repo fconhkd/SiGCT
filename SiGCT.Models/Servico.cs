@@ -17,7 +17,7 @@ namespace SiGCT.Models
         public virtual Recurso Recurso { get; set; }
         public virtual CNL Origem { get; set; }
 
-        public virtual DateTime DataServico { get; set; }
+        public virtual DateTime DataHoraServico { get; set; }
 
         public virtual CNL Destino { get; set; }
 
@@ -33,8 +33,6 @@ namespace SiGCT.Models
 
         public virtual int? QtdeUtilizada { get; set; }
         public virtual String Unidade { get; set; }
-
-        public virtual TimeSpan HorarioServico { get; set; }
 
         public virtual Categoria Categoria { get; set; }
 

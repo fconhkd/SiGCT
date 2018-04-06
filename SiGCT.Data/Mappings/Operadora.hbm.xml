@@ -3,18 +3,18 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Operadora">
+	<class name="Operadora" schema="SiGCT">
 		<meta attribute="class-description">Cadastro de Operadora</meta>
 
 		<id name="Id" length="3">
 			<generator class="assigned" />
 		</id>
 
-    <property name="Nome" length="50" />
-    <property name="RazaoSocial" length="200" />
+    <property name="Nome" length="51" />
+    <property name="RazaoSocial" length="80" />
     
     <property name="Tiposervico" length="4" />
-    <property name="CNPJ" length="19" />
+    <property name="CNPJ" length="100" />
     <property name="UF" length="2" />
     
     <property name="RN1" length="5" />
@@ -42,10 +42,10 @@
       <one-to-many class="NotaFiscal" />
     </bag>
 
-    <many-to-one name="Plano" class="Plano" column="PlanoId" />
-    
-    <!--<property name="DataAlteracao" />
-    <property name="Ativo" />-->
-		
-	</class>
+    <bag name="Planos" lazy="true" mutable="false" access="" cascade="none" >
+      <key column="OperadoraId" />
+      <one-to-many class="Plano" />
+    </bag>
+
+  </class>
 </hibernate-mapping>

@@ -10,16 +10,16 @@ namespace SiGCT.Models
     /// </summary>
     public class Operadora : GenericEntity<string>
     {
-        [Required, MinLength(3), MaxLength(50)]
+        [Required, MinLength(3), MaxLength(51)]
         public virtual String Nome { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(80)]
         public virtual String RazaoSocial { get; set; }
 
         [MaxLength(4)]
         public virtual string Tiposervico { get; set; }
 
-        [Required, MinLength(14), MaxLength(19)]
+        [Required, MinLength(14), MaxLength(100)]
         public virtual String CNPJ { get; set; }
 
         [Required, StringLength(2)]
@@ -35,7 +35,6 @@ namespace SiGCT.Models
         public virtual IList<Servico> Servicos { get; set; }
         public virtual IList<Conta> Contas { get; set; }
         public virtual IList<NotaFiscal> NotasFiscal { get; set; }
-
-        public virtual Plano Plano { get; set; }
+        public virtual IList<Plano> Planos { get; set; }
     }
 }

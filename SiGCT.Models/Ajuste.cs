@@ -24,7 +24,6 @@ namespace SiGCT.Models
 
         public virtual decimal Percentual { get; set; }
 
-        public virtual string Sinal { get; set; }
 
         public virtual decimal Valor { get; set; }
 

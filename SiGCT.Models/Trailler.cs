@@ -33,14 +33,12 @@ namespace SiGCT.Models
         public virtual decimal ValorTotalRegistro40 { get; set; }
         public virtual Int32 QtdeRegistros40 { get; set; }
 
-        public virtual string SinalTotalRegistro50 { get; set; }
         public virtual decimal ValorTotalRegistro50 { get; set; }
         public virtual Int32 QtdeRegistros50 { get; set; }
 
         public virtual decimal ValorTotalRegistro60 { get; set; }
         public virtual Int32 QtdeRegistros60 { get; set; }
 
-        public virtual string SinalTotalRegistro70 { get; set; }
         public virtual decimal ValorTotalRegistro70 { get; set; }
         public virtual Int32 QtdeRegistros70 { get; set; }
 

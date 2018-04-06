@@ -37,9 +37,9 @@ namespace SiGCT.Data.Business
         /// </summary>
         /// <param name="path">nome do arquivo</param>
         /// <returns></returns>
-        public void LerArquivoV3R0(String path)
+        public bool LerArquivoV3R0()
         {
-            //var path = @"C:\Users\fabiano.conrado\Downloads\downloadFEBRABAN\612341225_140553264_53_03_2018_FebrabanV3.txt";
+            var path = @"H:\TI\Notas Fiscais e Faturas\CLARO\2018\03\612341225_140559000_53_03_2018_FebrabanV3.txt";
             if (File.Exists(path))
             {
                 using (var file = new TextFieldParser(path, Encoding.UTF8))
@@ -78,10 +78,8 @@ namespace SiGCT.Data.Business
                     }
                 }
             }
-            else
-            {
-                throw new FileNotFoundException("o caminho não existe");
-            }
+            return false;
+            
         }
 
         /// <summary>
@@ -165,14 +163,21 @@ namespace SiGCT.Data.Business
             }
         }
 
-
+        /// <summary>
+        /// Converter um registro tipo 50 em um <see cref="Desconto"/>
+        /// </summary>
+        /// <param name="file">linha a ser convertida</param>
         private void lerDesconto(TextFieldParser file)
         {
             var param = new int[] { 2, 12, 25, 8, 6, 25, 16, 1, 3, 3, 25, 13, 1, 12, 5, 1, 13, 8, 6, 8, 6, 125, 25, 1 };
             file.SetFieldWidths(param);
             var array = file.ReadFields();
 
-            _conta.Descontos.Add(new DescontoBusiness().Parse(array));
+            using (var descBus = new DescontoBusiness())
+            {
+                var desconto = descBus.Parse(array, _conta);
+                descBus.SaveOrUpdate(desconto);
+            }
         }
 
         /// <summary>

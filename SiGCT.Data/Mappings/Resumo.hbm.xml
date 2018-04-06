@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Resumo">
+	<class name="Resumo" schema="SiGCT">
 		<meta attribute="class-description">Somatorio dos valores de um Recurso</meta>
 
 		<id name="Id">

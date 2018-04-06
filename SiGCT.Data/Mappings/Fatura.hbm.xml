@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Fatura">
+	<class name="Fatura" schema="SiGCT">
     <meta attribute="class-description">Fatura da conta</meta>
 
 		<id name="Id">

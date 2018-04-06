@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Plano">
+	<class name="Plano" schema="SiGCT">
 
 		<id name="Id">
 			<generator class="identity" />
@@ -16,7 +16,7 @@
     <property name="InicioCiclo" />
     <property name="FimCiclo" />
 
-    <many-to-one name="Operadora" class="Operadora" column="IdOperadora" />
+    <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
     <property name="ConsumoMedido" />
     <property name="ConsumoFranqueado" />
     <property name="UnidMedida" />

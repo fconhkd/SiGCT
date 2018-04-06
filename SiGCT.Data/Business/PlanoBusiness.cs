@@ -31,7 +31,7 @@ namespace SiGCT.Data.Business
             plano.Codigo = int.Parse(array[18]);
             plano.Descricao = array[19];
             plano.ValorComImposto = decimal.Parse(array[20]) / 100;
-            plano.ValorSemImposto = decimal.Parse(array[21]) / 100;
+            plano.ValorSemImposto = decimal.Parse(array[21]) / 10000;
             plano.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[23],(TipoNfEnum)int.Parse(array[22]));
             plano.Filler = array[24];
             plano.Obs = array[25];

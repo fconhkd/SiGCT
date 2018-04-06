@@ -34,7 +34,6 @@ namespace SiGCT.Data.Business
             ajuste.Categoria = new CategoriaBusiness().SaveAndReturn(array[8], array[9], array[10]);
             ajuste.BaseCalculo = decimal.Parse(array[11]) / 100;
             ajuste.Percentual = decimal.Parse(array[12]);
-            ajuste.Sinal = array[13];
             ajuste.Valor = decimal.Parse(string.Concat(array[13], array[14])) / 100;
             ajuste.Inicio = DateTime.ParseExact(string.Concat(array[15], array[16]), "yyyyMMddhhmmss", null);
             ajuste.Fim = DateTime.ParseExact(string.Concat(array[17], array[18]), "yyyyMMddhhmmss", null);

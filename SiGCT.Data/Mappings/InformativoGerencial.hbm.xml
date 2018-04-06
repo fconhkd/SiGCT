@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-  <class name="InformativoGerencial">
+  <class name="InformativoGerencial" schema="SiGCT">
 
     <id name="Id">
       <generator class="identity" />
@@ -14,7 +14,6 @@
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
 
     <property name="TextoInformativo" />
-    <property name="SinalValor" length="1"/>
     <property name="Valor" />
 
     <property name="Filler" length="15" not-null="false" />

@@ -3,7 +3,7 @@
                    assembly="SiGCT.Models"
                    namespace="SiGCT.Models" >
 
-	<class name="Chamada">
+	<class name="Chamada" schema="SiGCT">
 		<meta attribute="class-description">
       Detalhamento de chamadas de VOZ cobradas na fatura
     </meta>
@@ -23,7 +23,7 @@
     <property name="NumeroChamado" />
     <property name="OperadoraRoaming" />
     <many-to-one name="Operadora" class="Operadora" column="OperadoraId" />
-    <property name="Duracao" />
+    <property name="Duracao" type="TimeSpan" />
     <many-to-one name="Categoria" class="Categoria" column="CategoriaId" />
 
     <property name="AliquotaICMS" />
