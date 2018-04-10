@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -37,8 +38,8 @@ namespace SiGCT.Data.Business
             ajuste.Valor = decimal.Parse(string.Concat(array[13], array[14])) / 100;
             ajuste.Inicio = DateTime.ParseExact(string.Concat(array[15], array[16]), "yyyyMMddhhmmss", null);
             ajuste.Fim = DateTime.ParseExact(string.Concat(array[17], array[18]), "yyyyMMddhhmmss", null);
-            ajuste.Filler = array[19];
-            ajuste.Obs = array[20];
+            ajuste.Filler = Tools.IsNullOrEmpty(array[19]) ? null : array[19];
+            ajuste.Obs = Tools.IsNullOrEmpty(array[20]) ? null : array[20];
 
             return ajuste;
         }

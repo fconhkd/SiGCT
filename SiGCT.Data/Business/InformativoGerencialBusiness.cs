@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -16,7 +17,7 @@ namespace SiGCT.Data.Business
     {
 
         /// <summary>
-        /// 
+        /// Converter um array/linha em um <see cref="InformativoGerencial"/>
         /// </summary>
         /// <param name="array"></param>
         /// <param name="conta"></param>
@@ -30,8 +31,8 @@ namespace SiGCT.Data.Business
             info.Categoria = new CategoriaBusiness().SaveAndReturn(array[8]);
             info.TextoInformativo = array[9];
             info.Valor = decimal.Parse(string.Concat(array[10], array[11]));
-            info.Filler = array[12];
-            info.Obs = array[13];
+            info.Filler = Tools.IsNullOrEmpty(array[12]) ? null : array[12];
+            info.Obs = Tools.IsNullOrEmpty(array[13]) ? null : array[13];
 
             return info;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -35,8 +36,8 @@ namespace SiGCT.Data.Business
             desconto.ValorDesconto = decimal.Parse(string.Concat(array[15], array[16])) / 100;
             desconto.InicioDesconto = DateTime.ParseExact(string.Concat(array[17], array[18]), "yyyyMMddhhmmss", null);
             desconto.FimDesconto = DateTime.ParseExact(string.Concat(array[19], array[20]), "yyyyMMddhhmmss", null);
-            desconto.Filler = array[21];
-            desconto.Obs = array[22];
+            desconto.Filler = Tools.IsNullOrEmpty(array[21]) ? null : array[21];
+            desconto.Obs = Tools.IsNullOrEmpty(array[22]) ? null : array[22];
 
             return desconto;
         }

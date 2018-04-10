@@ -31,8 +31,8 @@
     <property name="Inicio" />
     <property name="Fim" />
 
-    <property name="Filler" length="15" />
-    <property name="Obs" length="25" />
+    <property name="Filler" length="123" />
+    <property name="Obs" length="50" />
     
 		
     <!--<property name="DataAlteracao" />

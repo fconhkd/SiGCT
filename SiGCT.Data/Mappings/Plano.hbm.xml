@@ -29,8 +29,8 @@
     
     <many-to-one name="NotaFiscal" column="NotaFiscalId" />
 
-    <property name="Filler" length="15" />
-    <property name="Obs" length="25" />
+    <property name="Filler" length="67" />
+    <property name="Obs" length="50" />
     		
 		<!--<property name="DataAlteracao" />
 		<property name="Ativo" />-->

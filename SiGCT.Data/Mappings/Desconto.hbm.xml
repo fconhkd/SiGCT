@@ -28,7 +28,7 @@
     <property name="InicioDesconto" />
     <property name="FimDesconto" />
     
-    <property name="Filler" length="15"/>
+    <property name="Filler" length="125"/>
     <property name="Obs" length="50" />
     
     <!--<property name="DataAlteracao" not-null="true" />

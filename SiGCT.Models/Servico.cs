@@ -46,7 +46,7 @@ namespace SiGCT.Models
 
         public virtual Int32 Degrau { get; set; }
 
-        [MaxLength(15)]
+        [MaxLength(104)]
         public virtual String Filler { get; set; }
 
         [MaxLength(25)]

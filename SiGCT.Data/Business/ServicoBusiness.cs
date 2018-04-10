@@ -41,8 +41,8 @@ namespace SiGCT.Data.Business
             servico.ValorComImposto = decimal.Parse(array[19]) / 100;
             servico.ValorSemImposto = decimal.Parse(array[20]) / 10000;
             servico.NotaFiscal = Tools.IsNullOrEmpty(array[22]) ? null : new NotaFiscalBusiness().SaveAndReturn(numero: array[22], tipo: (TipoNfEnum)int.Parse(array[21]));
-            servico.Filler = array[23];
-            servico.Obs = array[24];
+            servico.Filler = Tools.IsNullOrEmpty(array[23]) ? null : array[23];
+            servico.Obs = Tools.IsNullOrEmpty(array[24]) ? null : array[24];
 
             return servico;
         }

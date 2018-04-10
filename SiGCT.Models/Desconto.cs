@@ -35,10 +35,10 @@ namespace SiGCT.Models
         public virtual DateTime FimDesconto { get; set; }
 
 
-        [MaxLength(15)]
+        [MaxLength(125)]
         public virtual String Filler { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(50)]
         public virtual String Obs { get; set; }
     }
 }

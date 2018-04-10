@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -33,8 +34,8 @@ namespace SiGCT.Data.Business
             plano.ValorComImposto = decimal.Parse(array[20]) / 100;
             plano.ValorSemImposto = decimal.Parse(array[21]) / 10000;
             plano.NotaFiscal = new NotaFiscalBusiness().SaveAndReturn(array[23],(TipoNfEnum)int.Parse(array[22]));
-            plano.Filler = array[24];
-            plano.Obs = array[25];
+            plano.Filler = Tools.IsNullOrEmpty(array[24]) ? null : array[24];
+            plano.Obs = Tools.IsNullOrEmpty(array[25]) ? null : array[25];
 
             return plano;
         }

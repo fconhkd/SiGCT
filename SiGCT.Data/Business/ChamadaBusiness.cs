@@ -60,8 +60,8 @@ namespace SiGCT.Data.Business
             chamada.DescricaoTarifario = array[30];
 
             chamada.Degrau = int.Parse(array[31]);
-            chamada.Filler = array[32];
-            chamada.Obs = array[33];
+            chamada.Filler = Tools.IsNullOrEmpty(array[32]) ? null : array[32];
+            chamada.Obs = Tools.IsNullOrEmpty(array[33]) ? null : array[33];
 
             return chamada;
         }

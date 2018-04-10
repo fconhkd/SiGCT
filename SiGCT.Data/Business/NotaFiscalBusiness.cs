@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Helper.Generics;
 using SiGCT.Data.DAO;
 using SiGCT.Models;
+using SiGCT.Utils;
 
 namespace SiGCT.Data.Business
 {
@@ -56,8 +57,8 @@ namespace SiGCT.Data.Business
             nf.Tipo = (TipoNfEnum)int.Parse(array[10]);
             nf.Numero = array[11];
 
-            nf.Filler = array[12];
-            nf.Obs = array[13];
+            nf.Filler = Tools.IsNullOrEmpty(array[12]) ? null : array[12];
+            nf.Obs = Tools.IsNullOrEmpty(array[13]) ? null : array[13];
 
             return nf;
         }

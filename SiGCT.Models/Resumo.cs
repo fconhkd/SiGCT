@@ -79,7 +79,7 @@ namespace SiGCT.Models
 
         public virtual DateTime DataVencimento { get; set; }
 
-        [MaxLength(15)]
+        [MaxLength(114)]
         public virtual String Filler { get; set; }
 
         /// <summary>

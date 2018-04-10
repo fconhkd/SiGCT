@@ -31,10 +31,10 @@ namespace SiGCT.Models
 
         public virtual DateTime Fim { get; set; }
 
-        [MaxLength(15)]
+        [MaxLength(123)]
         public virtual String Filler { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(50)]
         public virtual String Obs { get; set; }
     }
 }

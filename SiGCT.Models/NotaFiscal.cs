@@ -28,10 +28,10 @@ namespace SiGCT.Models
 
         public virtual String Numero { get; set; }
 
-        [MaxLength(15)]
+        [MaxLength(204)]
         public virtual String Filler { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(50)]
         public virtual String Obs { get; set; }
 
         public virtual IList<Chamada> Chamadas { get; set; }

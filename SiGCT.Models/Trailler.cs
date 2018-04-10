@@ -45,10 +45,10 @@ namespace SiGCT.Models
         public virtual decimal ValorTotalRegistro80 { get; set; }
         public virtual Int32 QtdeRegistros80 { get; set; }
 
-        [MaxLength(15)]
+        [MaxLength(58)]
         public virtual String Filler { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(50)]
         public virtual String Obs { get; set; }
     }
 }

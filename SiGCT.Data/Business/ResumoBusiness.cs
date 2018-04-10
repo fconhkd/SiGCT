@@ -27,7 +27,6 @@ namespace SiGCT.Data.Business
             var resumo = new Resumo();
             resumo.Sequencial = int.Parse(array[1]);
             resumo.Conta = conta;
-
             resumo.Recurso = new RecursoBusiness()
                                 .SaveAndReturn(
                                     //long.Parse(array[5]), // id do recurso

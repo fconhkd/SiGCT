@@ -16,8 +16,8 @@
     <property name="Numero" />
     <property name="Modalidade" />
     
-    <property name="DataAtivacao" />
-    <property name="DataDesativacao" />
+    <property name="DataAtivacao" type="Date" />
+    <property name="DataDesativacao" type="Date" />
 
     <bag name="Enderecos" lazy="true" mutable="false" access="" cascade="none" >
       <key column="RecursoId" />
